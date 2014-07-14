@@ -1,0 +1,77 @@
+/*                     GENERAL*/
+a:visited{
+  text-decoration: none;
+}
+#fon{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url("game/img/Menu/fon.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+#fon-alert{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  opacity: 0.01;
+}
+#logo{
+  position: fixed;
+  top:  1%;
+  left: calc( 100% / 2 - 370px );
+  width: 600px;
+}
+
+#window{
+  width: 600px;
+  height: 200px;
+  position: fixed;
+  top:  calc( 100% - ( 100% / 3) - 100px);
+  left: calc( 100% / 2 - 300px);
+  background: #4A6;
+}
+#link-license{
+  position: absolute;
+  left: 406px;
+  top:  4px;
+}
+#pole-login{
+  position: absolute;
+  top:  10px;
+  left: 230px;
+}
+#pole-password{
+  position: absolute;
+  top:  60px;
+  left: 230px;
+}
+#input-enter{
+  position: absolute;
+  top:  130px;
+  left: 280px;
+}
+#inputs{
+  position: absolute;
+  left: 4px;
+  top:  4px;
+}
+#input-reg{
+  position: absolute;
+  top:  130px;
+  left: 235px;
+}
+
+
+
+
+
+
+
+
+

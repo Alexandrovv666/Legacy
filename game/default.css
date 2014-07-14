@@ -1,0 +1,291 @@
+/*                     GENERAL*/
+a{
+  color: #888;
+  text-decoration: none;
+}
+a:visited{
+  color: #888;
+  text-decoration: none;
+}
+a:hover{
+  color: #FFF;
+  text-decoration: none;
+}
+a:active{
+  color: #888;
+  text-decoration: none;
+}
+#fon{
+  position: fixed;
+  background-image: url("img/interface/karma/0.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.panel-left{
+  position: fixed;
+  top: 0;
+  left: -90px;
+  width: 100px;
+  height: 100%;
+  background: #77D;
+  font-size: 16pt;
+  color: #666;
+  z-index: 2;
+}
+.panel-left:hover{
+  left: 0px;
+  color: #888;
+  background: #228;
+}
+
+#almaz{
+  position: absolute;
+  top: 0;
+  left: 10px;
+}
+#almaz:hover{
+  color: #000;
+}
+
+.panel-left-navigation{
+  position: absolute;
+  top: calc(100% - 300px);
+  left: 10px;
+}
+.panel-left-navigation-element:hover{
+  color: #FFF;
+}
+
+.panel-up{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: #22F;
+  font-size: 13pt;
+  color: #AAA;
+  z-index: 1;
+}
+
+.panel-up-resoorsed{
+  position: absolute;
+  top: 3px;
+  left: 100px;
+  width: 600px;
+  height: 30px;
+ }
+.panel-up-resoorsed:hover{
+  background: #955;
+  width: 600px;
+  height: 30px;
+}
+
+.panel-up-resoorsed-element{
+  color: #FFF;
+}
+.panel-up-resoorsed-element:hover{
+  color: #000;
+}
+#gold{
+  position: absolute;
+  top: -13px;
+  left: 0;
+}
+#tree{
+  position: absolute;
+  top: -13px;
+  left: 200px;
+}
+#stone{
+  position: absolute;
+  top: -13px;
+  left: 400px;
+}
+.panel-up-navigation{
+  position: absolute;
+  top: -9px;
+  left: 30px;
+}
+#name-castle{
+  position: absolute;
+  top: 5px;
+  left: 730px;
+  width: 400px;
+  height: 30px;
+}
+.conteyner-site{
+  position: absolute;
+  top: 20px;
+  width: calc(100% - 10px);
+  height: calc(100% - 30px);
+}
+#ping{
+  font-size: 1px;
+}
+
+/*     MODAL     */
+.dialog-click-room{
+  width: 600px;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #555;
+}
+.modalDialog{
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  display: none;
+  pointer-events: none;
+}
+.modalDialog:target{
+  display: block;
+  pointer-events: auto;
+}
+.modalDialog > div{
+  width: 800px;
+  max-height: 80%;
+  position: relative;
+  margin: 3% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #66C;
+  box-shadow: 0 0 30px rgba(9,9,9,0.7);
+  color: #000;
+}
+.class-link{
+  color: #000;
+  text-decoration: none;
+}
+.class-link:visited{
+  color: #000;
+  text-decoration: none;
+}
+.class-link:hover{
+  color: #000;
+  text-decoration: none;
+}
+.class-link:active{
+  color: #000;
+  text-decoration: none;
+}
+
+.close {
+  background: #F00;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: 30px;
+  text-align: center;
+  top: -6px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+.close:hover{
+  background: #00d9ff;
+}
+.tooltip {
+  border-bottom: 1px dotted #000000; color: #000000; outline: none;
+  cursor: help; text-decoration: none;
+  position: relative;
+}
+.tooltip_res {
+  border-bottom: 1px dotted #000000; color: #FFF; outline: none;
+  cursor: help; text-decoration: none;
+  position: relative;
+}
+.tooltip span {
+  margin-left: -999em;
+  position: absolute;
+}
+.tooltip:hover span {
+  border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; 
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+  font-family: Calibri, Tahoma, Geneva, sans-serif;
+  position: absolute; left: 1em; top: 2em; z-index: 99;
+  margin-left: 0; width: 250px;
+}
+.tooltip:hover img {
+  border: 0; margin: -10px 0 0 -55px;
+  float: left; position: absolute;
+}
+.tooltip:hover em {
+  font-family: Candara, Tahoma, Geneva, sans-serif; font-size: 1.2em; font-weight: bold;
+  display: block; padding: 0.2em 0 0.6em 0;
+}
+.classic {
+  padding: 0.8em 1em;
+  color: #000;
+}
+.custom {
+  padding: 0.5em 0.8em 0.8em 2em;
+}
+* html a:hover {
+  background: transparent;
+}
+.classic {
+  background: #FFFFAA; border: 1px solid #FFAD33;
+}
+.critical {
+  background: #FFCCAA; border: 1px solid #FF3334;
+}
+.help {
+  background: #9FDAEE; border: 1px solid #2BB0D7;
+}
+.info {
+  background: #9FDAEE; border: 1px solid #2BB0D7;
+}
+.warning {
+  background: #FFFFAA; border: 1px solid #FFAD33;
+}
+.scroll{
+  height:500px;
+  overflow-x:hidden;
+  overflow-y:scroll;
+}
+.castle-army-element-mail{
+  position: absolute;
+  top: 0;
+  width: 55px;
+  height: 65px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+#window-debug{
+  display: block;
+  width: 500px;
+  height: 300px;
+  position: fixed;
+  top: calc( 100% - 310px );
+  left: calc( 100% - 510px );
+  background: #AAA;
+}
+.window-close{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 2px;
+  left: calc( 100% - 22px );
+  background: red;
+}
+#window-debug-log{
+  width: 490px;
+  height: 235px;
+  position: absolute;
+  top: 25px;
+  left: 5px;
+  background: #28A;
+}
+#window-debug-input-text{
+  width: 490px;
+  height: 30px;
+  background: #FFF;
+  position: absolute;
+  left: 5px;
+  top: 265px;
+}
