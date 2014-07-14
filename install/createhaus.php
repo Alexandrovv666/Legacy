@@ -1,17 +1,15 @@
 <?php
     include '../API.php';
-    Only_Local_IP();
-    echo '=> Установка. Этап 2: Заполнение таблицы зданий.<br>';
     $mysql_connect  = FConnBase();
     $Max_level_HAUS = 90;
     //*************************
     $Max_level_HAUS = $Max_level_HAUS - 1;
-    mysql_query('TRUNCATE `haus`');
-    $DELTA   = 0;
+    mysql_query('TRUNCATE `haus`');//На случай обновлении таблицы
+    $DELTA   = 0;//Индекс в таблице
     $DELTA_X = $Max_level_HAUS + 2;
     for ($i = 0; $i <= $Max_level_HAUS; $i++)
         if ($i == 0)
-            mysql_query('INSERT INTO `haus`(`number`, `alt_room`, `new_room`, `name`, `opisanie`,`tree`, `stone`, `agold`) VALUES ("' . $i . '","","lavka' . ($i + 1) . '","Комната торговца","В этой комнате проживает торговец. Тут он осуществляет свои сделки.", "' . (5 * 3 * ($i + 1)) . '","1","' . (30 * ($i + 1)) . '")');
+            mysql_query('INSERT INTO `haus`(`number`, `alt_room`, `new_room`, `name`, `opisanie`,`tree`, `stone`, `agold`) VALUES ("' . $i . '",         "",        "lavka' . ($i + 1) . '","Комната торговца","В этой комнате проживает торговец. Тут он осуществляет свои сделки.", "' . (5 * 3 * ($i + 1)) . '","1","' . (30 * ($i + 1)) . '")');
         else
             mysql_query('INSERT INTO `haus`(`number`, `alt_room`, `new_room`, `name`, `opisanie`,`tree`, `stone`, `agold`) VALUES ("' . $i . '","lavka' . ($i) . '","lavka' . ($i + 1) . '","Комната торговца","В этой комнате проживает торговец. Тут он осуществляет свои сделки.","' . (5 * 3 * ($i + 1)) . '","' . (2 * ($i)) . '","' . (30 * ($i + 1)) . '")');
     $DELTA = $DELTA + $DELTA_X;

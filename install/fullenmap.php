@@ -1,7 +1,7 @@
+
 <?php
     include '../API.php';
     include '../Constant.php';
-    Only_Local_IP();
     $linkss = FConnBase();
     global $Max_X_map, $Max_Y_map;
     echo '=> Установка. Этап 4: Заполнение карты. ';
