@@ -7,5 +7,7 @@
     echo '=> Ётап 3: «авершено.<br>';
     echo '=> ѕродолжение установки через 1 сек.<br>';
     echo '=> Ётап 4 может зан€ть длительное врем€...<br>';
-    echo '<html><head><meta http-equiv=Refresh content="1; url=fullenmap.php"></head></html>';
+//    echo '<html><head><meta http-equiv=Refresh content="1; url=fullenmap.php"></head></html>';
+    echo '<html><head><meta http-equiv=Refresh content="1; url=StartServer.php"></head></html>';
+
 ?> 

@@ -113,8 +113,8 @@ function F_Text_Login_Password($text){
 
 function F_login_is_now($login){
 //requirements: Link to Database is true
-    $res = mysql_query('SELECT login FROM `users` WHERE `login`="'.$login.'"');
-    if (mysql_num_rows($res)==1)
+    $arr = mysql_fetch_row(mysql_query('SELECT * FROM `users` WHERE `login`="'.$login.'"'));
+    if (strtolower($login)==strtolower($arr[1]))
         return true;
     return false;
 }

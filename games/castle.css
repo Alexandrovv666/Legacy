@@ -1,0 +1,370 @@
+.conteyner-site-castle-name{
+  position: relative;
+  left: 20%;
+  top: -52px;
+  color: #444;
+  font-size: 25pt;
+}
+.castle-engine{
+  position: absolute;
+  top: 20px;
+  left: 60px;
+  background: #333;
+  width: 1070px;
+  height: 470px;
+}
+/*Castle - basic*/
+.castle-basic-stone{
+  position: absolute;
+  left: 0;
+  height: 20px;
+  width: 1070px;
+  background: url(img/castle/textures/stone.jpg) repeat;
+  background-size: 60px;
+}
+#castle-basic-stone-0{
+  position: absolute;
+  top: 0;
+}
+#castle-basic-stone-1{
+  position: absolute;
+  top: 90px;
+}
+#castle-basic-stone-2{
+  position: absolute;
+  top: 180px;
+}
+#castle-basic-stone-3{
+  position: absolute;
+  top: 270px;
+}
+#castle-basic-stone-4{
+  position: absolute;
+  top: 360px;
+}
+#castle-basic-stone-5{
+  position: absolute;
+  top: 450px;
+}
+.castle-basic-wood{
+  position: absolute;
+  top: 0;
+  height: 450px;
+  width: 20px;
+  background: url(img/castle/textures/wood.jpg) repeat;
+}
+#castle-basic-wood-0{
+  position: absolute;
+  left: 0px;
+}
+#castle-basic-wood-1{
+  position: absolute;
+  left: 150px;
+}
+#castle-basic-wood-2{
+  position: absolute;
+  left: 300px;
+}
+#castle-basic-wood-3{
+  position: absolute;
+  left: 450px;
+}
+#castle-basic-wood-4{
+  position: absolute;
+  left: 600px;
+}
+#castle-basic-wood-5{
+  position: absolute;
+  left: 750px;
+}
+#castle-basic-wood-6{
+  position: absolute;
+  left: 900px;
+}
+#castle-basic-wood-7{
+  position: absolute;
+  left: 1050px;
+}
+/*Castle - room*/
+.castle-room{
+  width: 130px;
+  height: 70px;
+  background: #758;
+  background: url(img/castle/room/null.jpg) repeat;
+}
+.castle-room-1-x{
+  position: absolute;
+  left: 20px;
+}
+.castle-room-2-x{
+  position: absolute;
+  left: 170px;
+}
+.castle-room-3-x{
+  position: absolute;
+  left: 320px;
+}
+.castle-room-4-x{
+  position: absolute;
+  left: 470px;
+}
+.castle-room-5-x{
+  position: absolute;
+  left: 620px;
+}
+.castle-room-6-x{
+  position: absolute;
+  left: 770px;
+}
+.castle-room-7-x{
+  position: absolute;
+  left: 920px;
+}
+.castle-room-x-1{
+  position: absolute;
+  top: 20px;
+}
+.castle-room-x-2{
+  position: absolute;
+  top: 110px;
+}
+.castle-room-x-3{
+  position: absolute;
+  top: 200px;
+}
+.castle-room-x-4{
+  position: absolute;
+  top: 290px;
+}
+.castle-room-x-5{
+  position: absolute;
+  top: 380px;
+}
+/*            ARMY */
+.army-info{
+  position: absolute;
+  left: 95px;
+  top: 3px;
+}
+.castle-army{
+  position: absolute;
+  top: 500px;
+  left: 160px;
+  background: #124;
+  width: calc( 800px + 80px );
+  height: calc( 160px );
+}
+.castle-army-element{
+  position: absolute;
+  top: 0;
+  width: 110px;
+  height: 130px;
+}
+.castle-army-element:hover{
+  background: #472;
+}
+#castle-army-img-1{
+  position: absolute;
+  left: 0;
+  background: url(img/Units/army/1.png);
+}
+#castle-army-img-2{
+  position: absolute;
+  left: 110px;
+  background: url(img/Units/army/2.png);
+}
+#castle-army-img-3{
+  position: absolute;
+  left: 220px;
+  background: url(img/Units/army/3.png);
+}
+#castle-army-img-4{
+  position: absolute;
+  left: 330px;
+  background: url(img/Units/army/4.png);
+}
+#castle-army-img-5{
+  position: absolute;
+  left: 440px;
+  background: url(img/Units/army/5.png);
+}
+#castle-army-img-6{
+  position: absolute;
+  left: 550px;
+  background: url(img/Units/army/6.png);
+}
+#castle-army-img-7{
+  position: absolute;
+  left: 660px;
+  background: url(img/Units/army/7.png);
+}
+#castle-army-img-8{
+  position: absolute;
+  left: 770px;
+  background: url(img/Units/army/8.png);
+}
+.castle-army-count{
+  position: absolute;
+  top: 120px;
+  width: 110px;
+  text-align:center;
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+}
+.level-room{
+  position: absolute;
+  top: -25px;
+  left: 60px;
+  color: #FFF;
+  font-size: 24pt;
+
+}
+.time-room{
+  position: absolute;
+  top: 17px;
+  left: 7px;
+  font-size: 20pt;
+  margin: 20px auto;
+  font-family: Garamond;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0.3;
+}
+.time-room:hover{
+  position: absolute;
+  top: 17px;
+  left: 7px;
+  font-size: 20pt;
+  margin: 20px auto;
+  font-family: Garamond;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+  opacity: 1;  
+}
+.castle-room-lavka{
+  position: relative;
+  top: 0;
+  left: 15px;
+  width: 130px;
+  height: 70px;
+  background: url(Img/Castle/room/lavka/1.png);
+  background-repeat: no-repeat;
+}
+.castle-room-lesop{
+  position: relative;
+  top: 0;
+  left: 15px;
+  width: 100px;
+  height: 70px;
+  background: url(Img/Castle/room/lesop/1.png);
+  background-repeat: no-repeat;
+}
+.castle-room-kamen{
+  position: relative;
+  top: 0;
+  left: 15px;
+  width: 100px;
+  height: 70px;
+  background: url(Img/Castle/room/kamen/1.png);
+  background-repeat: no-repeat;
+}
+.castle-room-issled{
+  position: relative;
+  top: 0;
+  left: 15px;
+  width: 100px;
+  height: 70px;
+  background: url(Img/Castle/room/issled/0.png);
+  background-repeat: no-repeat;
+}
+.castle-room-nos{
+  position: relative;
+  top: 0;
+  left: 35px;
+  width: 100px;
+  height: 70px;
+  background: url(Img/Castle/room/nos/1.png);
+  background-repeat: no-repeat;
+}
+.castle-room-voin{
+  position: relative;
+  top: 0;
+  left: 35px;
+  width: 100px;
+  height: 70px;
+  background: url(Img/Castle/room/voin/1.png);
+  background-repeat: no-repeat;
+}
+.castle-room-kon{
+  position: relative;
+  top: 0;
+  left: 35px;
+  width: 100px;
+  height: 70px;
+  background: url(Img/Castle/room/kon/0.png);
+  background-repeat: no-repeat;
+}
+.castle-room-tank{
+  position: relative;
+  top: 0;
+  left: 35px;
+  width: 100px;
+  height: 70px;
+  background: url(Img/Castle/room/tank/0.png);
+  background-repeat: no-repeat;
+}
+.castle-room-bival{
+  position: relative;
+  top: 0;
+  left: 35px;
+  width: 100px;
+  height: 70px;
+  background: url(Img/Castle/room/bival/0.png);
+  background-repeat: no-repeat;
+}
+.castle-room-luk{
+  position: relative;
+  top: 0;
+  left: 35px;
+  width: 100px;
+  height: 70px;
+  background: url(Img/Castle/room/luk/0.png);
+  background-repeat: no-repeat;
+}
+.castle-room-lekar{
+  position: relative;
+  top: 0;
+  left: 35px;
+  width: 100px;
+  height: 70px;
+  background: url(Img/Castle/room/lekar/0.png);
+  background-repeat: no-repeat;
+}
+.castle-room-naim{
+  position: relative;
+  top: 0;
+  left: 35px;
+  width: 100px;
+  height: 70px;
+  background: url(Img/Castle/room/naim/0.png);
+  background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

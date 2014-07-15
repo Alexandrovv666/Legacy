@@ -47,8 +47,6 @@
                 mysql_query('INSERT INTO `session`(`time`, `login`, `status`, `ip`, `session`) VALUES ("'.time().'","'.$_GET['login'].'","1","'.$_SERVER['REMOTE_ADDR'].'","'.$session.'")');
             }
             echo '<script language = \'javascript\'> var delay = 100; setTimeout("document.location.href=\'SetCookie.php?login='.$login.'\'", delay); </script>';
-
-            header("Location: SetCookie.php?login=".$login);
             exit;
         }
     echo 'warining|Комбинация логин-пароль не найдены.';

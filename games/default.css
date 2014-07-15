@@ -1,0 +1,39 @@
+.panel-up{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: #22F;
+  font-size: 13pt;
+  color: #AAA;
+  z-index: 1;
+}
+.panel-up-navigation{
+  position: absolute;
+  top: -9px;
+  left: 30px;
+}
+.map_cell{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border: solid 1px black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
