@@ -1,13 +1,19 @@
 <?php
     $login    = $_POST['login'];
     $password = $_POST['password'];
-    if (empty($login)) exit;
-    if (empty($password)) exit;
     include 'API.php';
     include 'Constant.php';
+    global $Max_X_map, $Max_Y_map, $C_Text_noSpace, $C_Numberic;
+    if (!Chek_string_of_mask($login,($C_Numberic.$C_Text_noSpace))){
+        echo 'Логин некорректен';
+        exit;
+    }
+    if (!Chek_string_of_mask($password,($C_Numberic.$C_Text_noSpace))){
+        echo 'Логин некорректен';
+        exit;
+    }
     $linkss = FConnBase();
-    if (F_login_is_now($login)) exit;
-    global $Max_X_map, $Max_Y_map;
+    if (F_login_is_now($login)) echo 'Логин занят';
     $wariants = 0;
     // Ищем свободное место для игрока
     do {
@@ -28,7 +34,7 @@ metka1:
         echo '<H1><center>Системе не удалось найти место для игрока</center><H1><br><H2><center>Свяжитесь с администратором и сообщите ему об этом</center><H2><br>';
         exit;
     }
-    $sol_of_login    = 'teamlead';
+    $sol_of_login      = 'teamlead';
     $sol_of_password_1 = 'Game';
     $sol_of_password_2 = 'LegacyOfWarriors';
     $md5_of_login_user = md5 ( $login.$sol_of_login );

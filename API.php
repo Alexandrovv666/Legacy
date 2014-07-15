@@ -1,7 +1,8 @@
 <?
 include 'Constant.php';
 function FConnBase(){
-    $link = mysql_connect("Legacy", "root", "") or die('Пожалуйста, перезагрузите страницу.<br>Если подобное повторяется, свяжитесь с Администрацией и сообщите ей сообщение ошибки.<br>Сообщение <u>'.mysql_error().'</u>');
+    global $C_MySQL_Host, $C_MySQL_login;
+    $link = mysql_connect($C_MySQL_Host, $C_MySQL_login, "") or die('Пожалуйста, перезагрузите страницу.<br>Если подобное повторяется, свяжитесь с Администрацией и сообщите ей сообщение ошибки.<br>Сообщение <u>'.mysql_error().'</u>');
     mysql_select_db('game') or die('Пожалуйста, перезагрузите страницу.<br>Если подобное повторяется, свяжитесь с Администрацией и сообщите ей сообщение ошибки.<br>Сообщение: <b><u>'.mysql_error().'</u></b>');
     mysql_set_charset("CP1251");
     return $link;
@@ -9,6 +10,16 @@ function FConnBase(){
 
 function FClose_mysql_connect($link){
     mysql_close($link);
+}
+
+function Chek_string_of_mask($String, $Mask){
+    $Lenght_String = strlen($String);
+    if ($Lenght_String==0)
+        return false;
+    for ($i = 0; $i < ($Lenght_String); $i++)
+        if (substr_count($Mask, $String[$i])==0)
+            return false;
+    return true;
 }
 
 function loging($text){
@@ -80,7 +91,6 @@ function onlyInt($int_text){
             $res=$res.$int_text[$i];
     return $res;
 }
-
 function onlyNoInt($int_text){
     for ($i = 0; $i < strlen($int_text); $i++)
         if (!(is_numeric($int_text[$i])))
@@ -103,10 +113,9 @@ function F_Text_Login_Password($text){
 
 function F_login_is_now($login){
 //requirements: Link to Database is true
-    $qwery = mysql_query('SELECT login FROM `users`');
-    while ($arr = mysql_fetch_row($qwery))
-        if (strtolower($login)==strtolower($arr[0]))
-            return true;
+    $res = mysql_query('SELECT login FROM `users` WHERE `login`="'.$login.'"');
+    if (mysql_num_rows($res)==1)
+        return true;
     return false;
 }
 

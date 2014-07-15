@@ -1,6 +1,5 @@
 <?php
-echo '<script src="src/jquery.min.js"></script>';
-echo '
+echo '<script src="src/jquery.min.js"></script>
 <script>
 function handle_error(err) {
 }

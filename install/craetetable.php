@@ -19,7 +19,6 @@
     for ($i = 2; $i <= 35; $i++)
         $qwery .= ', `room_name_'.$i.'` text NOT NULL, `value_room_'.$i.'` int(11) NOT NULL ';
     $qwery .= ') ENGINE=InnoDB DEFAULT CHARSET=utf8;';
-    echo $qwery;
     mysql_query($qwery);
     mysql_query("CREATE TABLE IF NOT EXISTS `users` (`id` int(11) NOT NULL AUTO_INCREMENT, `login` text NOT NULL,  `password` text NOT NULL,  `reg_time` int(11) NOT NULL,  `almaz` float NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
     mysql_query("ALTER TABLE `users` MODIFY COLUMN `id` INT AUTO_INCREMENT;");
