@@ -20,6 +20,6 @@
         default:
             echo 'Что-то пошло не так...';
     }
-    echo '<script>setInterval(One, 1000)</script>';
+    echo '<script>setInterval(One, 100)</script>';
     FClose_mysql_connect($linkss);
 ?> 

@@ -1,5 +1,35 @@
+@font-face {
+  font-family: IndustryTMC; /* Гарнитура шрифта */
+  src: url(fonts/IndustryTMC.otf); /* Путь к файлу со шрифтом */
+}
+.text{
+  font-family: IndustryTMC;
+  font-size: 28pt;
+  color: #FFF;
+}
+#window-loading-window{
+  background-color: #000;
+  position: fixed;
+  top: 30%;
+  left: 20%;
+  width: 60%;
+  height: 40%;
+  z-index: 6;
+  opacity: 1;
+
+}
+#window-loading-fon{
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  opacity: 0.7;
+}
 .panel-up{
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -9,17 +39,12 @@
   color: #AAA;
   z-index: 1;
 }
-.panel-up-navigation{
-  position: absolute;
-  top: -9px;
-  left: 30px;
-}
 .map_cell{
   position: absolute;
   top: 0;
   left: 0;
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 60px;
   border: solid 1px black;
 }
 
