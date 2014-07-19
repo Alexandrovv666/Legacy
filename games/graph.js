@@ -29,33 +29,46 @@ function Fresize(){
             p.style.height =((Cellheight/C_scale)+'px');
         }
     var MaxLeftPut = (CellWidth/2+CellWidth/C_scale*3)-5;
-    var MinLeftPut = (CellWidth/2+CellWidth/C_scale*2 - (CellWidth/C_scale)*3);
-    var CWidth = (ClientWidth/ (C_scale*4.3));
-    var CHeight = (ClientHeight/ (C_scale*10));
+    var MinLeftPut = (CellWidth/2 -(CellWidth/C_scale)*3);
+    var CRazn = MaxLeftPut-MinLeftPut;
+    var CWidth = (ClientWidth/ (C_scale*5));
+    var CHeight = (ClientHeight/ (C_scale/1.5));
     for (var i = 0; i <= 11; i++)//wall-6
         if (document.getElementById('wall-6-'+i)){
             var p = document.getElementById('wall-6-'+i); 
             p.style.width  = (CWidth)+'px';
-            p.style.height = (ClientHeight/CHeight)+'px';
+            p.style.height = (CHeight)+'px';
             p.style.left=(MaxLeftPut+(CWidth-5)*i)+'px';
-            p.style.top =((ClientHeight/CHeight)*i*0.43)+'px';
+            p.style.top =(CHeight*i*0.43)+'px';
+        }
+    CRazn=CRazn+((CWidth-4)*24);
+    for (var i = 0; i <= 11; i++)//wall-4
+        if (document.getElementById('wall-4-'+i)){
+            var p = document.getElementById('wall-4-'+i); 
+            p.style.width  = (CWidth)+'px';
+            p.style.height = (CHeight)+'px';
+            p.style.left=(MinLeftPut-(CWidth-5)*(i+1))+'px';
+            p.style.top =(CHeight*i*0.43)+'px';
+        }
+    MinLeftPuts = (MinLeftPut-((CWidth-5)*12));
+    var CMaxTop = (CHeight*11*0.43+CWidth);
+    var CWidth  = CRazn/8;   //((CellWidth/C_scale)*1.329);
+    var CHeight = ((Cellheight/C_scale)*1.329);
+    for (var i = 0; i <= 15; i++)//wall-2
+        if (document.getElementById('wall-2-'+i)){
+            var p = document.getElementById('wall-2-'+i); 
+            p.style.left=((MinLeftPuts+((CWidth-2)*i))+'px');
+            p.style.top =((CMaxTop*1.03)+'px');
+            p.style.width =(CWidth+'px');
+            p.style.height =(CHeight+'px');
         }
 
 
 
 
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

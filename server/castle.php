@@ -5,7 +5,6 @@
 <img src="img/castle/textures/wall_food_8.png" id="wall-8-3" class="walls">
 <img src="img/castle/textures/wall_food_8.png" id="wall-8-4" class="walls">
 <img src="img/castle/textures/wall_food_8.png" id="wall-8-5" class="walls">
-
 <img src="img/castle/textures/wall_food_6.png" id="wall-6-0" class="walls">
 <img src="img/castle/textures/wall_food_6.png" id="wall-6-1" class="walls">
 <img src="img/castle/textures/wall_food_6.png" id="wall-6-2" class="walls">
@@ -30,3 +29,18 @@
 <img src="img/castle/textures/wall_food_4.png" id="wall-4-9" class="walls">
 <img src="img/castle/textures/wall_food_4.png" id="wall-4-10" class="walls">
 <img src="img/castle/textures/wall_food_4.png" id="wall-4-11" class="walls">
+
+
+
+
+
+<img src="img/castle/textures/wall_food_8.png" id="wall-2-0" class="walls">
+<img src="img/castle/textures/wall_food_8.png" id="wall-2-1" class="walls">
+<img src="img/castle/textures/wall_food_8.png" id="wall-2-2" class="walls">
+<img src="img/castle/textures/wall_food_8.png" id="wall-2-3" class="walls">
+<img src="img/castle/textures/wall_food_8.png" id="wall-2-4" class="walls">
+<img src="img/castle/textures/wall_food_8.png" id="wall-2-5" class="walls">
+<img src="img/castle/textures/wall_food_8.png" id="wall-2-6" class="walls">
+<img src="img/castle/textures/wall_food_8.png" id="wall-2-7" class="walls">
+
+
