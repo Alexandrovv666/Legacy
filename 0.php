@@ -9,10 +9,9 @@
     mysql_query('INSERT INTO `haus_const`(`name`, `name_rus`, `descr_rus`) VALUES 
                 ("kamen","Комната каменщика","Повышает приток камня в замке")');
     mysql_query('INSERT INTO `haus_const`(`name`, `name_rus`, `descr_rus`) VALUES 
+                ("haus","Жилая комната","Повышает приток населения и его максимальную численность в замке")');
+    mysql_query('INSERT INTO `haus_const`(`name`, `name_rus`, `descr_rus`) VALUES 
                 ("sklad","Складская комната","Служит для хранения ресурсов")');
     mysql_query('INSERT INTO `haus_const`(`name`, `name_rus`, `descr_rus`) VALUES 
                 ("treasury","Сокровещница","Хранит магические предметы")');
-
-
-
 ?> 
