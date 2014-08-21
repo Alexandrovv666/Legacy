@@ -38,7 +38,7 @@ metka1:
     $md5_of_login_user = md5 ( $login.$sol_of_login );
     $hach_of_password = crypt($login, $sol_of_login).crypt($password, $sol_of_login).crypt($login, $md5_of_login_user).crypt($password, $md5_of_login_user).crypt($login, $sol_of_password_1).crypt($password, $sol_of_password_1).crypt($login, $sol_of_password_2).crypt($password, $sol_of_password_2).crypt($login, $md5_of_login_user).crypt($password, $md5_of_login_user).crypt($login, $password);
     mysql_query('INSERT INTO `users`(`login`, `password`, `almaz`, `reg_time`) VALUES ("' . $login . '","' . $hach_of_password . '", "777", "' . time() . '")');
-    mysql_query('INSERT INTO `castle` (`id`, `x`, `y`, `name`, `gold`, `tree`, `stone`, `men`, `amen`, `max_men`) VALUES ("'.F_Get_ID($login).'" , ' . $x . ',' . $y . ',"Безымянный замок",2000,1000,600,20,2,50)');
+    mysql_query('INSERT INTO `castle` (`id`, `x`, `y`, `z`, `name`, `gold`, `tree`, `stone`, `men`, `amen`, `max_men`) VALUES ("'.F_Get_ID($login).'" , ' . $x . ',' . $y . ',' . $z . ',"Безымянный замок",2000,1000,600,20,2,50)');
     echo '+<html><head><meta http-equiv=Refresh content="4; url=index.php"></head></html>';
 ?>
 

@@ -3,8 +3,9 @@
     Only_Local_IP();
     $links = FConnBase();
     F_TranzationUp();
+    $micro_time=microtime(true);
     echo 'Transaction is up.<br>';
-    global $Max_X_map, $Max_Y_map, $Wait_to_startCron, $Max_worket_time, $AverageCountLager;
+    global $Max_X_map, $Max_Y_map, $Wait_to_startCron, $Max_worket_time, $AverageCountLager, $FASTER, $MaxTimeWorkCron;
     echo '<META http-equiv="content-type" content="text/html; charset=windows-1251">';
     echo '<script language = \'javascript\'> var delay = ' . $Wait_to_startCron . '; setTimeout("document.location.href=\'Cron.php\'", delay);</script>';
     $arr_res_work = mysql_fetch_array(mysql_query('SELECT Value FROM `settings` WHERE `name_parametr` = "work"'));
@@ -37,9 +38,11 @@
     echo 'Step 2. Processed game data begined.<br>';
     echo 'To be processed ' . $to_be_processed . ' second.<br>';
     $V_i = 1;
-    for ($alt_time = $alt_time; $alt_time <= ($_SERVER['REQUEST_TIME']); $alt_time++) {
-        echo 'Server process ' . $V_i++ . '/' . $to_be_processed . ' second: ' . $alt_time . '<br>';
-        
+    for ($alt_time = $alt_time; $alt_time <= ($_SERVER['REQUEST_TIME']); $alt_time++){
+        if ((time()-$_SERVER['REQUEST_TIME'])>$MaxTimeWorkCron){
+            echo '<b>Warinng!</b> GameServer <b>is too long</b>!!<br>';
+            goto end_real_time;
+        }
         if ($count_castle > 0)
             for ($num_castle = 0; $num_castle < $count_castle; $num_castle++) {
                 $summ_jalovan_army = 0;
@@ -50,11 +53,12 @@
                 $GA_castle[$num_castle]['tree']  = $GA_castle[$num_castle]['tree'] + ($GA_castle[$num_castle]['atree'] / 3600);
                 $GA_castle[$num_castle]['stone'] = $GA_castle[$num_castle]['stone'] + ($GA_castle[$num_castle]['astone'] / 3600);
                 $GA_castle[$num_castle]['gold']  = $GA_castle[$num_castle]['gold'] + ($GA_castle[$num_castle]['agold'] / 3600) - ($summ_jalovan / 3600);
+                $GA_castle[$num_castle]['men']   = $GA_castle[$num_castle]['men'] + ($GA_castle[$num_castle]['amen'] / 3600);
                 if ($GA_castle[$num_castle]['tree'] > $GA_castle[$num_castle]['maxres'])
                     $GA_castle[$num_castle]['tree'] = $GA_castle[$num_castle]['tree'] - round((($GA_castle[$num_castle]['tree'] - $GA_castle[$num_castle]['maxres']) / 3600 / 100), 7);
                 if ($GA_castle[$num_castle]['stone'] > $GA_castle[$num_castle]['maxres'])
                     $GA_castle[$num_castle]['stone'] = $GA_castle[$num_castle]['stone'] - round((($GA_castle[$num_castle]['stone'] - $GA_castle[$num_castle]['maxres']) / 3600 / 100), 7);
-                if ($GA_castle[$num_castle]['men'] > $GA_castle[$num_castle]['max_men'])
+                if ($GA_castle[$num_castle]['men'] > ($GA_castle[$num_castle]['max_men']))
                     $GA_castle[$num_castle]['men'] = $GA_castle[$num_castle]['men'] - round((($GA_castle[$num_castle]['men'] - $GA_castle[$num_castle]['max_men']) / 3600 / 100), 7);
                 if ($GA_castle[$num_castle]['gold'] > $GA_castle[$num_castle]['maxres'])
                     $GA_castle[$num_castle]['gold'] = $GA_castle[$num_castle]['gold'] - round((($GA_castle[$num_castle]['gold'] - $GA_castle[$num_castle]['maxres']) / 3600 / 100), 7);
@@ -71,7 +75,7 @@
     }
 end_real_time:
     for ($num_castle = 0; $num_castle < $count_castle; $num_castle++) {
-        $qwery = 'UPDATE `castle` SET `gold`="' . $GA_castle[$num_castle]['gold'] . '",`tree`="' . $GA_castle[$num_castle]['tree'] . '",`stone`="' . $GA_castle[$num_castle]['stone'] . '"';
+        $qwery = 'UPDATE `castle` SET `gold`="' . $GA_castle[$num_castle]['gold'] . '",`tree`="' . $GA_castle[$num_castle]['tree'] . '",`stone`="' . $GA_castle[$num_castle]['stone'] . '", `men`="' . $GA_castle[$num_castle]['men'] . '"';
         for ($i = 1; $i <= 35; $i++)
             $qwery = $qwery . ', `c_' . $i . '_n` = "' . $GA_castle[$num_castle]['c_' . $i . '_n'] . '"';
         for ($j = 1; $j <= 8; $j++)
@@ -82,11 +86,11 @@ end_real_time:
         $qwery = $qwery . 'WHERE `x`="' . $GA_castle[$num_castle]['x'] . '" AND `y`="' . $GA_castle[$num_castle]['y'] . '" AND `z`="' . $GA_castle[$num_castle]['z'] . '"';
         mysql_query($qwery);
     }
-    
-    
-    mysql_query('UPDATE `game`.`settings` SET `Value` = "' . ($alt_time) . '" WHERE `settings`.`name_parametr` = "timers"');
+
+    mysql_query('UPDATE `game`.`settings` SET `Value` = "' . ($alt_time-$FASTER) . '" WHERE `settings`.`name_parametr` = "timers"');
     F_TranzationDown();
     echo 'Transaction is down.<br>';
+    echo 'GameServer worked is '.(microtime(true)-$micro_time).'<br>';
     mysql_close($links);
     
     

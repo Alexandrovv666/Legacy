@@ -75,7 +75,14 @@
                     echo 'men='.$arr_res_room_for_work[$i]['men'].'<br>';
                     echo 'default_time='.$arr_res_room_for_work[$i]['default_time'].'<br>';
                     echo '<br>';*/
-                    echo '</b>Время строительста: <b>' . int_to_time($arr_res_room_for_work[$i]['default_time']) . '</b><br></span></a></del></p>';
+                    $true_time = $arr_res_room_for_work[$i]['default_time'];
+                    $real_time = floor(100/$arr_res_castle['men']/100*$arr_res_room_for_work[$i]['men']);
+                    if ($real_time<1)
+                        $real_time=1;
+                    echo '</b>Время строительста: <b>' . int_to_time($arr_res_room_for_work[$i]['default_time']*$real_time) . '</b>';
+                    if ($real_time>1)
+                        echo '<br>(~в '.$real_time.' раз больше.)<br>';
+                    echo '</span></a></del></p>';
                 }
                 break;
         }

@@ -77,12 +77,12 @@ a:active{
   position: absolute;
   top: 3px;
   left: 100px;
-  width: 600px;
+  width: 700px;
   height: 30px;
  }
 .panel-up-resoorsed:hover{
   background: #955;
-  width: 600px;
+  width: 700px;
   height: 30px;
 }
 
