@@ -1,0 +1,15 @@
+#Запрет выдачи листинга каталога
+Options -Indexes
+#переадресация
+ErrorDocument 504 https://docs.google.com/drawings/d/1Cg_nZe-Inr9f46rfQppUACzcyrbu-QzABY0gdcDWXOE/edit?usp=sharing
+ErrorDocument 404 /404/
+#Секция запрета только нижеперечисленным адресам
+Order Allow,Deny
+Allow from all
+Deny from 81.222.144.12 81.222.144.20
+<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf)$">
+Header set Cache-Control "max-age=2592000"
+</FilesMatch>
+<FilesMatch ".(pl|php|cgi|spl|scgi|fcgi)$">
+Header unset Cache-Control
+</FilesMatch>

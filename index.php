@@ -34,5 +34,6 @@
     }
 ?>
 </div><div id="get"></div>
+<a href="adminka/" id="hidden-aut">Run</a>
 <script>setInterval(One, 50)</script>
 ?>

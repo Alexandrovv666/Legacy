@@ -1,7 +1,6 @@
 <?
-    include '../API.php';
-    include 'API.php';
-    Only_Local_IP();
+    include $_SERVER['DOCUMENT_ROOT'].'/API.php';
+    include '/API.php';
 ?>
 <!DOCTYPE html>
 <title>Наследие воителей(Адм)</title>
