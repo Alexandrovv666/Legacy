@@ -42,14 +42,15 @@ function loadXMLDoc(action, n){
                     document.getElementById("gold").innerHTML  =perem[36];
                     document.getElementById("tree").innerHTML  =perem[37];
                     document.getElementById("stone").innerHTML =perem[38];
-                    document.getElementById('arm1').innerHTML  =perem[39];
-                    document.getElementById('arm2').innerHTML  =perem[40];
-                    document.getElementById('arm3').innerHTML  =perem[41];
-                    document.getElementById('arm4').innerHTML  =perem[42];
-                    document.getElementById('arm5').innerHTML  =perem[43];
-                    document.getElementById('arm6').innerHTML  =perem[44];
-                    document.getElementById('arm7').innerHTML  =perem[45];
-                    document.getElementById('arm8').innerHTML  =perem[46];
+                    document.getElementById("men").innerHTML   =perem[39];
+                    document.getElementById('arm1').innerHTML  =perem[40];
+                    document.getElementById('arm2').innerHTML  =perem[41];
+                    document.getElementById('arm3').innerHTML  =perem[42];
+                    document.getElementById('arm4').innerHTML  =perem[43];
+                    document.getElementById('arm5').innerHTML  =perem[44];
+                    document.getElementById('arm6').innerHTML  =perem[45];
+                    document.getElementById('arm7').innerHTML  =perem[46];
+                    document.getElementById('arm8').innerHTML  =perem[47];
                 }
             }
             if (action == "mission"){

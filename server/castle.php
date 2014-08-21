@@ -1,4 +1,4 @@
-<img src="img/interface/close.png" id="window-cell-buttom-close">
+<img src="img/interface/close.png" onclick="CloseWindowsCell()" id="window-cell-buttom-close">
 <img src="img/castle/textures/wall_food_8.png" id="wall-8-0" class="walls">
 <img src="img/castle/textures/wall_food_8.png" id="wall-8-1" class="walls">
 <img src="img/castle/textures/wall_food_8.png" id="wall-8-2" class="walls">
@@ -29,11 +29,6 @@
 <img src="img/castle/textures/wall_food_4.png" id="wall-4-9" class="walls">
 <img src="img/castle/textures/wall_food_4.png" id="wall-4-10" class="walls">
 <img src="img/castle/textures/wall_food_4.png" id="wall-4-11" class="walls">
-
-
-
-
-
 <img src="img/castle/textures/wall_food_8.png" id="wall-2-0" class="walls">
 <img src="img/castle/textures/wall_food_8.png" id="wall-2-1" class="walls">
 <img src="img/castle/textures/wall_food_8.png" id="wall-2-2" class="walls">
@@ -42,5 +37,3 @@
 <img src="img/castle/textures/wall_food_8.png" id="wall-2-5" class="walls">
 <img src="img/castle/textures/wall_food_8.png" id="wall-2-6" class="walls">
 <img src="img/castle/textures/wall_food_8.png" id="wall-2-7" class="walls">
-
-

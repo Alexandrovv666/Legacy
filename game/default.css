@@ -107,6 +107,11 @@ a:active{
   top: -13px;
   left: 400px;
 }
+#men{
+  position: absolute;
+  top: -13px;
+  left: 600px;
+}
 .panel-up-navigation{
   position: absolute;
   top: -9px;
@@ -115,7 +120,7 @@ a:active{
 #name-castle{
   position: absolute;
   top: 5px;
-  left: 730px;
+  left: 830px;
   width: 400px;
   height: 30px;
 }

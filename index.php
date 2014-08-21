@@ -1,14 +1,13 @@
 <?//PEAR style
     include 'API.php';
-    include 'Constant.php';
     global $C_MySQL_Host, $C_MySQL_login;
     $link = mysql_connect($C_MySQL_Host, $C_MySQL_login, "");
     if (!mysql_select_db("game", $link))
         if (mysql_errno($link) == 1049){
-            header("Location: install/craetetable.php");
+            header("Location: install/mysql/table.php");
             exit;
         }
-    FClose_mysql_connect($link);
+    mysql_Close($link);
 ?>
 <title>Наследие воителей</title>
 <META http-equiv="content-type" content="text/html; charset=windows-1251">

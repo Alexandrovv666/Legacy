@@ -1,5 +1,3 @@
 <?php
-    include 'API.php';
-    $linkss = FConnBase();
-    echo F_GetRand_Login();
+    echo $_SERVER['REQUEST_TIME'];
 ?> 

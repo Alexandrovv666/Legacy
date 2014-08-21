@@ -8,8 +8,16 @@ function FConnBase(){
     return $link;
 }
 
-function FClose_mysql_connect($link){
-    mysql_close($link);
+function F_TranzationUp(){
+    $res = mysql_query("SELECT `settings` SET `Value`='1' WHERE `name_parametr`='TRANSACTION'");
+    if (mysql_num_rows(mysql_query('SELECT * FROM `settings` WHERE `name_parametr`="TRANSACTION" and `Value`="1"'))==1)
+        return false;
+    mysql_query("UPDATE `settings` SET `Value`='1' WHERE `name_parametr`='TRANSACTION'");
+    return true;
+}
+
+function F_TranzationDown(){
+  mysql_query("UPDATE `settings` SET `Value`='0' WHERE `name_parametr`='TRANSACTION'");
 }
 
 function Chek_string_of_mask($String, $Mask){
@@ -23,21 +31,9 @@ function Chek_string_of_mask($String, $Mask){
 }
 
 function loging($text){
-    $file_name = '../log/gl.log';
+    $file_name = $_SERVER['DOCUMENT_ROOT'].'/log/gl.log';
     $file = fopen($file_name,"a+");
-    fwrite($file, add_length_string(date("Y-m-d H:i:s"),19).$text."\r\n");
-    fclose($file);
-}
-function loging__($text){
-    $file_name = 'log/gl.log';
-    $file = fopen($file_name,"a+");
-    fwrite($file, add_length_string(date("Y-m-d H:i:s"),19).$text."\r\n");
-    fclose($file);
-}
-
-function F_Loging($namefile,$text){
-    $file = fopen($namefile,"a+");
-    fwrite($file, add_length_string(date("Y-m-d H:i:s"),19).$text."\r\n");
+    fwrite($file, add_length_string(date("Y-m-d H:i:s"),19).'=>'.add_length_string($_SERVER['REMOTE_ADDR'], 16).' '.$_SERVER['PHP_SELF'].' сообщает: '.$text."\r\n");
     fclose($file);
 }
 
@@ -89,6 +85,8 @@ function onlyInt($int_text){
     for ($i = 0; $i < strlen($int_text); $i++)
         if (is_numeric($int_text[$i]))
             $res=$res.$int_text[$i];
+    if ($res=='')
+        $res=0;
     return $res;
 }
 function onlyNoInt($int_text){
@@ -96,6 +94,9 @@ function onlyNoInt($int_text){
         if (!(is_numeric($int_text[$i])))
             $res=$res.$int_text[$i];
     return $res;
+}
+function FClose_mysql_connect($link){
+    mysql_close($link);
 }
 function FShowNumInSpace($x){
     return str_replace(",", '  ', number_format($x));
@@ -293,5 +294,22 @@ function F_GetCount_mission_of_login($id){
     $res = mysql_query('SELECT * FROM  `missions` where `vladelez`="'.$id.'"');
     return mysql_num_rows($res);
 }
+
+function F_IF_session(){
+//requirements: Link to Database is true
+    global $Lang_session;
+    if (mysql_num_rows(mysql_query('SELECT * FROM  `session` WHERE (`login`="'.($_COOKIE['login']).'") AND (`time`>"'.(time()-$Lang_session).'") and (`session`="'.$_COOKIE['session'].'") and (`ip`="'.$_SERVER['REMOTE_ADDR'].'") and (`status`="1")'))==1)//session is active?
+        return true;
+    else
+        return false;
+}
+
+
+
+
+
+
+
+
 
 ?>

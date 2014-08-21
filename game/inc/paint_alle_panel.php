@@ -11,6 +11,7 @@
         echo '    <p id="gold" class="panel-up-resoorsed-element">'.floor($Global_array_castle['gold']).'</p>';
         echo '    <p id="tree" class="panel-up-resoorsed-element">'.floor($Global_array_castle['tree']).'</p>';
         echo '    <p id="stone" class="panel-up-resoorsed-element">'.floor($Global_array_castle['stone']).'</p>';
+        echo '    <p id="men" class="panel-up-resoorsed-element">'.floor($Global_array_castle['men']).'</p>';
         echo '  </div>';
         echo '  <div id="name-castle"><a href="#window_modal_1" onclick="get_info_castle()">|'.$Global_array_castle['name'].'|</a></div>';
     }

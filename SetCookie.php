@@ -9,6 +9,6 @@
     SetCookie("Y", $arr_res_castle['y']);
     SetCookie("Z", $arr_res_castle['z']);
     SetCookie("ort", 'castle');
-    FClose_mysql_connect($linkss);
-    echo '<script language = \'javascript\'> var delay = 100; setTimeout("document.location.href=\'games/\'", delay); </script>';
+    mysql_Close($linkss);
+    echo '<script language = \'javascript\'> var delay = 100; setTimeout("document.location.href=\'game/\'", delay); </script>';
 ?>  

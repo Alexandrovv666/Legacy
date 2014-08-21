@@ -34,7 +34,7 @@
             $chars    = $C_Numberic.$C_Text_noSpace;
             $numChars = strlen($chars);
             $session = '';
-            for ($i = 0; $i < 40; $i++)
+            for ($i = 0; $i < 30; $i++)
                 $session .= substr($chars, rand(1, $numChars) - 1, 1);
             if (mysql_table_seek("session","game")){
                 if (mysql_num_rows(mysql_query('SELECT * FROM  `session` WHERE `login`="'.$_GET['login'].'"'))==1){
