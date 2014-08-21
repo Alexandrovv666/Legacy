@@ -51,7 +51,7 @@
                 $count_room_for_work = count($arr_res_room_for_work) - 1;
                 echo '<p>Для строительства доступно:</p>';
                 for ($i = 0; $i < $count_room_for_work; $i++) {
-                    echo '<p><a class="tooltip class-link" href="#" onclick="StartWorks(\'' . $arr_res_room_for_work[$i]['new'] . '\', ' . $_GET['num_room'] . ')">';
+                    echo '<p><a class="tooltip class-link" onclick="StartWorkRoom(\'' . $arr_res_room_for_work[$i]['new'] . '\', ' . $_GET['num_room'] . ')">';
                     $res_room_rus  = mysql_query('SELECT * FROM `haus_const` WHERE `name`="' . onlyNoInt($arr_res_room_for_work[$i]['new']) . '"');
                     $arr_name_room_rus = mysql_fetch_array($res_room_rus);
                     if (($arr_res_castle['gold'] >= $arr_res_room_for_work[$i]['gold']) AND ($arr_res_castle['tree'] >= $arr_res_room_for_work[$i]['tree']) AND ($arr_res_castle['stone'] >= $arr_res_room_for_work[$i]['stone']))
@@ -73,12 +73,16 @@
                     else
                         echo 'Камень: ' . $arr_res_room_for_work[$i]['stone'] . '<br>';
                     $true_time = $arr_res_room_for_work[$i]['default_time'];
-                    $real_time = floor(100/$arr_res_castle['men']/100*$arr_res_room_for_work[$i]['men']);
-                    if ($real_time<1)
-                        $real_time=1;
-                    echo '</b>Время строительста: <b>' . int_to_time($arr_res_room_for_work[$i]['default_time']*$real_time) . '</b>';
+                    if ($arr_res_castle['men']!=0){
+                        $real_time = floor(100/$arr_res_castle['men']/100*$arr_res_room_for_work[$i]['men']);
+                        if ($real_time<1)
+                            $real_time=1;
+                        echo '</b>Время строительста: <b>' . int_to_time($arr_res_room_for_work[$i]['default_time']*$real_time) . '</b><br>';
+                    }else
+                        echo '</b>Время строительста: <b>БЕСКОНЕЧНО ДОЛГО</b><br>';
                     if ($real_time>1)
-                        echo '<br>(~в '.$real_time.' раз больше.)<br>';
+                        echo '(~в '.$real_time.' раз больше.)<br>';
+                    echo 'Занятое население: '.$arr_res_room_for_work[$i]['men'].'<br>';
                     echo '</span></a></del></p>';
                 }
                 break;

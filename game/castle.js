@@ -1,6 +1,16 @@
 function Clickroom(n){
     $("#get_data_window_modal_1").load("/server/listwork.php?action=listwork&num_room="+n);
 }
+function StartWorkRoom(name, n){
+    $("#get_data_window_modal_1").load("/server/StartWorkRoom.php?action=StartWorkRoom&num_room="+n+"&name="+name);
+}
+function CorrectMenForWork(max_men, sklad_men){
+    value = document.getElementById("men_for_work").value;
+    if (value>sklad_men)
+         document.getElementById('men_to_work_user').innerHTML=sklad_men+"/"+max_men;
+    else
+         document.getElementById('men_to_work_user').innerHTML=value+"/"+max_men;
+}
 function get_info_castle(){
     $("#get_data_window_modal_1").load("/server/get_info_castle.php?action=get_info_castle");
 }

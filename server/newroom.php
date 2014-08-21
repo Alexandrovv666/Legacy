@@ -42,8 +42,16 @@
         }
         $arr_res_new_room = mysql_fetch_array($res_new_room);
         if (($arr_res_castle['gold'] >= $arr_res_new_room['gold']) AND ($arr_res_castle['stone'] >= $arr_res_new_room['stone']) AND ($arr_res_castle['tree'] >= $arr_res_new_room['tree'])) {
+            $VMenForWork = $arr_res_new_room['men'];
+            if ($arr_res_castle['men']<$VMenForWork)
+                $VMenForWork=$arr_res_castle['men'];
+            if ($VMenForWork==0){
+                loging('Попытка строить с помощью 0 рабочих');
+                exit;
+            }
+            $VTimeForWork = floor($arr_res_new_room['default_time'] * ($arr_res_new_room['men']/$VMenForWork));
             F_Transaction();
-            mysql_query('UPDATE `game`.`castle` SET `c_' . $_GET['num_room'] . '_n` = "' . $arr_res_new_room['new'] . '",  `c_' . $_GET['num_room'] . '_1` = "-' . $arr_res_new_room['default_time'] . '", `c_' . $_GET['num_room'] . '_3` = "' . $arr_res_new_room['id'] . '", `gold` = `gold`-' . $arr_res_new_room['gold'] . ', `tree` = `tree`-' . $arr_res_new_room['tree'] . ', `stone` = `stone`-' . $arr_res_new_room['stone'] . ' WHERE `castle`.`id` = "' . F_Get_ID($_COOKIE['login']) . '" and `x`="' . $_COOKIE['X'] . '" and `y`="' . $_COOKIE['Y'] . '" and `z`="' . $_COOKIE['Z'] . '"');
+            SQLQWERY_Log('UPDATE `game`.`castle` SET `c_' . $_GET['num_room'] . '_n` = "' . $arr_res_new_room['new'] . '",  `c_' . $_GET['num_room'] . '_1` = "-' . $VTimeForWork . '", `c_' . $_GET['num_room'] . '_2` = "' . $VMenForWork . '", `c_' . $_GET['num_room'] . '_3` = "' . $arr_res_new_room['id'] . '", `gold` = `gold`-' . $arr_res_new_room['gold'] . ', `tree` = `tree`-' . $arr_res_new_room['tree'] . ', `stone` = `stone`-' . $arr_res_new_room['stone'] . ', `men`=`men`-"'.$VMenForWork.'" WHERE `castle`.`id` = "' . F_Get_ID($_COOKIE['login']) . '" and `x`="' . $_COOKIE['X'] . '" and `y`="' . $_COOKIE['Y'] . '" and `z`="' . $_COOKIE['Z'] . '"');
             echo '<div class="castle-room-'.onlyNoInt($arr_res_new_room['new']).'"></div>
                   <p class="level-room">' . onlyInt($arr_res_new_room['new']) . '</p>
                   <p class="time-room" id="timer' . $_GET['num_room'] . '">' . int_to_time($arr_res_new_room['default_time']) . '</p>';

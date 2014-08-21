@@ -61,17 +61,6 @@ function F_stepen($x, $n){
         $x=$x*$x;
     return $x;
 }
-function F_time_tren($name_room){
-    $res_army_param     = mysql_query('SELECT * FROM `army_baze` WHERE `name`="' . onlyNoInt($name_room) . '"');
-    $arr_res_army_param = mysql_fetch_array($res_army_param);
-    return floor(($arr_res_army_param['time_arb'] * (0.25 - ((onlyInt($name_room)-1)/100))));
-}
-
-function F_time_towork($name_new_room_mysql){
-    $res_room   = mysql_query('SELECT * FROM `haus` WHERE `new_room`="' . $name_new_room_mysql . '"');
-    $arr_room   = mysql_fetch_array($res_room);
-    return ($arr_room['gold']+$arr_room['tree']*10+$arr_room['stone']*30*onlyInt($name_new_room_mysql));
-}
 
 function SQLQWERY_Log($x){
     $res=mysql_query($x);
