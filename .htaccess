@@ -3,10 +3,11 @@ Options -Indexes
 #переадресация
 ErrorDocument 504 https://docs.google.com/drawings/d/1Cg_nZe-Inr9f46rfQppUACzcyrbu-QzABY0gdcDWXOE/edit?usp=sharing
 ErrorDocument 404 /404/
+ErrorDocument 403 https://drive.google.com/folderview?id=0B-u3wP9uuJxtdFk0TTcwVEZlTW8&usp=sharing
 #Секция запрета только нижеперечисленным адресам
 Order Allow,Deny
 Allow from all
-Deny from 81.222.144.12 81.222.144.20
+Deny from 127.0.0.1
 <FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf)$">
 Header set Cache-Control "max-age=2592000"
 </FilesMatch>
