@@ -26,4 +26,4 @@
     }
     mysql_close($linkss);
 ?> 
-<script>setInterval(One, 100)</script>
+<script>setInterval(One, 1000)</script>

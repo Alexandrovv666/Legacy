@@ -24,14 +24,14 @@
     global $Global_array_castle;
     for ($x = 1; $x <= 5; $x++){
         for ($y = 1; $y <= 7; $y++){
+            $name_room = $Global_array_castle['c_'.$num_room.'_n'];
+            $time_room = $Global_array_castle['c_'.$num_room.'_1'];
             echo '<a href="#window_modal_1" onclick="Clickroom('.$num_room.')">';
             echo '<div class="castle-room castle-room-'.$y.'-x castle-room-x-'.$x.'" id="room-'.$num_room.'">';
-            $name_room = $Global_array_castle['room_name_'.$num_room];
             echo '<div class="castle-room-'.onlyNoInt($name_room).'"></div>';
             $level_room = onlyInt($name_room);
             if ($level_room!=0)
                 echo '<p class="level-room">'.onlyInt($name_room).'</p>';
-            $time_room = $Global_array_castle['value_room_'.$num_room];
             echo '<p class="time-room" id="timer'.$num_room.'">'.int_to_time(abs($time_room)).'</p>';
             echo $res;
             echo '</div>';

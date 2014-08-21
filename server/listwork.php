@@ -42,7 +42,10 @@
                 global $Max_level_HAUS;
                 $name_alt_room         = $arr_res_castle['c_' . ($_GET['num_room']) . '_n'];
                 $arr_res_room_for_work = array();
-                $res_room_for_work     = mysql_query('SELECT * FROM haus WHERE ((id mod ' . $Max_level_HAUS . ')=' . (onlyInt($name_alt_room) + 1) . ')');
+                if (onlyInt($name_alt_room)==0)
+                    $res_room_for_work     = mysql_query('SELECT * FROM haus WHERE ((id mod ' . $Max_level_HAUS . ')=' . (onlyInt($name_alt_room) + 1) . ')');
+                else
+                    $res_room_for_work     = mysql_query('SELECT * FROM haus WHERE `new`="' . (onlyNoInt($name_alt_room).(onlyInt($name_alt_room) + 1)).'"');
                 while ($arr_res_room_for_work[] = mysql_fetch_array($res_room_for_work)); {
                 }
                 $count_room_for_work = count($arr_res_room_for_work) - 1;
@@ -69,14 +72,6 @@
                         echo '<font color="red">Камень: ' . $arr_res_room_for_work[$i]['stone'] . '</font><br>';
                     else
                         echo 'Камень: ' . $arr_res_room_for_work[$i]['stone'] . '<br>';
-                    /*
-                    echo '['.$arr_res_room_for_work[$i]['new'].'] Стоимость: <br>';
-                    echo 'gold='.$arr_res_room_for_work[$i]['gold'].'<br>';
-                    echo 'tree='.$arr_res_room_for_work[$i]['tree'].'<br>';
-                    echo 'stone='.$arr_res_room_for_work[$i]['stone'].'<br>';
-                    echo 'men='.$arr_res_room_for_work[$i]['men'].'<br>';
-                    echo 'default_time='.$arr_res_room_for_work[$i]['default_time'].'<br>';
-                    echo '<br>';*/
                     $true_time = $arr_res_room_for_work[$i]['default_time'];
                     $real_time = floor(100/$arr_res_castle['men']/100*$arr_res_room_for_work[$i]['men']);
                     if ($real_time<1)
