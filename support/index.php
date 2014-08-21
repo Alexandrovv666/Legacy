@@ -2,8 +2,6 @@
     include '../FUNC.php';
     $linkss = FConnBase();
     echo '<!DOCTYPE html><title>Техническая поддержка.</title>';
-    if ($EnableChekUser)
-        include '../inc/chek.php';
     echo '<div style="position: absolute; top: 10px; left: 10px">';
     echo '<table border="1" cellpadding="1" width="1200" bgcolor="F0F8F9"><tr><td>Заголовок</td><td width="170">Время получения</td></tr>';
     $res_mail = mysql_query("SELECT * FROM `mail` WHERE (`adresat` =  'Администрация') ORDER BY `mail`.`date` DESC ");

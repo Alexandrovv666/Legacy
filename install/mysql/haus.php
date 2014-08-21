@@ -37,6 +37,36 @@
         mysql_query('INSERT INTO `haus`(`id` ,`new`, `gold`, `tree`, `stone`, `men`, `max_men`, `agold`, `atree`, `astone`, `asklad`, `amen`, `default_time`) VALUES ("'.$V_ID++.'", "'.$V_new.'", "'.$V_gold.'", "'.$V_tree.'", "'.$V_stone.'", "'.$V_men.'", "'.$V_max_men.'", "'.$V_agold.'", "'.$V_atree.'", "'.$V_astone.'", "'.$V_asklad.'", "'.$V_amen.'", "'.$V_default_time.'")');
     }
     for ($i = 1; $i <= $Max_level_HAUS; $i++){
+        $V_new = 'kamen'.$i;
+        $V_gold = $i*$i*20;
+        $V_tree = $i*$i*15;
+        $V_stone = $i*1;
+        $V_men = $i*$i*11;
+        $V_max_men = $i*$i*12;
+        $V_agold = 0;
+        $V_atree = 0;
+        $V_astone = $i*1;
+        $V_asklad = 0;
+        $V_amen = 0;
+        $V_default_time = $i*$i*34;
+        mysql_query('INSERT INTO `haus`(`id` ,`new`, `gold`, `tree`, `stone`, `men`, `max_men`, `agold`, `atree`, `astone`, `asklad`, `amen`, `default_time`) VALUES ("'.$V_ID++.'", "'.$V_new.'", "'.$V_gold.'", "'.$V_tree.'", "'.$V_stone.'", "'.$V_men.'", "'.$V_max_men.'", "'.$V_agold.'", "'.$V_atree.'", "'.$V_astone.'", "'.$V_asklad.'", "'.$V_amen.'", "'.$V_default_time.'")');
+    }
+    for ($i = 1; $i <= $Max_level_HAUS; $i++){
+        $V_new = 'sklad'.$i;
+        $V_gold    = $i*$i*$i*11000;
+        $V_tree    = $i*$i*$i*2000;
+        $V_stone   = $i*$i*$i*400;
+        $V_men     = $i*$i*$i*$i*120;
+        $V_max_men = $i*$i*$i*$i*$i*170;
+        $V_agold = 0;
+        $V_atree = 0;
+        $V_astone = 0;
+        $V_asklad = $i*$i*5000;
+        $V_amen = 0;
+        $V_default_time = $i*$i*$i*600;
+        mysql_query('INSERT INTO `haus`(`id` ,`new`, `gold`, `tree`, `stone`, `men`, `max_men`, `agold`, `atree`, `astone`, `asklad`, `amen`, `default_time`) VALUES ("'.$V_ID++.'", "'.$V_new.'", "'.$V_gold.'", "'.$V_tree.'", "'.$V_stone.'", "'.$V_men.'", "'.$V_max_men.'", "'.$V_agold.'", "'.$V_atree.'", "'.$V_astone.'", "'.$V_asklad.'", "'.$V_amen.'", "'.$V_default_time.'")');
+    }
+    for ($i = 1; $i <= $Max_level_HAUS; $i++){
         $V_new = 'treasury'.$i;
         $V_gold = $i*$i*$i*300000;
         $V_tree = $i*$i*$i*90000;
