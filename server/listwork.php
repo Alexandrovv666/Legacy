@@ -44,16 +44,18 @@
                 $arr_res_room_for_work = array();
                 $res_room_for_work     = mysql_query('SELECT * FROM haus WHERE ((id mod ' . $Max_level_HAUS . ')=' . (onlyInt($name_alt_room) + 1) . ')');
                 while ($arr_res_room_for_work[] = mysql_fetch_array($res_room_for_work)); {
-            }
+                }
                 $count_room_for_work = count($arr_res_room_for_work) - 1;
                 echo '<p>Для строительства доступно:</p>';
                 for ($i = 0; $i < $count_room_for_work; $i++) {
                     echo '<p><a class="tooltip class-link" href="#" onclick="StartWorks(\'' . $arr_res_room_for_work[$i]['new'] . '\', ' . $_GET['num_room'] . ')">';
+                    $res_room_rus  = mysql_query('SELECT * FROM `haus_const` WHERE `name`="' . onlyNoInt($arr_res_room_for_work[$i]['new']) . '"');
+                    $arr_name_room_rus = mysql_fetch_array($res_room_rus);
                     if (($arr_res_castle['gold'] >= $arr_res_room_for_work[$i]['gold']) AND ($arr_res_castle['tree'] >= $arr_res_room_for_work[$i]['tree']) AND ($arr_res_castle['stone'] >= $arr_res_room_for_work[$i]['stone']))
-                        echo onlyNoInt($arr_res_room_for_work[$i]['new']) . ' ' . onlyInt($arr_res_room_for_work[$i]['new']) . ' уровня.';
+                        echo $arr_name_room_rus['name_rus'] . ' ' . onlyInt($arr_res_room_for_work[$i]['new']) . ' уровня.';
                     else
-                        echo '<strike>' . onlyNoInt($arr_res_room_for_work[$i]['new']) . ' ' . onlyInt($arr_res_room_for_work[$i]['new']) . ' уровня.</strike>';
-                    echo '<span class="classic">Требуется ресурсов:<br><b>';
+                        echo '<strike>' . $arr_name_room_rus['name_rus'] . ' ' . onlyInt($arr_res_room_for_work[$i]['new']) . ' уровня.</strike>';
+                    echo '<span class="classic"><i>Описание: </i>'.$arr_name_room_rus['descr_rus'].'<br><br>Требуется ресурсов:<br><b>';
                     if ($arr_res_castle['gold'] < $arr_res_room_for_work[$i]['gold'])
                         echo '<font color="red">Золото: ' . $arr_res_room_for_work[$i]['gold'] . '</font><br>';
                     else

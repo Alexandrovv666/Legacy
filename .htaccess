@@ -1,3 +1,10 @@
+#Добавляем сверхсекретные файлы
+#Для сокрытия пихаем рядом файл PHP))
+AddHandler application/x-httpd-php .security
+#Сжатие
+<ifModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/css text/javascript application/javascript application/x-javascript
+</ifModule>
 #Запрет выдачи листинга каталога
 Options -Indexes
 #переадресация

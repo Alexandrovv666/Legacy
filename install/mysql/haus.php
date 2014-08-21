@@ -71,8 +71,8 @@
     }
     for ($i = 1; $i <= $Max_level_HAUS; $i++) {
         $V_new           = 'sklad' . $i;
-        $V_gold          = $i * $i * $i * 11000;
-        $V_tree          = $i * $i * $i * 2000;
+        $V_gold          = $i * $i * $i * 6000;
+        $V_tree          = $i * $i * $i * 1000;
         $V_stone         = $i * $i * $i * 400;
         $V_men           = $i * $i * $i * $i * 120;
         $V_max_men       = $i * $i * $i * $i * $i * 170;
