@@ -49,17 +49,21 @@
         if ($count_castle > 0)
             for ($num_castle = 0; $num_castle < $count_castle; $num_castle++) {
                 for ($i = 1; $i <= 35; $i++) {
-                    if ($GA_castle[$num_castle]['c_' . $i . '_1'] < 0) {
+                    if ($GA_castle[$num_castle]['c_' . $i . '_1'] < 0){
                         $ID_Room = $GA_castle[$num_castle]['c_' . ($i) . '_3'];
-                        if ($GA_castle[$num_castle]['c_' . $i . '_1'] == -1) {
+                        if ($GA_castle[$num_castle]['c_' . $i . '_1'] == -1){
+                            loging('Постройка комнаты '.$GA_castle[$num_castle]['c_' . $i . '_n'].' завершена.');
+                            loging('Её ИД - '.$ID_Room.' завершена.');
+                            loging('Приростки ДО постройки    : agold '.$GA_castle[$num_castle]['agold'].', atree '.$GA_castle[$num_castle]['atree'].', astone '.$GA_castle[$num_castle]['astone'].', amen '.$GA_castle[$num_castle]['amen'].', men '.$GA_castle[$num_castle]['men'].', maxres '.$GA_castle[$num_castle]['maxres']);
                             if ($ID_Room % $Max_level_HAUS != 1) {
-                                $GA_castle[$num_castle]['agold']   = $GA_castle[$num_castle]['agold'] - $GA_haus[$ID_Room]['agold'];
-                                $GA_castle[$num_castle]['atree']   = $GA_castle[$num_castle]['atree'] - $GA_haus[$ID_Room]['atree'];
-                                $GA_castle[$num_castle]['astone']  = $GA_castle[$num_castle]['astone'] - $GA_haus[$ID_Room]['astone'];
-                                $GA_castle[$num_castle]['amen']    = $GA_castle[$num_castle]['amen'] - $GA_haus[$ID_Room]['amen'];
-                                $GA_castle[$num_castle]['max_men'] = $GA_castle[$num_castle]['max_men'] - $GA_haus[$ID_Room]['max_sklad_men'];
-                                $GA_castle[$num_castle]['maxres']  = $GA_castle[$num_castle]['maxres'] - $GA_haus[$ID_Room]['asklad'];
+                                $GA_castle[$num_castle]['agold']   = $GA_castle[$num_castle]['agold'] - $GA_haus[$ID_Room-2]['agold'];
+                                $GA_castle[$num_castle]['atree']   = $GA_castle[$num_castle]['atree'] - $GA_haus[$ID_Room-2]['atree'];
+                                $GA_castle[$num_castle]['astone']  = $GA_castle[$num_castle]['astone'] - $GA_haus[$ID_Room-2]['astone'];
+                                $GA_castle[$num_castle]['amen']    = $GA_castle[$num_castle]['amen'] - $GA_haus[$ID_Room-2]['amen'];
+                                $GA_castle[$num_castle]['max_men'] = $GA_castle[$num_castle]['max_men'] - $GA_haus[$ID_Room-2]['max_sklad_men'];
+                                $GA_castle[$num_castle]['maxres']  = $GA_castle[$num_castle]['maxres'] - $GA_haus[$ID_Room-2]['asklad'];
                             }
+                            loging('Приростки увеличиваются НА: agold '.$GA_haus[$ID_Room-1]['agold'].', atree '.$GA_haus[$ID_Room-1]['atree'].', astone '.$GA_haus[$ID_Room-1]['astone'].', amen '.$GA_haus[$ID_Room-1]['amen'].', men '.$GA_castle[$num_castle]['c_' . $i . '_2'].', maxres '.$GA_haus[$ID_Room-1]['maxres']);
                             $GA_castle[$num_castle]['agold']          = $GA_castle[$num_castle]['agold'] + $GA_haus[$ID_Room-1]['agold'];
                             $GA_castle[$num_castle]['atree']          = $GA_castle[$num_castle]['atree'] + $GA_haus[$ID_Room-1]['atree'];
                             $GA_castle[$num_castle]['astone']         = $GA_castle[$num_castle]['astone'] + $GA_haus[$ID_Room-1]['astone'];
@@ -68,9 +72,14 @@
                             $GA_castle[$num_castle]['maxres']         = $GA_castle[$num_castle]['maxres'] + $GA_haus[$ID_Room-1]['asklad'];
                             $GA_castle[$num_castle]['men']            = $GA_castle[$num_castle]['men'] + $GA_castle[$num_castle]['c_' . $i . '_2'];
                             $GA_castle[$num_castle]['c_' . $i . '_2'] = 0;
+                            loging('Приростки ПОСЛЕ постройки : agold '.$GA_castle[$num_castle]['agold'].', atree '.$GA_castle[$num_castle]['atree'].', astone '.$GA_castle[$num_castle]['astone'].', amen '.$GA_castle[$num_castle]['amen'].', men '.$GA_castle[$num_castle]['men'].', maxres '.$GA_castle[$num_castle]['maxres']);
                         }
                         $GA_castle[$num_castle]['c_' . $i . '_1'] = $GA_castle[$num_castle]['c_' . $i . '_1'] + 1;
                     }
+                    if ($GA_castle[$num_castle]['c_' . $i . '_1'] == 0){}
+                    if ($GA_castle[$num_castle]['c_' . $i . '_1'] > 0){
+                    }
+
                 }
                 $summ_jalovan_army = 0;
                 for ($i = 1; $i <= 8; $i++) {

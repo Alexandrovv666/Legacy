@@ -35,6 +35,8 @@ function timers_room(){
         if (document.getElementById("timer"+i)){
             var perem=document.getElementById("timer"+i).innerHTML;
             if (perem!=''){
+                if (perem=='--:--:--:--')
+                    continue;
                 var arr = perem.split(':');
                 arr[3] = arr[3] - 1;
                 if (arr[3] < 0){

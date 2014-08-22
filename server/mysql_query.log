@@ -1,0 +1,2 @@
+UPDATE `game`.`castle` SET `c_1_n` = "lavka2",  `c_1_1` = "-164", `c_1_2` = "32", `c_1_3` = "2", `gold` = `gold`-16, `tree` = `tree`-40, `stone` = `stone`-16, `men`=`men`-"32" WHERE `castle`.`id` = "1" and `x`="74" and `y`="61" and `z`="59"
+UPDATE `game`.`castle` SET `c_2_n` = "lavka2",  `c_2_1` = "-583", `c_2_2` = "9", `c_2_3` = "2", `gold` = `gold`-16, `tree` = `tree`-40, `stone` = `stone`-16, `men`=`men`-"9" WHERE `castle`.`id` = "1" and `x`="74" and `y`="61" and `z`="59"

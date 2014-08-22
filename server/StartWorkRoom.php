@@ -29,7 +29,7 @@
             exit;
         }
         if (!Chek_string_of_mask($_GET['name'], $C_Text_noSpace.$C_Numberic)) {
-            loging('get параметр name не прошёл валидацию.');
+            loging('get параметр name не прошёл валидацию: "'.$_GET['name'].'"');
             exit;
         }
         echo '<META http-equiv="content-type" content="text/html; charset=windows-1251">';
@@ -60,9 +60,8 @@
                         $VarMen=$arr_res_castle['men'];
                     echo '<br><input type=range min=0 max='.$arr_res_room_for_work['men'].' value='.$VarMen.' id="men_for_work" oninput="CorrectMenForWork('.$arr_res_room_for_work['men'].','.$arr_res_castle['men'].')"><br>';
                     echo '<p id="men_to_work_user">'.$VarMen.'/'.$arr_res_room_for_work['men'].'</p><br>';
-
+                    echo '<a class="tooltip class-link" href="#" onclick="StartWorks(\''.$_GET['name'].'\','.$_GET['num_room'].')">Начать стройку!</a><br>';
     }
     FClose_mysql_connect($mysql_connect);
-
 
 ?>

@@ -4,12 +4,18 @@ function Clickroom(n){
 function StartWorkRoom(name, n){
     $("#get_data_window_modal_1").load("/server/StartWorkRoom.php?action=StartWorkRoom&num_room="+n+"&name="+name);
 }
+function StartWorks(name, n){
+    var men = document.getElementById("men_for_work").value;
+    $("#room-"+n).load("/server/newroom.php?action=newroom&num_room="+n+"&namenewroomroom="+name+"&men="+men);
+    resetWindowArb();
+    loadXMLDoc("get_time_work_room", 0);
+}
 function CorrectMenForWork(max_men, sklad_men){
     value = document.getElementById("men_for_work").value;
     if (value>sklad_men)
-         document.getElementById('men_to_work_user').innerHTML=sklad_men+"/"+max_men;
+         document.getElementById('men_to_work_user').innerHTML=sklad_men+" / "+max_men;
     else
-         document.getElementById('men_to_work_user').innerHTML=value+"/"+max_men;
+         document.getElementById('men_to_work_user').innerHTML=value+" / "+max_men;
 }
 function get_info_castle(){
     $("#get_data_window_modal_1").load("/server/get_info_castle.php?action=get_info_castle");
@@ -19,10 +25,6 @@ function GetUnits(n){
     var y1=get_cookie('Y');
     var z1=get_cookie('Z');
     $("#timer"+n).load("/server/getUnits.php?action=getUnits&num_room="+n);
-    resetWindowArb();
-}
-function StartWorks(name_new_room, n){
-    $("#room-"+n).load("/server/newroom.php?action=newroom&num_room="+n+"&namenewroomroom="+name_new_room);
     resetWindowArb();
 }
 function donat_work(n){

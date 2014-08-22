@@ -32,11 +32,13 @@
         $res_castle     = mysql_query('SELECT * FROM `castle` WHERE `x`="' . $_COOKIE['X'] . '" AND `y`="' . $_COOKIE['Y'] . '" AND `z`="' . $_COOKIE['Z'] . '" and `id`="' . F_Get_ID($_COOKIE['login']) . '"');
         $arr_res_castle = mysql_fetch_array($res_castle);
         switch (true) {
-            case ($arr_res_castle['c_' . $_GET['num_room'] . '_1'] < 0):
+            case ($arr_res_castle['c_' . $_GET['num_room'] . '_1'] != 0):
+                $name_room     = $arr_res_castle['c_' . ($_GET['num_room']) . '_n'];
+                $arr_res_room = mysql_fetch_array(mysql_query('SELECT * FROM haus WHERE `new`="' . ($name_room).'"'));
                 echo '<p>комната строится.</p><p>**Завершить строительство за <a class="tooltip" href="#" onclick="donat_work(' . $_GET['num_room'] . ')">' . $Cost_work_money_speed . '<span class="classic">После оплаты услуги с Вашего счёта спишется ' . $Cost_work_money_speed . ' алмазов.<br>При этом строительство окончится мгновенно.</span></a> алмазов.</p>';
-                break;
-            case ($arr_res_castle['c_' . $_GET['num_room'] . '_1'] > 0):
-                echo "Что-то заказано";
+                echo '<br><input type=range min=0 max='.$arr_res_room['max_men'].' value='.$arr_res_castle['c_' . $_GET['num_room'] . '_2'].' id="men_for_work" oninput="CorrectMenForWork('.$arr_res_room['max_men'].','.floor($arr_res_castle['men']).')"><br>';
+                echo '<p id="men_to_work_user">'.floor($arr_res_castle['c_' . $_GET['num_room'] . '_2']).' / '.$arr_res_room['max_men'].'</p><br>';
+                echo '<a href="#" onclick="ChangeMen('.$_GET['num_room'].')">Принять</a><br>';
                 break;
             case ($arr_res_castle['c_' . $_GET['num_room'] . '_1'] == 0):
                 global $Max_level_HAUS;
@@ -67,23 +69,11 @@
                         echo '<font color="red">Дерево: ' . $arr_res_room_for_work[$i]['tree'] . '</font><br>';
                     else
                         echo 'Дерево: ' . $arr_res_room_for_work[$i]['tree'] . '<br>';
-                    
                     if ($arr_res_castle['gold'] < $arr_res_room_for_work[$i]['gold'])
                         echo '<font color="red">Камень: ' . $arr_res_room_for_work[$i]['stone'] . '</font><br>';
                     else
                         echo 'Камень: ' . $arr_res_room_for_work[$i]['stone'] . '<br>';
-                    $true_time = $arr_res_room_for_work[$i]['default_time'];
-                    if ($arr_res_castle['men']!=0){
-                        $real_time = floor(100/$arr_res_castle['men']/100*$arr_res_room_for_work[$i]['men']);
-                        if ($real_time<1)
-                            $real_time=1;
-                        echo '</b>Время строительста: <b>' . int_to_time($arr_res_room_for_work[$i]['default_time']*$real_time) . '</b><br>';
-                    }else
-                        echo '</b>Время строительста: <b>БЕСКОНЕЧНО ДОЛГО</b><br>';
-                    if ($real_time>1)
-                        echo '(~в '.$real_time.' раз больше.)<br>';
-                    echo 'Занятое население: '.$arr_res_room_for_work[$i]['men'].'<br>';
-                    echo '</span></a></del></p>';
+                    echo '</b>Время строительста: <b>' . int_to_time($arr_res_room_for_work[$i]['default_time']) . '</b><br>';
                 }
                 break;
         }

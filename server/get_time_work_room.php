@@ -32,11 +32,15 @@
         $arr_res_castle = mysql_fetch_array($res_castle);
         echo 'ok';
         for ($i = 1; $i <= 35; $i++) {
+            if ($arr_res_castle['c_'.$i.'_1']<=0){
             $time_to_work   = abs($arr_res_castle['c_'.$i.'_1']);
-            if ($time_to_work != 0)
-                echo '|'.int_to_time($time_to_work);
-            else
-                echo '|0:0:0:0';
+                if ($time_to_work != 0)
+                    echo '|'.int_to_time($time_to_work);
+                else
+                    echo '|0:0:0:0';
+            }
+            if ($arr_res_castle['c_'.$i.'_1']>0)
+                echo '|--:--:--:--';
         }
         $Global_array_res_Junits_param = array();
         $res_Junits_param              = mysql_query('SELECT * FROM `army_baze`');
