@@ -150,18 +150,4 @@
             echo '|'.$arr_res_castle['army_'.$i];
     }
     FClose_mysql_connect($mysql_connect);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

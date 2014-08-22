@@ -11,7 +11,7 @@
         $V_tree          = $i * $i * 10;
         $V_stone         = $i * $i * 4;
         $V_men           = $i * $i * 8;
-        $V_max_men       = $i * $i * 15;
+        $V_max_men       = $V_men+5;
         $V_max_sklad_men = 0;
         $V_agold         = $i * 20;
         $V_atree         = 0;
@@ -27,7 +27,7 @@
         $V_tree          = $i * 4;
         $V_stone         = $i * $i * 2;
         $V_men           = $i * $i * 12;
-        $V_max_men       = $i * $i * 13;
+        $V_max_men       = $V_men+5;
         $V_max_sklad_men = 0;
         $V_agold         = 0;
         $V_atree         = $i * 5;
@@ -43,7 +43,7 @@
         $V_tree          = $i * $i * 15;
         $V_stone         = $i * 1;
         $V_men           = $i * $i * 11;
-        $V_max_men       = $i * $i * 12;
+        $V_max_men       = $V_men+5;
         $V_max_sklad_men = 0;
         $V_agold         = 0;
         $V_atree         = 0;
@@ -59,7 +59,7 @@
         $V_tree          = $i * $i * 100;
         $V_stone         = $i * $i * 20;
         $V_men           = $i * $i * 64;
-        $V_max_men       = $i * $i * 70;
+        $V_max_men       = $V_men+5;
         $V_max_sklad_men = $i * $i * 200;
         $V_agold         = 0;
         $V_atree         = 0;

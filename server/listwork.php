@@ -36,9 +36,23 @@
                 $name_room     = $arr_res_castle['c_' . ($_GET['num_room']) . '_n'];
                 $arr_res_room = mysql_fetch_array(mysql_query('SELECT * FROM haus WHERE `new`="' . ($name_room).'"'));
                 echo '<p>комната строится.</p><p>**Завершить строительство за <a class="tooltip" href="#" onclick="donat_work(' . $_GET['num_room'] . ')">' . $Cost_work_money_speed . '<span class="classic">После оплаты услуги с Вашего счёта спишется ' . $Cost_work_money_speed . ' алмазов.<br>При этом строительство окончится мгновенно.</span></a> алмазов.</p>';
-                echo '<br><input type=range min=0 max='.$arr_res_room['max_men'].' value='.$arr_res_castle['c_' . $_GET['num_room'] . '_2'].' id="men_for_work" oninput="CorrectMenForWork('.$arr_res_room['max_men'].','.floor($arr_res_castle['men']).')"><br>';
-                echo '<p id="men_to_work_user">'.floor($arr_res_castle['c_' . $_GET['num_room'] . '_2']).' / '.$arr_res_room['max_men'].'</p><br>';
-                echo '<a href="#" onclick="ChangeMen('.$_GET['num_room'].')">Принять</a><br>';
+                $VarMen = floor($arr_res_castle['c_' . $_GET['num_room'] . '_2']);
+                $V_MaxMenToWorkOfCastle = $arr_res_castle['c_' . $_GET['num_room'] . '_2']+$arr_res_castle['men'];
+                echo '<br><input type=range min=0 max='.$arr_res_room['max_men'].' value='.$VarMen.' id="men_for_work" oninput="CorrectMenForWorkCH('.$arr_res_room['max_men'].','.floor($arr_res_castle['men']).','.$VarMen.')"><br>';
+                echo '<p id="men_to_work_user">'.$VarMen.' / '.$arr_res_room['max_men'].'</p><br>';
+                echo '[<a class="tooltip class-link" href="#" onclick="StartWorks(\''.$_GET['name'].'\','.$_GET['num_room'].')">Начать стройку!</a>]<br>';
+                echo 'Будет отправлено <p id="to_works">'.($VarMen).'</p> народу<br>';
+                echo '<p class="small-text">Можно отправить НЕ БОЛЕЕ '.floor($V_MaxMenToWorkOfCastle).'</p><br>';
+
+
+
+
+
+
+
+
+
+
                 break;
             case ($arr_res_castle['c_' . $_GET['num_room'] . '_1'] == 0):
                 global $Max_level_HAUS;
