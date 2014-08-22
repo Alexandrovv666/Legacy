@@ -1,4 +1,8 @@
 /*                     GENERAL*/
+*{
+  margin: 0;
+  padding: 0;
+}
 a{
   color: #888;
   text-decoration: none;
@@ -45,7 +49,7 @@ a:active{
 
 #almaz{
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 10px;
 }
 #almaz:hover{
@@ -54,8 +58,11 @@ a:active{
 
 .panel-left-navigation{
   position: absolute;
-  top: calc(100% - 300px);
-  left: 10px;
+  top: calc(100% - 220px);
+  left: 5px;
+}
+.panel-left-navigation-element{
+  padding: 5px;
 }
 .panel-left-navigation-element:hover{
   color: #FFF;
@@ -75,22 +82,13 @@ a:active{
 
 .panel-up-resoorsed{
   position: absolute;
-  top: 3px;
+  top: 20px;
   left: 100px;
   width: 700px;
   height: 30px;
  }
-.panel-up-resoorsed:hover{
-  background: #955;
-  width: 700px;
-  height: 30px;
-}
-
 .panel-up-resoorsed-element{
   color: #FFF;
-}
-.panel-up-resoorsed-element:hover{
-  color: #000;
 }
 #gold{
   position: absolute;
@@ -114,7 +112,7 @@ a:active{
 }
 .panel-up-navigation{
   position: absolute;
-  top: -9px;
+  top: 6px;
   left: 30px;
 }
 #name-castle{
@@ -276,21 +274,18 @@ a:active{
   width: 55px;
   height: 65px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.small-text{
+  Font-Size: 0.8em;
+  color: #777777;
+}
+.normal-text{
+  Font-Size: 1em;
+}
+.big-text{
+  Font-Size: 1.1em;
+  position: relative;
+  top: -2px;
+}
 
 
 

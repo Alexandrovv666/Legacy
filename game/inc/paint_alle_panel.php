@@ -7,7 +7,7 @@
     echo '  </div>';
     if ($_COOKIE['ort'] == 'castle'){
         global $Global_array_castle;
-        echo '  <div class="panel-up-resoorsed">';
+        echo '  <div class="panel-up-resoorsed normal-text">';
         echo '    <p id="gold" class="panel-up-resoorsed-element">'.floor($Global_array_castle['gold']).'</p>';
         echo '    <p id="tree" class="panel-up-resoorsed-element">'.floor($Global_array_castle['tree']).'</p>';
         echo '    <p id="stone" class="panel-up-resoorsed-element">'.floor($Global_array_castle['stone']).'</p>';

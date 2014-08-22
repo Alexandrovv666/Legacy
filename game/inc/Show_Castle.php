@@ -31,7 +31,7 @@
             echo '<div class="castle-room-'.onlyNoInt($name_room).'"></div>';
             $level_room = onlyInt($name_room);
             if ($level_room!=0)
-                echo '<p class="level-room">'.onlyInt($name_room).'</p>';
+                echo '<p class="level-room normal-text">'.onlyInt($name_room).'</p>';
             echo '<p class="time-room" id="timer'.$num_room.'">';
             if ($time_room<0) echo int_to_time(abs($time_room));
             if ($time_room>0) echo '--:--:--:--';

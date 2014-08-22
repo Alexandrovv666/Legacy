@@ -11,8 +11,8 @@
     mysql_set_charset("CP1251");
     mysql_query("CREATE TABLE IF NOT EXISTS `kast` (`x` int(11) NOT NULL, `y` int(11) NOT NULL, `z` int(11) NOT NULL, `id_ziel` int(11) NOT NULL, `id_kast` int(11) NOT NULL, `time_start` int(11) NOT NULL, `time_end` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
     mysql_query("CREATE TABLE IF NOT EXISTS `haus` (`id` int(11) NOT NULL, `new` text NOT NULL, `gold` int(11) NOT NULL, `tree` int(11) NOT NULL, `stone` int(11) NOT NULL, `men` int(11) NOT NULL, `max_men` int(11) NOT NULL, `max_sklad_men` int(11) NOT NULL, `agold` int(11) NOT NULL, `atree` int(11) NOT NULL, `astone` int(11) NOT NULL, `asklad` int(11) NOT NULL, `amen` int(11) NOT NULL, `default_time` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;");
-    mysql_query("CREATE TABLE IF NOT EXISTS `settings` (`id` int(11) NOT NULL AUTO_INCREMENT, `name_parametr` varchar(10) NOT NULL, `Value` int(11) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;");
-    mysql_query("INSERT INTO `settings` (`name_parametr`, `Value`) VALUES ('timers', '".time()."'),('work', 0);");
+    mysql_query("CREATE TABLE IF NOT EXISTS `settings` (`id` int(11) NOT NULL AUTO_INCREMENT, `name_parametr` varchar(15) NOT NULL, `Value` int(11) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;");
+    mysql_query("INSERT INTO `settings` (`name_parametr`, `Value`) VALUES ('timers', '".time()."'),('work', '0'),('TRANSACTION', 0);");
     mysql_query("CREATE TABLE IF NOT EXISTS `users` (`id` int(11) NOT NULL AUTO_INCREMENT, `login` text NOT NULL, `password` text NOT NULL, `reg_time` int(11) NOT NULL, `almaz` float NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;");
     mysql_query("ALTER TABLE `users` MODIFY COLUMN `id` INT AUTO_INCREMENT;");
     mysql_query("CREATE TABLE IF NOT EXISTS `session` (`time` int(11) NOT NULL, `login` varchar(20) NOT NULL, `status` int(11) NOT NULL, `ip` varchar(15) NOT NULL, `session` varchar(30) NOT NULL, `user_agent` varchar(200) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;");

@@ -69,7 +69,7 @@
                         echo '<font color="red">Дерево: ' . $arr_res_room_for_work[$i]['tree'] . '</font><br>';
                     else
                         echo 'Дерево: ' . $arr_res_room_for_work[$i]['tree'] . '<br>';
-                    if ($arr_res_castle['gold'] < $arr_res_room_for_work[$i]['gold'])
+                    if ($arr_res_castle['stone'] < $arr_res_room_for_work[$i]['stone'])
                         echo '<font color="red">Камень: ' . $arr_res_room_for_work[$i]['stone'] . '</font><br>';
                     else
                         echo 'Камень: ' . $arr_res_room_for_work[$i]['stone'] . '<br>';

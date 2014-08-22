@@ -89,7 +89,7 @@ function One(x){
         timer = 0;
     timers_room();
     if (get_cookie('ort').indexOf('castle') + 1){
-        if (timer % 20 == 1)
+        if (timer % 30 == 1)
             loadXMLDoc("get_time_work_room", 0);
     }
 
