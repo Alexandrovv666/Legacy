@@ -65,9 +65,15 @@ margin: 20px 0 0 0;
   left: 10px;
   top: -10px;
 }
-
+#path{
+  position: absolute;
+  width: 900px;
+  left: 60px;
+  top: -80px;
+  font-size: 1.3em;
+}
 #content{
   position: absolute;
   left: 130px;
-  top: 100px;
+  top: 150px;
 }

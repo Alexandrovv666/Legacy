@@ -1,7 +1,7 @@
 <?//PEAR style
-    include 'API.php';
-    global $C_MySQL_Host, $C_MySQL_login;
-    $link = mysql_connect($C_MySQL_Host, $C_MySQL_login, "");
+    include $_SERVER['DOCUMENT_ROOT'].'/_constant/mysql.php';
+    global $C_MySQL_Host, $C_MySQL_login, $C_MySQL_Password;
+    $link = mysql_connect($C_MySQL_Host, $C_MySQL_login, $C_MySQL_Password);
     if (!mysql_select_db("game", $link))
         if (mysql_errno($link) == 1049){
             header("Location: install/mysql/table.php");

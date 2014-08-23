@@ -1,4 +1,6 @@
 <?
+    include $_SERVER['DOCUMENT_ROOT'].'/_constant/char.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/processe_data.php';
     global $C_Text_noSpace, $C_Numberic;
     if (!Chek_string_of_mask($_COOKIE['login'],($C_Numberic.$C_Text_noSpace))){
         header("Location: /index.php");
@@ -12,7 +14,4 @@
         header("Location: /index.php");
         exit;
     }
-
-
-
 ?>

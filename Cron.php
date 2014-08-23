@@ -1,11 +1,13 @@
 <?php
-    include 'API.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/_constant/cron.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/network.php';
     Only_Local_IP();
-    $links = FConnBase();
+    $links = F_Connect_MySQL();
     F_TranzationUp();
     $micro_time = microtime(true);
     echo 'Transaction is up.<br>';
-    global $Max_X_map, $Max_Y_map, $Wait_to_startCron, $Max_worket_time, $AverageCountLager, $FASTER, $MaxTimeWorkCron, $Max_level_HAUS;
+    global $Max_X_map, $Max_Y_map, $Wait_to_startCron, $AverageCountLager, $FASTER, $MaxTimeWorkCron, $Max_level_HAUS;
     echo '<META http-equiv="content-type" content="text/html; charset=windows-1251"><script language = \'javascript\'> var delay = ' . $Wait_to_startCron . '; setTimeout("document.location.href=\'Cron.php\'", delay);</script>';
     $arr_res_work = mysql_fetch_array(mysql_query('SELECT Value FROM `settings` WHERE `name_parametr` = "work"'));
     $work         = $arr_res_work['Value'];

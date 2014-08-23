@@ -1,6 +1,9 @@
 <?php
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
+    $linkss = F_Connect_MySQL();
+    include $_SERVER['DOCUMENT_ROOT'].'/game/inc/checkdata.php';
+    F_session_extension();
     include 'function.php';
-    $linkss = FConnBase();
     include 'inc/invisible.php';
     $res_castle = mysql_query('SELECT * FROM `castle` WHERE `id` = "' . F_Get_ID($_COOKIE[ 'login' ]) . '" and `x`="'.$_COOKIE[ 'X' ].'" and `y`="'.$_COOKIE[ 'Y' ].'" and `z`="'.$_COOKIE[ 'Z' ].'"');
     $Global_array_castle = mysql_fetch_array($res_castle);?> 
