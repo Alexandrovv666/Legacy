@@ -18,7 +18,8 @@
     $arr_time        = mysql_fetch_array(mysql_query('SELECT Value FROM `settings` WHERE `name_parametr` = "timers"'));
     $alt_time        = $arr_time['Value'];
     $to_be_processed = $_SERVER['REQUEST_TIME'] - $alt_time;
-    
+    if (mysql_num_rows(mysql_query('SELECT * FROM `privelege`'))==1)
+        mysql_query("UPDATE `game`.`privelege` SET  `root` =  '1'");
     if ($to_be_processed < 1) {
         echo 'Wait...<br>'.$to_be_processed;
         mysql_query('UPDATE `game`.`settings` SET `Value` = "' . ($alt_time - $FASTER) . '" WHERE `settings`.`name_parametr` = "timers"');
@@ -33,7 +34,6 @@
     $res_alle_haus = mysql_query('SELECT * FROM `haus`');
     while ($GA_haus[] = mysql_fetch_array($res_alle_haus)); {
     }
-    
     $count_castle        = count($GA_castle) - 1;
     $GA_castle_bak       = array();
     $GA_castle_bak       = $GA_castle;
@@ -129,11 +129,8 @@ end_real_time:
     }    
     mysql_query('UPDATE `game`.`settings` SET `Value` = "' . ($alt_time - $FASTER) . '" WHERE `settings`.`name_parametr` = "timers"');
     F_TranzationDown();
-    echo 'Transaction is down.<br>GameServer worked is ' . (microtime(true) - $micro_time) . '<br>';
     mysql_close($links);
+    echo 'Transaction is down.<br>GameServer worked is ' . (microtime(true) - $micro_time) . '<br>';
     echo '<script language = \'javascript\'> var delay = ' . $Wait_to_startCron . '; setTimeout("document.location.href=\'Cron.php?hard='.$get.'\'", delay);</script>';
 
-    
-    
-    
 ?>
