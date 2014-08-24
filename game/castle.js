@@ -48,26 +48,61 @@ function CorrectMenForWork(max_men_of_room, max_men_in_castle){
     }
 }
 
-function CorrectMenForWorkCH(max_men_of_room, max_men_in_castle, DELTA){
-    var value = (document.getElementById("men_for_work").value);
-    if (value>max_men_in_castle){
-        document.getElementById('men_to_work_user').innerHTML=max_men_in_castle+" / "+max_men_of_room;
-        document.getElementById('to_works').innerHTML=max_men_in_castle-DELTA;
+function CorrectMenForWorkCH(max_men_of_room, max_men_in_castle, worked){
+    var range_people_at_work = (+(document.getElementById("range_people_at_work").value));
+    var will_to_work = range_people_at_work - worked;
+    if (will_to_work>max_men_in_castle){
+        document.getElementById('will_men_to_work').innerHTML=max_men_in_castle+" из "+max_men_of_room;
+        document.getElementById('add_to_works').innerHTML=max_men_in_castle;
     }else{
-        document.getElementById('men_to_work_user').innerHTML=value+" / "+max_men_of_room;
-        document.getElementById('to_works').innerHTML=value-DELTA;
+        document.getElementById('will_men_to_work').innerHTML=(worked + will_to_work)+" из "+max_men_of_room;
+        document.getElementById('add_to_works').innerHTML=will_to_work;
     }
 }
-
-
 
 function get_info_castle(){
     $("#get_data_window_modal_1").load("/server/get_info_castle.php?action=get_info_castle");
 }
 
 function ChangeMen(num_room){
-    var men = document.getElementById("men_for_work").value;
-    $("#get_data_window_modal_1").load("/server/change.php?action=change&men="+men+"&num_room="+num_room);
+    var men = document.getElementById("add_to_works").innerHTML;
+$.ajax({
+   url: "/server/change.php?action=change&men="+men+"&num_room="+num_room,
+   type: 'get',
+   success: function(getdata){
+      var perem = getdata.split('|');
+      if  (perem[0]=='ok'){
+         for (var i = 1; i <= 35; i++){
+            if (perem[i]!="0:0:0:0"){
+               var arr = perem[i].split(':');
+                  document.getElementById("timer"+i).innerHTML=arr[0]+":"+arr[1]+":"+arr[2]+":"+arr[3];
+               }else
+                  document.getElementById("timer"+i).innerHTML="";
+        }
+        document.getElementById("gold").innerHTML  =perem[36];
+        document.getElementById("tree").innerHTML  =perem[37];
+        document.getElementById("stone").innerHTML =perem[38];
+        document.getElementById("men").innerHTML   =perem[39];
+        document.getElementById('arm1').innerHTML  =perem[40];
+        document.getElementById('arm2').innerHTML  =perem[41];
+        document.getElementById('arm3').innerHTML  =perem[42];
+        document.getElementById('arm4').innerHTML  =perem[43];
+        document.getElementById('arm5').innerHTML  =perem[44];
+        document.getElementById('arm6').innerHTML  =perem[45];
+        document.getElementById('arm7').innerHTML  =perem[46];
+        document.getElementById('arm8').innerHTML  =perem[47];
+        document.getElementById("room-"+n).innerHTML  =perem[48];
+      }
+   }
+});
+
+
+
+
+
+
+
+
 }
 function GetUnits(n){
     var x1=get_cookie('X');

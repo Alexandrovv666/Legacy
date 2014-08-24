@@ -1,6 +1,12 @@
 <div id="content">
 <?
-    switch ($_GET['ort']) {
+    include $_SERVER['DOCUMENT_ROOT'].'/_constant/adminka.php';
+    global $c_array_adminka_location;
+    if (in_array($_GET['location']), $c_array_adminka_location){
+        loging('Игрок "'.$_COOKIE['login'].'" вручную писал get-запрос location');
+        exit;
+    }
+    switch ($_GET['location']) {
         case 'Player':
             include $_SERVER['DOCUMENT_ROOT'].'/adminka/site/switch/Player.php';
             break;

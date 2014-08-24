@@ -14,17 +14,17 @@
     </div>
     <div id="bottom2" class="bottom">
       <p class="bottom-text">
-        <a href="index.php?ort=Player">Игроки</a>
+        <a href="index.php?location=Player">Игроки</a>
       </p>
     </div>
     <div id="bottom3" class="bottom">
       <p class="bottom-text">
-        <a href="index.php?ort=1">*</a>
+        <a href="index.php?location=support">Саппорт</a>
       </p>
     </div>
     <div id="bottom4" class="bottom">
       <p class="bottom-text">
-        <a href="index.php?ort=exit">Выход</a>
+        <a href="index.php?location=exit">Выход</a>
       </p>
     </div>
   </div>

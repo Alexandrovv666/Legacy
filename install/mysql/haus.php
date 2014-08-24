@@ -1,6 +1,9 @@
 <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/API.php';
-    $mysql_connect = FConnBase();
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/_constant/gameserver.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/network.php';
+    Only_Local_IP();
+    $mysql_connect = F_Connect_MySQL();
     echo 'Step 2. Create MySQL lines for haus in table.<br>';
     global $Max_level_HAUS;
     //*************************

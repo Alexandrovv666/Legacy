@@ -23,15 +23,10 @@
     <a href="Liz.php">Лицензионное соглашение</a>
   </div>';
 <?
-    if ( $_GET[ 'game' ] == 'register' ){
-        echo '<div id="inputs"><a href="index.php">АВТОРИЗАЦИЯ</a></div>';
-        global $ebableRegistration;
-        if ($ebableRegistration)
-            echo'<form action="Reg.php" method="post"><div id="pole-login">Логин:<br><input type="text" name="login"/></div><div id="pole-password">Пароль:<br><input type="password" name="password"/></div><div id="input-reg"><input type="submit" value="Зарегистрироваться!" name="Tma"/></div></form>';
-    }
-    else{
+    if ( $_GET[ 'game' ] == 'register' )
+        echo '<div id="inputs"><a href="index.php">АВТОРИЗАЦИЯ</a></div><form action="Reg.php" method="post"><div id="pole-login">Логин:<br><input type="text" name="login"/></div><div id="pole-password">Пароль:<br><input type="password" name="password"/></div><div id="input-reg"><input type="submit" value="Зарегистрироваться!" name="Tma"/></div></form>';
+    else
         echo '<div id="inputs"><a href="index.php?game=register&window=ok">РЕГИСТРАЦИЯ</a></div><div id="pole-login">Логин:<br><input type="text" name="login" id="login"/></div><div id="pole-password">Пароль:<br><input type="password" name="password" id="password"/></div><div id="input-enter" onclick="start_aut();">Войти</div>';
-    }
 ?>
 </div><div id="get"></div>
 <a href="adminka/" id="hidden-aut">Run</a>

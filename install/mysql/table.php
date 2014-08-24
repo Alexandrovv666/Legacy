@@ -2,8 +2,10 @@
 /*
 Создание базовых таблиц. Все таблицы создаются с движком InnoDB
 */
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/network.php';
+    Only_Local_IP();
     echo 'Step 1. Create MySQL Database and tables.<br>';
-    include $_SERVER['DOCUMENT_ROOT'].'/API.php';
     global $C_MySQL_Host, $C_MySQL_login;
     $link = mysql_connect($C_MySQL_Host, $C_MySQL_login, "");
     mysql_query('CREATE DATABASE IF NOT EXISTS `game` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;');
@@ -38,7 +40,7 @@
         $qwery .= ' ADD COLUMN `c_'.($i).'_1` int(11) NOT NULL,';
         $qwery .= ' ADD COLUMN `c_'.($i).'_2` int(11) NOT NULL,';
         $qwery .= ' ADD COLUMN `c_'.($i).'_3` int(11) NOT NULL,';
-        $qwery .= ' ADD COLUMN `c_'.($i).'_4` int(11) NOT NULL,';
+        $qwery .= ' ADD COLUMN `c_'.($i).'_4` double NOT NULL,';
         $qwery .= ' ADD COLUMN `c_'.($i).'_5` int(11) NOT NULL,';
         $qwery .= ' ADD COLUMN `c_'.($i).'_6` int(11) NOT NULL,';
         $qwery .= ' ADD COLUMN `c_'.($i).'_7` int(11) NOT NULL,';
@@ -46,7 +48,7 @@
     }
     mysql_query(substr($qwery, 0, strlen($qwery)-1));
     mysql_query("CREATE TABLE IF NOT EXISTS `haus_const` (`name` text NOT NULL, `name_rus` text NOT NULL, `descr_rus` text NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
-    FClose_mysql_connect($link);
+    mysql_close($link);
     echo 'Step 1 is Finish.<br>';
     echo 'Wait 3 second for start step 2.<br>';
     echo '<html><head><meta http-equiv=Refresh content="3; url=haus.php"></head></html>';

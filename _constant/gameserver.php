@@ -8,4 +8,5 @@ $Max_X_map          = 100;
 $Max_Y_map          = 70;
 //Среднее количество лагерей на 1 королевство
 $AverageCountLager  = 5;
+$Max_level_HAUS = 50;
 ?>

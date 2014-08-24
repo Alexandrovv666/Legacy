@@ -1,6 +1,7 @@
 <?php
     include $_SERVER['DOCUMENT_ROOT'].'/_constant/gameserver.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/_constant/char.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/processe_data.php';
     $login    = $_POST['login'];
     $password = $_POST['password'];
@@ -13,7 +14,7 @@
         echo 'Логин некорректен';
         exit;
     }
-    $linkss = FConnBase();
+    $mysql_connect = F_Connect_MySQL();
     if (F_login_is_now($login)) echo 'Логин занят';
     $wariants = 0;
     // Ищем свободное место для игрока
