@@ -1,7 +1,10 @@
 <?php
     include $_SERVER['DOCUMENT_ROOT'].'/_constant/cron.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/_constant/gameserver.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/network.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/math.php';
+
     Only_Local_IP();
     $links = F_Connect_MySQL();
     F_TranzationUp();
@@ -97,9 +100,11 @@
                 if ($GA_castle[$num_castle]['stone'] > $GA_castle[$num_castle]['maxres'])
                     $GA_castle[$num_castle]['stone'] = $GA_castle[$num_castle]['stone'] - round((($GA_castle[$num_castle]['stone'] - $GA_castle[$num_castle]['maxres']) / 3600 / 100), 7);
                 if ($GA_castle[$num_castle]['men'] > ($GA_castle[$num_castle]['max_men']))
-                    $GA_castle[$num_castle]['men'] = $GA_castle[$num_castle]['men'] - round((($GA_castle[$num_castle]['men'] - $GA_castle[$num_castle]['max_men']) / 3600 / 100), 7) + decPrz($GA_castle[$num_castle]['men'], 99.9);
-                if ($GA_castle[$num_castle]['men'] > 5000)
-                    $GA_castle[$num_castle]['men'] = 5000;
+                    $GA_castle[$num_castle]['men'] = $GA_castle[$num_castle]['men'] - round((($GA_castle[$num_castle]['men'] - $GA_castle[$num_castle]['max_men']) / 3600 / 100), 7);
+                else
+                    $GA_castle[$num_castle]['men'] = $GA_castle[$num_castle]['men'] + decPrz($GA_castle[$num_castle]['men'], 99.9);
+                if ($GA_castle[$num_castle]['men'] > 99999)
+                    $GA_castle[$num_castle]['men'] = 99999;
                 if ($GA_castle[$num_castle]['gold'] > $GA_castle[$num_castle]['maxres'])
                     $GA_castle[$num_castle]['gold'] = $GA_castle[$num_castle]['gold'] - round((($GA_castle[$num_castle]['gold'] - $GA_castle[$num_castle]['maxres']) / 3600 / 100), 7);
                 if ($GA_castle[$num_castle]['gold'] < 0) {

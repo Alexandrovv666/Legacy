@@ -58,6 +58,7 @@ if ($_GET['action'] == 'change') {
     $time_after = floor($arr_res_castle['c_' . ($_GET['num_room']) . '_4'] * $Time_Work_all);
     $time = floor(($Time_Work_all - $time_after) * ($men_to_room / $new_men)) * (-1);
   }
+  F_Transaction();
   mysql_query('UPDATE `game`.`castle` SET `c_' . ($_GET['num_room']) . '_4`="'.$prz_after.'", `c_' . $_GET['num_room'] . '_1` = "' . ($time) . '", `c_' . $_GET['num_room'] . '_2` = "' . ($real_men+$_GET['men']) . '",  `men`=`men`-' . ($add_men) . ' WHERE `id` = "' . F_Get_ID($_COOKIE['login']) . '" and `x`="' . $_COOKIE['X'] . '" and `y`="' . $_COOKIE['Y'] . '" and `z`="' . $_COOKIE['Z'] . '"');
   include $_SERVER['DOCUMENT_ROOT'] . '/server/_get_time_and_res.php';
   mysql_close($mysql_connect);

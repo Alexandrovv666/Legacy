@@ -39,16 +39,20 @@ $.ajax({
 }
 function CorrectMenForWork(max_men_of_room, max_men_in_castle){
     value = document.getElementById("men_for_work").value;
+    var res = 0;
     if (value>max_men_in_castle){
         document.getElementById('men_to_work_user').innerHTML=max_men_in_castle+" / "+max_men_of_room;
         document.getElementById('to_works').innerHTML=max_men_in_castle;
+        res = max_men_in_castle;
     }else{
         document.getElementById('men_to_work_user').innerHTML=value+" / "+max_men_of_room;
         document.getElementById('to_works').innerHTML=value;
+        res = value;
     }
+    var max_time_work = document.getElementById('def_time_of_work').innerHTML;
+    document.getElementById('time_of_work').innerHTML=secToTime(Math.floor(TimeToSec(max_time_work)*(max_men_of_room/res)));
 }
-
-function CorrectMenForWorkCH(max_men_of_room, max_men_in_castle, worked){
+function CorrectMenForWorkCH(def_men, max_men_of_room, max_men_in_castle, worked, time_before, alt_men){
     var range_people_at_work = (+(document.getElementById("range_people_at_work").value));
     var will_to_work = range_people_at_work - worked;
     if (will_to_work>max_men_in_castle){
@@ -58,6 +62,7 @@ function CorrectMenForWorkCH(max_men_of_room, max_men_in_castle, worked){
         document.getElementById('will_men_to_work').innerHTML=(worked + will_to_work)+" из "+max_men_of_room;
         document.getElementById('add_to_works').innerHTML=will_to_work;
     }
+    document.getElementById('time_of_work').innerHTML=secToTime(Math.floor((alt_men/range_people_at_work)*time_before));
 }
 
 function get_info_castle(){
@@ -91,18 +96,9 @@ $.ajax({
         document.getElementById('arm6').innerHTML  =perem[45];
         document.getElementById('arm7').innerHTML  =perem[46];
         document.getElementById('arm8').innerHTML  =perem[47];
-        document.getElementById("room-"+n).innerHTML  =perem[48];
       }
    }
 });
-
-
-
-
-
-
-
-
 }
 function GetUnits(n){
     var x1=get_cookie('X');

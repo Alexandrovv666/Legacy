@@ -4,7 +4,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/_constant/char.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/_api/processe_data.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/_api/log.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/_constant/gameserver.php';
-
 if ($_GET['action'] == 'listwork') {
   $mysql_connect = F_Connect_MySQL();
   global $C_Numberic, $C_Text_noSpace;
@@ -41,9 +40,11 @@ if ($_GET['action'] == 'listwork') {
       $name_room    = $arr_res_castle['c_' . ($_GET['num_room']) . '_n'];
       $arr_res_room = mysql_fetch_array(mysql_query('SELECT * FROM haus WHERE `new`="' . ($name_room) . '"'));
       $worked       = floor($arr_res_castle['c_' . $_GET['num_room'] . '_2']);
-      echo '<input type="range" min="0" max="' . $arr_res_room['max_men'] . '" value="' . $worked . '" id="range_people_at_work" oninput="CorrectMenForWorkCH(' . $arr_res_room['max_men'] . ',' . floor($arr_res_castle['men']) . ',' . $worked . ')"><br>';
-      echo '<p id="will_men_to_work">' . $worked . ' из ' . $arr_res_room['max_men'] . '</p><br>';
-      echo 'Будет дополнительно отправлено: <p id="add_to_works">0</p><br>';
+      echo '<br><br><br>';
+      echo '<input class="slider" type="range" min="0" max="' . $arr_res_room['max_men'] . '" value="' . $worked . '" id="range_people_at_work" oninput="CorrectMenForWorkCH(' . $arr_res_room['men'] . ', ' . $arr_res_room['max_men'] . ',' . floor($arr_res_castle['men']) . ',' . $worked . ', '.-($arr_res_castle['c_' . $_GET['num_room'] . '_1']).', '.$arr_res_castle['c_' . $_GET['num_room'] . '_2'].')"><br>';
+      echo '<span id="will_men_to_work">' . $worked . ' из ' . $arr_res_room['max_men'] . '</span><br>';
+      echo 'Будет дополнительно отправлено: <span id="add_to_works">0</span><br>';
+      echo '<center>Останется времени до озавершения: <span id="time_of_work">'.int_to_time(-($arr_res_castle['c_' . $_GET['num_room'] . '_1'])).'</span> из <span id="def_time_of_work">'.int_to_time($arr_res_room['default_time']).'</span></center><br>';
       echo '<center><a class="tooltip class-link big-text" href="#" onclick="ChangeMen(' . $_GET['num_room'] . ')">Принять</a></center>';
       break;
     case ($arr_res_castle['c_' . $_GET['num_room'] . '_1'] == 0):

@@ -61,3 +61,20 @@ function loadXMLDoc(action, n){
     xmlhttp.open("GET","/server/"+action+".php?action="+action+"&num_room="+n,true);
     xmlhttp.send();
 }
+function secToTime(sec){
+    d = Math.floor( sec/(60*60*24));
+    sec = sec - (60*60*24*d);
+    h = Math.floor( sec/(60*60));
+    sec = sec - (60*60*h);
+    m = Math.floor( sec/(60));
+    sec = sec - (60*m);
+    if(d<10) d = "0"+d;
+    if(h<10) h = "0"+h;
+    if(m<10) m = "0"+m;
+    if(sec<10) sec = "0"+sec;
+    return  d+":"+h+":"+m+":"+sec;
+}
+function TimeToSec(time){ 
+var arr = time.split(':');
+return (+arr[0]*60*60*24)+(+arr[1]*60*60)+(+arr[2]*60)+(+arr[3]);
+}

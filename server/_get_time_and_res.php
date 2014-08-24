@@ -97,21 +97,22 @@ echo '<b>ИТОГО: ' . FShowNumInSpace($V_astone - $vorov_stone + $magic_add_stone)
 $V_Amen    = $arr_res_castle['amen'];
 $V_Men     = $arr_res_castle['men'];
 $V_Max_men = $arr_res_castle['max_men'];
+$V_Prirost = 0;
 if ($V_Men > $V_Max_men)
   $vorov_men = floor((($V_Men - $V_Max_men) / 100) + 1);
-$V_Prirost = 0;
+if ($V_Men < $V_Max_men)
+  $V_Prirost = floor(decPrz($V_Men, 99.9))+1;
 echo '|<a class="tooltip normal-text" href="#">';
 if ($vorov_men > 0)
   echo '<font color="#F00" class="big-text"><b>' . FShowNumInSpace(round($V_Men)) . '</b></font>';
 else
   echo '<font color="#FFF">' . FShowNumInSpace(round($V_Men)) . '</font>';
-if ($V_Men < $V_Max_men)
-  $V_Prirost = floor(decPrz($V_Men, 99.9));
 echo '<span class="classic">Прирост: ' . FShowNumInSpace($arr_res_castle['amen']) . '/час<br>';
-if ($V_Prirost > 0)
-  echo '0.1%-ый прирост: ' . FShowNumInSpace($V_Prirost) . '/час';
 if ($V_Men >= $V_Max_men)
   echo '<p class="small-text">Жилища переполнены</p>';
+if ($V_Men < $V_Max_men)
+  if ($V_Men > 0)
+    echo '0.1%-ый прирост: ' . FShowNumInSpace($V_Prirost) . '/час<br>';
 if ($vorov_men > 0)
   echo 'Разбегание: ' . FShowNumInSpace($vorov_men + 0) . '/час<br>';
 echo '<i>Максимум: ' . FShowNumInSpace($V_Max_men) . '</i><br>';
