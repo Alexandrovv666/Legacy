@@ -70,7 +70,7 @@ if ($_GET['action'] == 'newroom') {
     exit;
   }
   include $_SERVER['DOCUMENT_ROOT'] . '/server/_get_time_and_res.php';
-  echo '|<div class="castle-room-' . onlyNoInt($arr_res_new_room['new']) . '"></div><p class="level-room">' . onlyInt($arr_res_new_room['new']) . '</p><p class="time-room" id="timer' . $_GET['num_room'] . '">' . int_to_time($VTimeForWork) . '</p>';
+  echo '|<div id="box-room-'.$_GET['num_room'].'"></div><div class="castle-room-' . onlyNoInt($arr_res_new_room['new']) . '"></div><p class="level-room">' . onlyInt($arr_res_new_room['new']) . '</p><p class="time-room" id="timer' . $_GET['num_room'] . '">' . int_to_time($VTimeForWork) . '</p>';
   mysql_close($mysql_connect);
 }
 ?>

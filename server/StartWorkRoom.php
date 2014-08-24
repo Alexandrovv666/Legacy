@@ -36,15 +36,15 @@ if ($_GET['action'] == 'StartWorkRoom') {
   }
   F_session_extension();
   echo '<META http-equiv="content-type" content="text/html; charset=windows-1251">';
-  $res_castle            = mysql_query('SELECT * FROM `castle` WHERE `x`="' . $_COOKIE['X'] . '" AND `y`="' . $_COOKIE['Y'] . '" AND `z`="' . $_COOKIE['Z'] . '" and `id`="' . F_Get_ID($_COOKIE['login']) . '"');
-  $a_castle        = mysql_fetch_array($res_castle);
-  $res_room_for_work     = mysql_query('SELECT * FROM haus WHERE `new`="' . $_GET['name'] . '"');
-  $a_room_for_work = mysql_fetch_array($res_room_for_work);
-  echo '<p><a class="tooltip class-link" href="#" onclick="StartWorkRoom(\'' . $a_room_for_work[$i]['new'] . '\', ' . $_GET['num_room'] . ')">';
+  echo '<span class="txt">';
+  $res_castle        = mysql_query('SELECT * FROM `castle` WHERE `x`="' . $_COOKIE['X'] . '" AND `y`="' . $_COOKIE['Y'] . '" AND `z`="' . $_COOKIE['Z'] . '" and `id`="' . F_Get_ID($_COOKIE['login']) . '"');
+  $a_castle          = mysql_fetch_array($res_castle);
+  $res_room_for_work = mysql_query('SELECT * FROM haus WHERE `new`="' . $_GET['name'] . '"');
+  $a_room_for_work   = mysql_fetch_array($res_room_for_work);
   $res_room_rus      = mysql_query('SELECT * FROM `haus_const` WHERE `name`="' . onlyNoInt($a_room_for_work['new']) . '"');
-  $a_room_rus = mysql_fetch_array($res_room_rus);
-  echo $a_room_rus['name_rus'] . ' ' . onlyInt($a_room_for_work['new']) . ' уровня.</a></p>';
-  echo '<i>Описание:</i>' . $a_room_rus['descr_rus'] . '<br>Требуется ресурсов:<br><b>';
+  $a_room_rus        = mysql_fetch_array($res_room_rus);
+  echo '<br><br><span>'.$a_room_rus['name_rus'] . ' ' . onlyInt($a_room_for_work['new']) . ' уровня.</span><br>';
+  echo '<i>Описание:</i>' . $a_room_rus['descr_rus'] . '<br>Требуется ресурсов:<br>';
   if ($a_castle['gold'] < $a_room_for_work['gold'])
     echo '<font color="red">Золото: ' . $a_room_for_work['gold'] . '</font><br>';
   else
@@ -63,8 +63,9 @@ if ($_GET['action'] == 'StartWorkRoom') {
   echo '<br><input class="slider" type=range min=0 max=' . $a_room_for_work['men'] . ' value=' . $VarMen . ' id="men_for_work" oninput="CorrectMenForWork(' . $a_room_for_work['men'] . ',' . floor($a_castle['men']) . ')"><br>';
   echo '<span id="men_to_work_user">' . $VarMen . ' / ' . $a_room_for_work['men'] . '</span><br>';
   echo 'Будет отправлено <span id="to_works">' . ($VarMen) . '</span> народу<br>';
-  echo '<center>Время постройки: <span id="time_of_work">'.int_to_time($a_room_for_work['default_time']).'</span> из <span id="def_time_of_work">'.int_to_time($a_room_for_work['default_time']).'</span></center><br>';
-  echo '<center><a class="tooltip class-link big-text" href="#" onclick="StartWorks(\'' . $_GET['name'] . '\',' . $_GET['num_room'] . ')">Начать стройку!</a></center>';
+  echo '<center>Время постройки: <span class="text-bold" id="time_of_work">'.int_to_time($a_room_for_work['default_time']).'</span> из <span class="text-bold" id="def_time_of_work">'.int_to_time($a_room_for_work['default_time']).'</span></center><br>';
+  echo '<center><a class="class-link big-text" href="#" onclick="StartWorks(\'' . $_GET['name'] . '\',' . $_GET['num_room'] . ')">Начать стройку!</a></center>';
+  echo '</span>';
   mysql_Close($linkss);
 }
 ?>

@@ -44,7 +44,7 @@ if ($_GET['action'] == 'listwork') {
       echo '<input class="slider" type="range" min="0" max="' . $arr_res_room['max_men'] . '" value="' . $worked . '" id="range_people_at_work" oninput="CorrectMenForWorkCH(' . $arr_res_room['men'] . ', ' . $arr_res_room['max_men'] . ',' . floor($arr_res_castle['men']) . ',' . $worked . ', '.-($arr_res_castle['c_' . $_GET['num_room'] . '_1']).', '.$arr_res_castle['c_' . $_GET['num_room'] . '_2'].')"><br>';
       echo '<span id="will_men_to_work">' . $worked . ' из ' . $arr_res_room['max_men'] . '</span><br>';
       echo 'Будет дополнительно отправлено: <span id="add_to_works">0</span><br>';
-      echo '<center>Останется времени до озавершения: <span id="time_of_work">'.int_to_time(-($arr_res_castle['c_' . $_GET['num_room'] . '_1'])).'</span> из <span id="def_time_of_work">'.int_to_time($arr_res_room['default_time']).'</span></center><br>';
+      echo '<center>Останется времени до озавершения: <span class="text-bold" id="time_of_work">'.int_to_time(-($arr_res_castle['c_' . $_GET['num_room'] . '_1'])).'</span> из <span class="text-bold" id="def_time_of_work">'.int_to_time($arr_res_room['default_time']).'</span></center><br>';
       echo '<center><a class="tooltip class-link big-text" href="#" onclick="ChangeMen(' . $_GET['num_room'] . ')">Принять</a></center>';
       break;
     case ($arr_res_castle['c_' . $_GET['num_room'] . '_1'] == 0):

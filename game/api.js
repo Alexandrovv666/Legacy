@@ -75,6 +75,37 @@ function secToTime(sec){
     return  d+":"+h+":"+m+":"+sec;
 }
 function TimeToSec(time){ 
-var arr = time.split(':');
-return (+arr[0]*60*60*24)+(+arr[1]*60*60)+(+arr[2]*60)+(+arr[3]);
+    var arr = time.split(':');
+    return (+arr[0]*60*60*24)+(+arr[1]*60*60)+(+arr[2]*60)+(+arr[3]);
 }
+function get_progress(n){
+$.ajax({
+   url: "/server/progress.php?action=get&num_room="+n,
+   type: 'get',
+   success: function(getdata){
+   document.getElementById("box-room-"+n).innerHTML=getdata;
+   }
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
