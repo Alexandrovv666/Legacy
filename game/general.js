@@ -56,7 +56,8 @@ function timers_room(){
                     loadXMLDoc("get_time_work_room", 0);
                 else
                     document.getElementById("timer"+i).innerHTML=arr[0]+":"+arr[1]+":"+arr[2]+":"+arr[3];
-            }
+            }else
+                get_progress(i);
         }
     for (var i = 1; i <= 200; i++)
         if (document.getElementById("timer_miss"+i)){
@@ -90,7 +91,7 @@ function One(x){
         timer = 0;
     timers_room();
     if (get_cookie('ort').indexOf('castle') + 1){
-        if (timer % 15 == 1)
+        if (timer % 3 == 1)
             loadXMLDoc("get_time_work_room", 0);
     }
 

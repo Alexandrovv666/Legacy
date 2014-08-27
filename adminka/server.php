@@ -30,7 +30,6 @@ access_deny:
     }
     loging_admin('Доступ к админке предоставлен игроку '.$_COOKIE['login'].'.');
     F_session_extension();
-    include $_SERVER['DOCUMENT_ROOT'].'/adminka/site/menu.php';
-    include $_SERVER['DOCUMENT_ROOT'].'/adminka/site/switch.php';
+    
     mysql_close($mysql_connect);
 ?>

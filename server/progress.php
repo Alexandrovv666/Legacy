@@ -44,7 +44,6 @@ if ($_GET['action'] == 'get') {
       $k                = $max/$men;
       $true_before_time = $before_time/$k;
       $progress         = 100-($true_before_time/$time)*100;
-      loging($_GET['num_room'].' progress  ='.$progress);
       echo '<progress max="100" value="'.($progress).'" id="prgbar-'.$_GET['num_room'].'"></progress>';
   }
   echo ' ';

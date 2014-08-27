@@ -19,8 +19,7 @@
             echo '<html><head><meta http-equiv=Refresh content="0; url=index.php?ort=Player"></head></html>';
         $GlAP       = mysql_fetch_array($list_Player);
         $res_castle = mysql_query('SELECT id FROM `castle` where `id`="' . $GlAP['id'] . '"');
-        echo '<table border="0">
-                          <tr><td>Ник</td><td>' . $GlAP['login'] . '</td></tr>
-                          </table>';
+        echo '<table border="0"><tr><td>Ник</td><td>' . $GlAP['login'] . '</td></tr></table>';
+        echo '<a href="index.php?location=get_center&login='.$_GET['login'].'">Центр выдачи.</a>';
     }
 ?>

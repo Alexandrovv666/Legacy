@@ -2,14 +2,18 @@
 <?
     include $_SERVER['DOCUMENT_ROOT'].'/_constant/adminka.php';
     global $c_array_adminka_location;
-    if (in_array($_GET['location']), $c_array_adminka_location){
-        loging('Игрок "'.$_COOKIE['login'].'" вручную писал get-запрос location');
+    if (!in_array($_GET['location'], $c_array_adminka_location)){
+        loging('Игрок "'.$_COOKIE['login'].'" вручную писал get-запрос location.: '.$_GET['location']);
         exit;
     }
     switch ($_GET['location']) {
         case 'Player':
             include $_SERVER['DOCUMENT_ROOT'].'/adminka/site/switch/Player.php';
             break;
+        case 'get_center':
+            include $_SERVER['DOCUMENT_ROOT'].'/adminka/site/switch/get_center.php';
+            break;
+
         case 'castle':
             $GlobalArrCastle = array();
             $linkss = FConnBase();
