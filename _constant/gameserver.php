@@ -9,4 +9,8 @@ $Max_Y_map          = 70;
 //Среднее количество лагерей на 1 королевство
 $AverageCountLager  = 5;
 $Max_level_HAUS = 50;
+//Общие настройки
+$C_Lang_Project = array('rus', 'eng', 'deu', 'FBR', 'Google', 'root');
+$C_index_action_Project = array('reg', 'aut', 'oops');
+
 ?>

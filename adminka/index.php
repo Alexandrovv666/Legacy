@@ -29,6 +29,7 @@
         $log_admin_access .=('Access is allowe. ');
     if (!$enable_access){
 access_deny:
+        http_response_code(418);
         header("HTTP/1.1 418 I'm a teapot");
         $log_admin_access .=('Show message "Error 418".');
         log_admin_access($log_admin_access);

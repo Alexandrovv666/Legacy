@@ -1,3 +1,14 @@
+function api_get_data(){
+   $.ajax({
+      url: "/server/error.php?act=null",
+      type: 'get',
+      success: function(getdata){
+          ParserData = getdata;
+          processed_general_parser_data();
+      }
+   });
+}
+
 function get_cookie(name){
     cookie_name = name + "=";
     cookie_length = document.cookie.length;
@@ -29,32 +40,8 @@ function loadXMLDoc(action, n){
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
             if (action == "get_time_work_room"){
                 document.getElementById("ping").innerHTML=xmlhttp.responseText;
-                var getdata = document.getElementById("ping").innerHTML;
-                var perem = getdata.split('|');
-                if  (perem[0]=='ok'){
-                    for (var i = 1; i <= 35; i++){
-                        if (perem[i]!="0:0:0:0"){
-                            var arr = perem[i].split(':');
-                                document.getElementById("timer"+i).innerHTML=arr[0]+":"+arr[1]+":"+arr[2]+":"+arr[3];
-                        }else
-                            document.getElementById("timer"+i).innerHTML="";
-                    }
-                    document.getElementById("gold").innerHTML  =perem[36];
-                    document.getElementById("tree").innerHTML  =perem[37];
-                    document.getElementById("stone").innerHTML =perem[38];
-                    document.getElementById("men").innerHTML   =perem[39];
-                    document.getElementById('arm1').innerHTML  =perem[40];
-                    document.getElementById('arm2').innerHTML  =perem[41];
-                    document.getElementById('arm3').innerHTML  =perem[42];
-                    document.getElementById('arm4').innerHTML  =perem[43];
-                    document.getElementById('arm5').innerHTML  =perem[44];
-                    document.getElementById('arm6').innerHTML  =perem[45];
-                    document.getElementById('arm7').innerHTML  =perem[46];
-                    document.getElementById('arm8').innerHTML  =perem[47];
-                }
-            }
-            if (action == "mission"){
-                document.getElementById("get_data_window_modal_1").innerHTML=xmlhttp.responseText;
+                ParserData = document.getElementById("ping").innerHTML;
+                processed_general_parser_data()
             }
         }
     }
@@ -86,9 +73,6 @@ $.ajax({
    document.getElementById("box-room-"+n).innerHTML=getdata;
    }
 });
-
-
-
 }
 
 

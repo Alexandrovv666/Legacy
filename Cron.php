@@ -4,7 +4,6 @@
     include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/network.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/math.php';
-
     Only_Local_IP();
     $links = F_Connect_MySQL();
     F_TranzationUp();
@@ -84,7 +83,6 @@
                     if ($GA_castle[$num_castle]['c_' . $i . '_1'] == 0){}
                     if ($GA_castle[$num_castle]['c_' . $i . '_1'] > 0){
                     }
-
                 }
                 $summ_jalovan_army = 0;
                 for ($i = 1; $i <= 8; $i++) {
@@ -133,11 +131,10 @@ end_real_time:
             $qwery = $qwery . ', `army_' . $i . '` = "' . $GA_castle[$num_castle]['army_' . $i] . '" ';
         $qwery = $qwery . 'WHERE `x`="' . $GA_castle[$num_castle]['x'] . '" AND `y`="' . $GA_castle[$num_castle]['y'] . '" AND `z`="' . $GA_castle[$num_castle]['z'] . '"';
         mysql_query($qwery);
-    }    
+    }
     mysql_query('UPDATE `game`.`settings` SET `Value` = "' . ($alt_time - $FASTER) . '" WHERE `settings`.`name_parametr` = "timers"');
     F_TranzationDown();
     mysql_close($links);
     echo 'Transaction is down.<br>GameServer worked is ' . (microtime(true) - $micro_time) . '<br>';
     echo '<script language = \'javascript\'> var delay = ' . $Wait_to_startCron . '; setTimeout("document.location.href=\'Cron.php?hard='.$get.'\'", delay);</script>';
-
 ?>

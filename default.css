@@ -2,6 +2,16 @@
 a:visited{
   text-decoration: none;
 }
+.lang{
+  position: absolute;
+  top: 20px;
+}
+#lang-rus{
+  left: 5px;
+}
+#lang-eng{
+  left: 90px;
+}
 #fon{
   position: fixed;
   top: 0;

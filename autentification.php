@@ -31,7 +31,7 @@
                 mysql_query('UPDATE `session` SET `time`="'.time().'", `status`="1",`ip`="'.$_SERVER['REMOTE_ADDR'].'",`session`="'.$session.'" WHERE `login`="'.$_GET['login'].'"');
             else
                 mysql_query('INSERT INTO `session`(`time`, `login`, `status`, `ip`, `session`) VALUES ("'.time().'","'.$_GET['login'].'","1","'.$_SERVER['REMOTE_ADDR'].'","'.$session.'")');
-            echo '<script language = \'javascript\'> var delay = 100; setTimeout("document.location.href=\'SetCookie.php?login='.$login.'\'", delay); </script>';
+            echo '<script language = \'javascript\'> var delay = 100; setTimeout("document.location.href=\'SetCookie.php?lang='.$_GET['lang'].'&login='.$login.'\'", delay); </script>';
             exit;
         }
     echo 'warining|Комбинация логин-пароль не найдены.';
