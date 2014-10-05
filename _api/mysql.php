@@ -12,7 +12,7 @@ function F_TranzationUp(){
     mysql_query("UPDATE `settings` SET `Value`='1' WHERE `name_parametr`='TRANSACTION'");
 }
 function F_TranzationDown(){
-  mysql_query("UPDATE `settings` SET `Value`='0' WHERE `name_parametr`='TRANSACTION'");
+    mysql_query("UPDATE `settings` SET `Value`='0' WHERE `name_parametr`='TRANSACTION'");
 }
 function F_Transaction(){
     while (mysql_num_rows(mysql_query('SELECT * FROM `settings` WHERE `name_parametr`="TRANSACTION" and `Value`="1"'))==1)
@@ -51,7 +51,7 @@ function F_Get_login($id){
 }
 function F_Is_Root_ID($ID){
     if (mysql_num_rows(mysql_query('SELECT `id_user` FROM `privelege` WHERE `id_user`="'.$ID.'" and `root`="1"'))==1)
-            return true;
+        return true;
     return false;
 }
 function F_session_extension(){

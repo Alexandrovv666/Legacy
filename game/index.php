@@ -1,12 +1,57 @@
 <?php
+    $enable_access = true;
+    $log_access = '';
+    if (!($_COOKIE['casX']==$_COOKIE['mapX'])){
+        $log_access .='Incorrect `COOKIE["casX"]` and `COOKIE["mapX"]`. ';
+        $enable_access = false;
+    }
+    if (!($_COOKIE['casY']==$_COOKIE['mapY'])){
+        $log_access .='Incorrect `COOKIE["casY"]` and `COOKIE["mapY"]`. ';
+        $enable_access = false;
+    }
+    if (!($_COOKIE['casZ']==$_COOKIE['mapZ'])){
+        $log_access .='Incorrect `COOKIE["casZ"]` and `COOKIE["mapZ"]`. ';
+        $enable_access = false;
+    }
+    include $_SERVER['DOCUMENT_ROOT'].'/_constant/char.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/processe_data.php';
+    global $C_Numberic, $C_Text_noSpace;
+    if (!Chek_string_of_mask($_COOKIE['login'], $C_Text_noSpace . $C_Numberic)) {
+        $log_access .='Incorrect login. ';
+        $enable_access = false;
+    }
+    if (!Chek_string_of_mask($_COOKIE['casX'], $C_Numberic)) {
+        $log_access .='Incorrect `COOKIE["casX"]`. ';
+        $enable_access = false;
+    }
+    if (!Chek_string_of_mask($_COOKIE['casY'], $C_Numberic)) {
+        $log_access .='Incorrect `COOKIE["casY"]`. ';
+        $enable_access = false;
+    }
+    if (!Chek_string_of_mask($_COOKIE['casZ'], $C_Numberic)) {
+        $log_access .='Incorrect `COOKIE["casZ"]`. ';
+        $enable_access = false;
+    }
+    if (!Chek_string_of_mask($_COOKIE['session'], $C_Text_noSpace . $C_Numberic)) {
+        $log_access .=('Incorrect session. ');
+        $enable_access = false;
+    }
     include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
-    include $_SERVER['DOCUMENT_ROOT'].'/_constant/head.php';
     $linkss = F_Connect_MySQL();
-    include $_SERVER['DOCUMENT_ROOT'].'/game/inc/checkdata.php';
+    if (!(F_login_is_now($_COOKIE['login']))){
+        $log_access .=('Incorrect `COOKIE["login"]`. ');
+        $enable_access = false;
+    }
+    if (!$enable_access){
+        include $_SERVER['DOCUMENT_ROOT'].'/_api/log.php';
+        http_response_code(413);
+        $log_access .=('Message "Error 413".');
+        loging($log_access);
+        exit;
+    }
+
+    include $_SERVER['DOCUMENT_ROOT'].'/_constant/head.php';
     F_session_extension();
-    include 'function.php';
-    $res_castle = mysql_query('SELECT * FROM `castle` WHERE `id` = "' . F_Get_ID($_COOKIE[ 'login' ]) . '" and `x`="'.$_COOKIE[ 'X' ].'" and `y`="'.$_COOKIE[ 'Y' ].'" and `z`="'.$_COOKIE[ 'Z' ].'"');
-    $Global_array_castle = mysql_fetch_array($res_castle);
     F_echo_html_head();
 ?>
 <link rel="stylesheet" href="default.css">
@@ -19,14 +64,13 @@
 <script src="js\navigation.js"></script>
 <script src="js\processed.js"></script>
 <script src="js\var.js"></script>
-
 <div id="fon"></div>
 <?php
     include 'inc/invisible.php';
-    function_paint_alle_panel();
+    include 'inc/paint_alle_panel.php';
     switch ($_COOKIE['ort']) {
         case 'castle':
-            function_Show_Castle();
+            include 'inc/Show_Castle.php';
             break;
         case 'map':
             function_show_map();

@@ -1,30 +1,24 @@
-*
-{
+*{
  margin: 0;
  padding: 0;
 }
-a
-{
+a{
  color: #888;
  text-decoration: none;
 }
-a:visited
-{
+a:visited{
  color: #888;
  text-decoration: none;
 }
-a:hover
-{
+a:hover{
  color: #FFF;
  text-decoration: none;
 }
-a:active
-{
+a:active{
  color: #888;
  text-decoration: none;
 }
-#fon
-{
+#fon{
  background-image: url("img/interface/karma/0.jpg");
  background-repeat: no-repeat;
  background-size: cover;
@@ -34,8 +28,7 @@ a:active
  top: 0;
  width: 100%;
 }
-.panel-left
-{
+.panel-left{
  background: #77D;
  color: #666;
  font-size: 16pt;
@@ -46,38 +39,31 @@ a:active
  width: 100px;
  z-index: 2;
 }
-.panel-left:hover
-{
+.panel-left:hover{
  background: #228;
  color: #888;
  left: 0px;
 }
-#almaz
-{
+#almaz{
  left: 10px;
  position: absolute;
  top: 10px;
 }
-#almaz:hover
-{
+#almaz:hover{
  color: #000;
 }
-.panel-left-navigation
-{
+.panel-left-navigation{
  left: 5px;
  position: absolute;
  top: calc(100% - 220px);
 }
-.panel-left-navigation-element
-{
+.panel-left-navigation-element{
  padding: 5px;
 }
-.panel-left-navigation-element:hover
-{
+.panel-left-navigation-element:hover{
  color: #FFF;
 }
-.panel-up
-{
+.panel-up{
  background: #22F;
  color: #AAA;
  font-size: 13pt;
@@ -88,69 +74,58 @@ a:active
  width: 100%;
  z-index: 1;
 }
-.panel-up-resoorsed
-{
+.panel-up-resoorsed{
  height: 30px;
  left: 100px;
  position: absolute;
  top: 20px;
  width: 700px;
 }
-.panel-up-resoorsed-element
-{
+.panel-up-resoorsed-element{
  color: #FFF;
 }
-#gold
-{
+#gold{
  left: 0;
  position: absolute;
  top: -13px;
 }
-#tree
-{
+#tree{
  left: 200px;
  position: absolute;
  top: -13px;
 }
-#stone
-{
+#stone{
  left: 400px;
  position: absolute;
  top: -13px;
 }
-#men
-{
+#men{
  left: 600px;
  position: absolute;
  top: -13px;
 }
-.panel-up-navigation
-{
+.panel-up-navigation{
  left: 30px;
  position: absolute;
  top: 6px;
 }
-#name-castle
-{
+#name-castle{
  height: 30px;
  left: 830px;
  position: absolute;
  top: 5px;
  width: 400px;
 }
-.conteyner-site
-{
+.conteyner-site{
  height: calc(100% - 30px);
  position: absolute;
  top: 20px;
  width: calc(100% - 10px);
 }
-#ping
-{
+#ping{
  font-size: 1px;
 }
-.dialog-click-room
-{
+.dialog-click-room{
  background: #555;
  height: 400px;
  left: 0;
@@ -158,8 +133,7 @@ a:active
  top: 0;
  width: 600px;
 }
-.modalDialog
-{
+.modalDialog{
  background: rgba(0,0,0,0.8);
  bottom: 0;
  display: none;
@@ -174,13 +148,11 @@ a:active
  webkit-transition: opacity 400ms ease-in;
  z-index: 99999;
 }
-.modalDialog:target
-{
+.modalDialog:target{
  display: block;
  pointer-events: auto;
 }
-.modalDialog > div
-{
+.modalDialog > div{
  background: #66C;
  border-radius: 10px;
  box-shadow: 0 0 30px rgba(9,9,9,0.7);
@@ -191,28 +163,23 @@ a:active
  position: relative;
  width: 800px;
 }
-.class-link
-{
+.class-link{
  color: #000;
  text-decoration: none;
 }
-.class-link:visited
-{
+.class-link:visited{
  color: #000;
  text-decoration: none;
 }
-.class-link:hover
-{
+.class-link:hover{
  color: #000;
  text-decoration: none;
 }
-.class-link:active
-{
+.class-link:active{
  color: #000;
  text-decoration: none;
 }
-.close
-{
+.close{
  background: #F00;
  border-radius: 12px;
  box-shadow: 1px 1px 3px #000;
@@ -230,12 +197,10 @@ a:active
  webkit-box-shadow: 1px 1px 3px #000;
  width: 24px;
 }
-.close:hover
-{
+.close:hover{
  background: #00d9ff;
 }
-.tooltip
-{
+.tooltip{
  border-bottom: 1px dotted #000000;
  color: #000000;
  cursor: help;
@@ -243,8 +208,7 @@ a:active
  position: relative;
  text-decoration: none;
 }
-.tooltip_res
-{
+.tooltip_res{
  border-bottom: 1px dotted #000000;
  color: #FFF;
  cursor: help;
@@ -252,13 +216,11 @@ a:active
  position: relative;
  text-decoration: none;
 }
-.tooltip span
-{
+.tooltip span{
  margin-left: -999em;
  position: absolute;
 }
-.tooltip:hover span
-{
+.tooltip:hover span{
  border-radius: 5px 5px;
  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
  font-family: Calibri, Tahoma, Geneva, sans-serif;
@@ -273,97 +235,79 @@ a:active
  width: 250px;
  z-index: 99;
 }
-.tooltip:hover img
-{
+.tooltip:hover img{
  border: 0;
  float: left;
  margin: -10px 0 0 -55px;
  position: absolute;
 }
-.tooltip:hover em
-{
+.tooltip:hover em{
  display: block;
  font-family: Candara, Tahoma, Geneva, sans-serif;
  font-size: 1.2em;
  font-weight: bold;
  padding: 0.2em 0 0.6em 0;
 }
-.classic
-{
+.classic{
  color: #000;
  padding: 0.8em 1em;
 }
-.custom
-{
+.custom{
  padding: 0.5em 0.8em 0.8em 2em;
 }
-* html a:hover
-{
+* html a:hover{
  background: transparent;
 }
-.classic
-{
+.classic{
  background: #FFFFAA;
  border: 1px solid #FFAD33;
 }
-.critical
-{
+.critical{
  background: #FFCCAA;
  border: 1px solid #FF3334;
 }
-.help
-{
+.help{
  background: #9FDAEE;
  border: 1px solid #2BB0D7;
 }
-.info
-{
+.info{
  background: #9FDAEE;
  border: 1px solid #2BB0D7;
 }
-.warning
-{
+.warning{
  background: #FFFFAA;
  border: 1px solid #FFAD33;
 }
-.scroll
-{
+.scroll{
  height: 500px;
  overflow-x: hidden;
  overflow-y: scroll;
 }
-.castle-army-element-mail
-{
+.castle-army-element-mail{
  height: 65px;
  position: absolute;
  top: 0;
  width: 55px;
 }
-.small-text
-{
+.small-text{
  color: #333;
  Font-Size: 0.8em;
 }
-.normal-text
-{
+.normal-text{
  Font-Size: 1em;
 }
-.big-text
-{
+.big-text{
  Font-Size: 1.1em;
  position: relative;
  top: -2px;
 }
-.txt
-{
+.txt{
  color: 000;
 }
-.text-bold
-{
+.text-bold{
  font-weight: bold;
 }
-.slider
-{
+.slider{
  background: #33C;
  border-radius: 40px;
  box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 1px 1px 0px rgba(255, 255, 255, 0.13);
@@ -376,44 +320,3 @@ a:active
  webkit-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 1px 1px 0px rgba(255, 255, 255, 0.13);
  width: 800px;
 }
-progress {
- position: absolute;
- left: 11px;
- top: 17px;
- height: 10px;
- width: 88%;
-	display: block;
-	/* Important Thing */
-	-webkit-appearance: none;
-	border: none;
-}
-
-/* All good till now. Now we'll style the background */
-progress::-webkit-progress-bar {
-	background: black;
-	border-radius: 50px;
-	padding: 2px;
-	box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
-}
-
-/* Now the value part */
-progress::-webkit-progress-value {
-	border-radius: 50px;
-	box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
-	background:
-		-webkit-linear-gradient(45deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%),
-		-webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
-		-webkit-linear-gradient(left, #ba7448, #c4672d);
-	
-	/* Looks great, now animating it */
-	background-size: 25px 14px, 100% 100%, 100% 100%;
-	-webkit-animation: move 5s linear 0 infinite;
-}
-
-/* That's it! Now let's try creating a new stripe pattern and animate it using animation and keyframes properties  */
-
-@-webkit-keyframes move {
-	0% {background-position: 0px 0px, 0 0, 0 0}
-	100% {background-position: -100px 0px, 0 0, 0 0}
-}
-

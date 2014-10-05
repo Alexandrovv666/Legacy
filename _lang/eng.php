@@ -6,5 +6,4 @@ $C_lang_caption_password = 'Password';
 $C_lang_butom_registration = 'Registration';
 $C_lang_butom_autoriz = 'Input';
 $C_lang_licenze = 'Licenze';
-
 ?>

@@ -10,16 +10,16 @@ if ($_GET['action'] == 'change') {
     loging('Кука login не прошла валидацию.');
     exit;
   }
-  if (!Chek_string_of_mask($_COOKIE['X'], $C_Numberic)) {
-    loging('Кука X не прошла валидацию.');
+  if (!Chek_string_of_mask($_COOKIE['casX'], $C_Numberic)) {
+    loging('Кука casX не прошла валидацию.');
     exit;
   }
-  if (!Chek_string_of_mask($_COOKIE['Y'], $C_Numberic)) {
-    loging('Кука Y не прошла валидацию');
+  if (!Chek_string_of_mask($_COOKIE['casY'], $C_Numberic)) {
+    loging('Кука casY не прошла валидацию');
     exit;
   }
-  if (!Chek_string_of_mask($_COOKIE['Z'], $C_Numberic)) {
-    loging('Кука Z не прошла валидацию');
+  if (!Chek_string_of_mask($_COOKIE['casZ'], $C_Numberic)) {
+    loging('Кука casZ не прошла валидацию');
     exit;
   }
   $mysql_connect = F_Connect_MySQL();
@@ -36,7 +36,7 @@ if ($_GET['action'] == 'change') {
     exit;
   }
   F_session_extension();
-  $res_castle     = mysql_query('SELECT * FROM `castle` WHERE `x`="' . $_COOKIE['X'] . '" AND `y`="' . $_COOKIE['Y'] . '" AND `z`="' . $_COOKIE['Z'] . '" and `id`="' . F_Get_ID($_COOKIE['login']) . '"');
+  $res_castle     = mysql_query('SELECT * FROM `castle` WHERE `x`="' . $_COOKIE['casX'] . '" AND `y`="' . $_COOKIE['casY'] . '" AND `z`="' . $_COOKIE['casZ'] . '" and `id`="' . F_Get_ID($_COOKIE['login']) . '"');
   $arr_res_castle = mysql_fetch_array($res_castle);
   $name_room      = $arr_res_castle['c_' . ($_GET['num_room']) . '_n'];
   $arr_res_room   = mysql_fetch_array(mysql_query('SELECT * FROM haus WHERE `new`="' . ($name_room).'"'));

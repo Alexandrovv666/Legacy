@@ -2,9 +2,6 @@
     echo '<link rel="stylesheet" href="map.css"><script src="map.js"></script>';
     include 'inc/show_map/show_terrain.php';
     echo '<div class="conteyner-site"><div class="castle-engine">';
-    $x=1;
-    $y=1;
-    global $EnableSeeAllLager;
     $Global_array_castle          = array();
     $res_all_castle               = mysql_query('SELECT x, y, z FROM `castle` WHERE `x` ="' . $_COOKIE['X_map'] . '" AND `y` ="' . $_COOKIE['Y_map'] . '"');
     while ($Global_array_castle[] = mysql_fetch_array($res_all_castle)); {}
@@ -16,12 +13,12 @@
     $count_map                 = count($Global_array_map) - 1;
 
     $Global_array_lager          = array();
-    if ($EnableSeeAllLager)
-        $res_all_lager               = mysql_query('SELECT * FROM `lager` WHERE `x` ="' . $_COOKIE['X_map'] . '" AND `y` ="' . $_COOKIE['Y_map'] . '"');
-    else
-        $res_all_lager               = mysql_query('SELECT * FROM `see_lager` WHERE `x` ="' . $_COOKIE['X_map'] . '" AND `y` ="' . $_COOKIE['Y_map'] . '" AND `'.($_COOKIE['login']).'`="1"');
+    $res_all_lager               = mysql_query('SELECT * FROM `lager` WHERE `x` ="' . $_COOKIE['X_map'] . '" AND `y` ="' . $_COOKIE['Y_map'] . '"');
     while ($Global_array_lager[] = mysql_fetch_array($res_all_lager)); {}
     $count_lager                 = count($Global_array_lager) - 1;
+
+    $x=1;
+    $y=1;
     for ($x = 1; $x <= 7; $x++)
         for ($y = 1; $y <= 15; $y++){
             for ($num_map = 0; $num_map <= $count_map; $num_map++)

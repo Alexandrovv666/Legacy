@@ -20,7 +20,7 @@ function room_time(){
                     arr[0] = arr[0] - 1;
                 }
                 if (arr[0] <= -1)
-                    loadXMLDoc("get_time_work_room", 0);
+                    api_get_data();
                 else
                     document.getElementById("timer"+i).innerHTML=arr[0]+":"+arr[1]+":"+arr[2]+":"+arr[3];
             }
@@ -31,7 +31,9 @@ function One(x){
     if ( timer >= 1000 )
         timer = 0;
     room_time();
-    if (get_cookie('ort').indexOf('castle') + 1)
-        if (timer % 5 == 1)
-            loadXMLDoc("get_time_work_room", 0);
+    if (get_cookie('ort').indexOf('castle') + 1){
+        timeot_givedata = timeot_givedata - 1;
+        if (timeot_givedata==0)
+            api_get_data();
+    }
 }

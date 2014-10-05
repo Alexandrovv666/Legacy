@@ -19,10 +19,11 @@
     echo '    <div id="castle-basic-stone-4" class="castle-basic-stone"></div>';
     echo '    <div id="castle-basic-stone-5" class="castle-basic-stone"></div>';
     echo '    <div id="castle-basic-stone-6" class="castle-basic-stone"></div>';
+    $res_castle = mysql_query('SELECT * FROM `castle` WHERE `id` = "' . F_Get_ID($_COOKIE[ 'login' ]) . '" and `x`="'.$_COOKIE[ 'casX' ].'" and `y`="'.$_COOKIE[ 'casY' ].'" and `z`="'.$_COOKIE[ 'casZ' ].'"');
+    $Global_array_castle = mysql_fetch_array($res_castle);
     $x=1;
     $y=1;
     $num_room=1;
-    global $Global_array_castle;
     for ($x = 1; $x <= 5; $x++){
         for ($y = 1; $y <= 7; $y++){
             $name_room = $Global_array_castle['c_'.$num_room.'_n'];
@@ -44,7 +45,6 @@
     }
     echo '  </div>';
     echo '  <div class="castle-army">';
-
     $Global_array_res_Junits_param = array();
     $res_Junits_param = mysql_query('SELECT * FROM `army_baze`');
     while ($Global_array_res_Junits_param[] = mysql_fetch_array($res_Junits_param)); {

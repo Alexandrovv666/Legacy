@@ -10,29 +10,8 @@ $.ajax({
    url: "/server/newroom.php?action=newroom&num_room="+n+"&namenewroomroom="+name+"&men="+men,
    type: 'get',
    success: function(getdata){
-      var perem = getdata.split('|');
-      if  (perem[0]=='ok'){
-         for (var i = 1; i <= 35; i++){
-            if (perem[i]!="0:0:0:0"){
-               var arr = perem[i].split(':');
-                  document.getElementById("timer"+i).innerHTML=arr[0]+":"+arr[1]+":"+arr[2]+":"+arr[3];
-               }else
-                  document.getElementById("timer"+i).innerHTML="";
-        }
-        document.getElementById("gold").innerHTML  =perem[36];
-        document.getElementById("tree").innerHTML  =perem[37];
-        document.getElementById("stone").innerHTML =perem[38];
-        document.getElementById("men").innerHTML   =perem[39];
-        document.getElementById('arm1').innerHTML  =perem[40];
-        document.getElementById('arm2').innerHTML  =perem[41];
-        document.getElementById('arm3').innerHTML  =perem[42];
-        document.getElementById('arm4').innerHTML  =perem[43];
-        document.getElementById('arm5').innerHTML  =perem[44];
-        document.getElementById('arm6').innerHTML  =perem[45];
-        document.getElementById('arm7').innerHTML  =perem[46];
-        document.getElementById('arm8').innerHTML  =perem[47];
-        document.getElementById("room-"+n).innerHTML  =perem[48];
-      }
+       document.getElementById('room-'+n).innerHTML=getdata
+       api_get_data();
    }
 });
     reset_window_modal_1();
@@ -75,28 +54,7 @@ $.ajax({
    url: "/server/change.php?action=change&men="+men+"&num_room="+num_room,
    type: 'get',
    success: function(getdata){
-      var perem = getdata.split('|');
-      if  (perem[0]=='ok'){
-         for (var i = 1; i <= 35; i++){
-            if (perem[i]!="0:0:0:0"){
-               var arr = perem[i].split(':');
-                  document.getElementById("timer"+i).innerHTML=arr[0]+":"+arr[1]+":"+arr[2]+":"+arr[3];
-               }else
-                  document.getElementById("timer"+i).innerHTML="";
-        }
-        document.getElementById("gold").innerHTML  =perem[36];
-        document.getElementById("tree").innerHTML  =perem[37];
-        document.getElementById("stone").innerHTML =perem[38];
-        document.getElementById("men").innerHTML   =perem[39];
-        document.getElementById('arm1').innerHTML  =perem[40];
-        document.getElementById('arm2').innerHTML  =perem[41];
-        document.getElementById('arm3').innerHTML  =perem[42];
-        document.getElementById('arm4').innerHTML  =perem[43];
-        document.getElementById('arm5').innerHTML  =perem[44];
-        document.getElementById('arm6').innerHTML  =perem[45];
-        document.getElementById('arm7').innerHTML  =perem[46];
-        document.getElementById('arm8').innerHTML  =perem[47];
-      }
+      api_get_data();
    }
 });
 }

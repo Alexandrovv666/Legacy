@@ -1,12 +1,13 @@
 function api_get_data(){
    $.ajax({
-      url: "/server/error.php?act=null",
+      url: "/server/givedata.php?act=null",
       type: 'get',
       success: function(getdata){
           ParserData = getdata;
           processed_general_parser_data();
       }
    });
+   timeot_givedata = max_timeot_givedata;
 }
 
 function get_cookie(name){

@@ -23,16 +23,16 @@ if ($_GET['action'] == 'newroom') {
     loging('get параметр namenewroomroom не прошёл валидацию.');
     exit;
   }
-  if (!Chek_string_of_mask($_COOKIE['X'], $C_Numberic)) {
-    loging('Кука X не прошла валидацию.');
+  if (!Chek_string_of_mask($_COOKIE['casX'], $C_Numberic)) {
+    loging('Кука casX не прошла валидацию.');
     exit;
   }
-  if (!Chek_string_of_mask($_COOKIE['Y'], $C_Numberic)) {
-    loging('Кука Y не прошла валидацию');
+  if (!Chek_string_of_mask($_COOKIE['casY'], $C_Numberic)) {
+    loging('Кука casY не прошла валидацию');
     exit;
   }
-  if (!Chek_string_of_mask($_COOKIE['Z'], $C_Numberic)) {
-    loging('Кука Z не прошла валидацию');
+  if (!Chek_string_of_mask($_COOKIE['casZ'], $C_Numberic)) {
+    loging('Кука casZ не прошла валидацию');
     exit;
   }
   if (!F_IF_session()) {
@@ -45,7 +45,7 @@ if ($_GET['action'] == 'newroom') {
   }
   F_session_extension();
   //WORK!
-  $res_castle     = mysql_query('SELECT * FROM `castle` WHERE `x`="' . $_COOKIE['X'] . '" AND `y`="' . $_COOKIE['Y'] . '" AND `z`="' . $_COOKIE['Z'] . '" and `id`="' . F_Get_ID($_COOKIE['login']) . '"');
+  $res_castle     = mysql_query('SELECT * FROM `castle` WHERE `x`="' . $_COOKIE['casX'] . '" AND `y`="' . $_COOKIE['casY'] . '" AND `z`="' . $_COOKIE['casZ'] . '" and `id`="' . F_Get_ID($_COOKIE['login']) . '"');
   $arr_res_castle = mysql_fetch_array($res_castle);
   $res_new_room   = mysql_query('SELECT * FROM `haus` WHERE `new`="' . $_GET['namenewroomroom'] . '" LIMIT 1');
   if (mysql_num_rows($res_new_room) != 1) {
@@ -64,13 +64,12 @@ if ($_GET['action'] == 'newroom') {
     else
       $VTimeForWork = floor($arr_res_new_room['default_time'] * ($arr_res_new_room['men'] / $VMenForWork));
     F_Transaction();
-    mysql_query('UPDATE `game`.`castle` SET `c_' . $_GET['num_room'] . '_n` = "' . $arr_res_new_room['new'] . '",  `c_' . $_GET['num_room'] . '_1` = "' . ($VTimeForWork * (-1)) . '", `c_' . $_GET['num_room'] . '_2` = "' . $VMenForWork . '", `c_' . $_GET['num_room'] . '_3` = "' . $arr_res_new_room['id'] . '", `gold` = `gold`-' . $arr_res_new_room['gold'] . ', `tree` = `tree`-' . $arr_res_new_room['tree'] . ', `stone` = `stone`-' . $arr_res_new_room['stone'] . ', `men`=`men`-"' . $VMenForWork . '" WHERE `castle`.`id` = "' . F_Get_ID($_COOKIE['login']) . '" and `x`="' . $_COOKIE['X'] . '" and `y`="' . $_COOKIE['Y'] . '" and `z`="' . $_COOKIE['Z'] . '"');
+    mysql_query('UPDATE `game`.`castle` SET `c_' . $_GET['num_room'] . '_n` = "' . $arr_res_new_room['new'] . '",  `c_' . $_GET['num_room'] . '_1` = "' . ($VTimeForWork * (-1)) . '", `c_' . $_GET['num_room'] . '_2` = "' . $VMenForWork . '", `c_' . $_GET['num_room'] . '_3` = "' . $arr_res_new_room['id'] . '", `gold` = `gold`-' . $arr_res_new_room['gold'] . ', `tree` = `tree`-' . $arr_res_new_room['tree'] . ', `stone` = `stone`-' . $arr_res_new_room['stone'] . ', `men`=`men`-"' . $VMenForWork . '" WHERE `castle`.`id` = "' . F_Get_ID($_COOKIE['login']) . '" and `x`="' . $_COOKIE['casX'] . '" and `y`="' . $_COOKIE['casY'] . '" and `z`="' . $_COOKIE['casZ'] . '"');
   } else {
     loging('попытка построить комнату "' . $_GET['namenewroomroom'] . '" при недостатке ресурсов');
     exit;
   }
-  include $_SERVER['DOCUMENT_ROOT'] . '/server/_get_time_and_res.php';
-  echo '|<div id="box-room-'.$_GET['num_room'].'"></div><div class="castle-room-' . onlyNoInt($arr_res_new_room['new']) . '"></div><p class="level-room">' . onlyInt($arr_res_new_room['new']) . '</p><p class="time-room" id="timer' . $_GET['num_room'] . '">' . int_to_time($VTimeForWork) . '</p>';
+  echo '<div id="box-room-'.$_GET['num_room'].'"></div><div class="castle-room-' . onlyNoInt($arr_res_new_room['new']) . '"></div><p class="level-room">' . onlyInt($arr_res_new_room['new']) . '</p><p class="time-room" id="timer' . $_GET['num_room'] . '">' . int_to_time($VTimeForWork) . '</p>';
   mysql_close($mysql_connect);
 }
 ?>
