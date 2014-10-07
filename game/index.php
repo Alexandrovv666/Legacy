@@ -73,7 +73,7 @@
             include 'inc/Show_Castle.php';
             break;
         case 'map':
-            function_show_map();
+//            function_show_map();
             break;
         default:
             echo 'Что-то пошло не так...';

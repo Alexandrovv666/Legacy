@@ -1,9 +1,11 @@
 <?php
+    ignore_user_abort(true);  
     include $_SERVER['DOCUMENT_ROOT'].'/_constant/cron.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_constant/gameserver.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/network.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/math.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/log.php';
     Only_Local_IP();
     $links = F_Connect_MySQL();
     F_TranzationUp();
@@ -44,6 +46,57 @@
     $GA_res_Junits_param = array();
     $res_Junits_param    = mysql_query('SELECT * FROM `army_baze`');
     while ($GA_res_Junits_param[] = mysql_fetch_array($res_Junits_param)); {
+    }
+    $GA_quest_const          = array();
+    $res_alle_quest_const    = mysql_query('SELECT * FROM `quest_const`');
+    while ($GA_quest_const[] = mysql_fetch_array($res_alle_quest_const)); {
+    }
+    $GA_user          = array();
+    $res_alle_user    = mysql_query('SELECT * FROM `users`');
+    while ($GA_user[] = mysql_fetch_array($res_alle_user)); {
+    }
+    $GA_progress          = array();
+    $res_alle_progress    = mysql_query('SELECT * FROM `progress`');
+    while ($GA_progress[] = mysql_fetch_array($res_alle_progress)); {
+    }
+    $GA_quest_status          = array();
+    $res_alle_quest_status    = mysql_query('SELECT * FROM `quest_status`');
+    while ($GA_quest_status[] = mysql_fetch_array($res_alle_quest_status)); {
+    }
+    $count_user           = count($GA_user) - 1;
+    $count_progress       = count($GA_progress) - 1;
+    $count_quest_const    = count($GA_quest_const) - 1;
+    $count_quest_status   = count($GA_quest_status) - 1;
+    echo '<br>';
+    for ($num_quest = 0; $num_quest < ($count_quest_const); $num_quest++){
+        for ($num_user = 0; $num_user < ($count_user); $num_user++){
+            $QuestFind = false;
+            for ($num_quest_status = 0; $num_quest_status < ($count_quest_status); $num_quest_status++){
+                if ($GA_quest_status[$num_quest_status]['id_quest']==$GA_quest_const[$num_quest]['id_quest'])//квест есть: кто владелец?
+                    if ($GA_quest_status[$num_quest_status]['id_user']==$GA_user[$num_user]['id']){
+                        $QuestFind = true;
+                        break;
+                    }
+            }
+            if ($QuestFind)
+                echo ' вест ['.$GA_quest_const[$num_quest]['id_quest'].'] выдан игроку ['.$GA_user[$num_user]['id'].'].<br>';
+            else{
+                echo ' вест ['.$GA_quest_const[$num_quest]['id_quest'].'] ещЄ не выдавалс€.<br>';
+
+                for ($num_progress = 0; $num_progress < ($count_progress); $num_progress++){
+                    if ($GA_progress[$num_progress]['id_login']==$GA_user[$num_user]['id']){
+                        $EnableGiven = true;
+                        if ($GA_quest_const[$num_quest]['if_eq_progress_input']>$GA_progress[$num_progress]['input'])
+                            $EnableGiven = false;
+                        if ($GA_quest_const[$num_quest]['if_b_golden_room_worked']>$GA_progress[$num_progress]['golden_room_worked'])
+                            $EnableGiven = false;
+                        if ($EnableGiven)
+                            mysql_query('INSERT INTO `quest_status`(`id_user`, `id_quest`, `status`) VALUES ("'.$GA_user[$num_user]['id'].'","'.$GA_quest_const[$num_quest]['id_quest'].'","gived")');
+                        break;
+                    }
+                }
+            }
+        }
     }
     echo 'Step 2. Processed game data begined.<br>';
     echo 'To be processed ' . $to_be_processed . ' second.<br>';
@@ -97,10 +150,12 @@
                     $GA_castle[$num_castle]['tree'] = $GA_castle[$num_castle]['tree'] - round((($GA_castle[$num_castle]['tree'] - $GA_castle[$num_castle]['maxres']) / 3600 / 100), 7);
                 if ($GA_castle[$num_castle]['stone'] > $GA_castle[$num_castle]['maxres'])
                     $GA_castle[$num_castle]['stone'] = $GA_castle[$num_castle]['stone'] - round((($GA_castle[$num_castle]['stone'] - $GA_castle[$num_castle]['maxres']) / 3600 / 100), 7);
-                if ($GA_castle[$num_castle]['men'] > ($GA_castle[$num_castle]['max_men']))
-                    $GA_castle[$num_castle]['men'] = $GA_castle[$num_castle]['men'] - round((($GA_castle[$num_castle]['men'] - $GA_castle[$num_castle]['max_men']) / 3600 / 100), 7);
-                else
-                    $GA_castle[$num_castle]['men'] = $GA_castle[$num_castle]['men'] + decPrz($GA_castle[$num_castle]['men'], 99.9);
+                if ($GA_castle[$num_castle]['men'] > 0){
+                    if ($GA_castle[$num_castle]['men'] < ($GA_castle[$num_castle]['max_men']))
+                        $GA_castle[$num_castle]['men'] = $GA_castle[$num_castle]['men'] + (decPrz($GA_castle[$num_castle]['men'], 99.9));
+                    if ($GA_castle[$num_castle]['men'] > ($GA_castle[$num_castle]['max_men']))
+                        $GA_castle[$num_castle]['men'] = $GA_castle[$num_castle]['men'] - round((($GA_castle[$num_castle]['men'] - $GA_castle[$num_castle]['max_men']) / 3600 / 100), 7);
+                }
                 if ($GA_castle[$num_castle]['men'] > 99999)
                     $GA_castle[$num_castle]['men'] = 99999;
                 if ($GA_castle[$num_castle]['gold'] > $GA_castle[$num_castle]['maxres'])

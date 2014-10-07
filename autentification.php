@@ -2,6 +2,7 @@
     include $_SERVER['DOCUMENT_ROOT'].'/_constant/char.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/processe_data.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/log.php';
     $linkss   = F_Connect_MySQL();
     $login    = $_GET['login'];
     $password = $_GET['password'];
@@ -31,6 +32,7 @@
                 mysql_query('UPDATE `session` SET `time`="'.time().'", `status`="1",`ip`="'.$_SERVER['REMOTE_ADDR'].'",`session`="'.$session.'" WHERE `login`="'.$_GET['login'].'"');
             else
                 mysql_query('INSERT INTO `session`(`time`, `login`, `status`, `ip`, `session`) VALUES ("'.time().'","'.$_GET['login'].'","1","'.$_SERVER['REMOTE_ADDR'].'","'.$session.'")');
+            mysql_query('UPDATE `progress` SET `input`=`input`+1 WHERE `id_login`="'.(F_Get_ID($login)).'"');
             echo '<script language = \'javascript\'> var delay = 100; setTimeout("document.location.href=\'SetCookie.php?lang='.$_GET['lang'].'&login='.$login.'\'", delay); </script>';
             exit;
         }

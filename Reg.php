@@ -42,6 +42,7 @@ metka1:
     mysql_query('INSERT INTO `users`(`login`, `password`, `almaz`, `reg_time`) VALUES ("' . $login . '","' . $hach_of_password . '", "777", "' . time() . '")');
     mysql_query('INSERT INTO `castle` (`id`, `x`, `y`, `z`, `name`, `gold`, `tree`, `stone`, `men`, `max_men`, `maxres`) VALUES ("'.F_Get_ID($login).'" , ' . $x . ',' . $y . ',' . $z . ',"Безымянный замок",2000,1000,600,50,400,5000)');
     mysql_query('INSERT INTO `privelege`(`id_user`) VALUES ("'.F_Get_ID($login).'")');
+    mysql_query('INSERT INTO `progress`(`id_login`) VALUES ("'.F_Get_ID($login).'")');
     echo 'Персонаж зарегистрирован<html><head><meta http-equiv=Refresh content="4; url=index.php"></head></html>';
 ?>
 

@@ -1,7 +1,4 @@
 <?//PEAR style
-/*
-Создание базовых таблиц. Все таблицы создаются с движком InnoDB
-*/
     include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/network.php';
     Only_Local_IP();
@@ -16,14 +13,6 @@
     mysql_query("CREATE TABLE IF NOT EXISTS `settings` (`id` int(11) NOT NULL AUTO_INCREMENT, `name_parametr` varchar(15) NOT NULL, `Value` int(11) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;");
     mysql_query("INSERT INTO `settings` (`name_parametr`, `Value`) VALUES ('timers', '".time()."'),('work', '0'),('TRANSACTION', 0);");
     mysql_query("CREATE TABLE IF NOT EXISTS `users` (`id` int(11) NOT NULL AUTO_INCREMENT, `login` text NOT NULL, `password` text NOT NULL, `reg_time` int(11) NOT NULL, `almaz` float NOT NULL, `lang` varchar(5) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;");
-/*
-`id` int(11) NOT NULL AUTO_INCREMENT, по ИД идентифицируются все объекты в базе. Уникален
-`login` text NOT NULL, Логин юзверя
-`password` text NOT NULL, Его пароль
-`reg_time` int(11) NOT NULL, Время регистрации
-`almaz` float NOT NULL, Внутренний счёт
-`lang` varchar(5) NOT NULL Выбранный язык
-*/
     mysql_query("ALTER TABLE `users` MODIFY COLUMN `id` INT AUTO_INCREMENT;");
     mysql_query("CREATE TABLE IF NOT EXISTS `session` (`time` int(11) NOT NULL, `login` varchar(20) NOT NULL, `status` int(11) NOT NULL, `ip` varchar(15) NOT NULL, `session` varchar(30) NOT NULL, `user_agent` varchar(200) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
     mysql_query("CREATE TABLE IF NOT EXISTS `cron` (`when_added` bigint(20) NOT NULL, `time_start` bigint(20) NOT NULL, `name` varchar(20) NOT NULL, `comment` text NOT NULL, `before_lock_server` int(11) NOT NULL, `before_mail_caption` text NOT NULL, `before_mail_text` text NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
@@ -56,6 +45,28 @@
     }
     mysql_query(substr($qwery, 0, strlen($qwery)-1));
     mysql_query("CREATE TABLE IF NOT EXISTS `haus_const` (`name` text NOT NULL, `name_rus` text NOT NULL, `descr_rus` text NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+    mysql_query('CREATE TABLE IF NOT EXISTS `progress` (
+  `id_login` int(11) NOT NULL,
+  `input` int(11) NOT NULL,
+  `exit` int(11) NOT NULL,
+  `golden_room_worked` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;');
+    mysql_query('CREATE TABLE IF NOT EXISTS `quest_status` (`id_user` int(11) NOT NULL, `id_quest` int(11) NOT NULL, `status` text NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;');
+    mysql_query('CREATE TABLE IF NOT EXISTS `quest_const` (
+  `id_quest` int(11) NOT NULL,
+  `name_quest` text NOT NULL,
+  `descriptin_quest` text NOT NULL,
+  `if_eq_progress_input` int(11) NOT NULL,
+  `if_b_golden_room_worked` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;');
+    mysql_query('INSERT INTO `quest_const`(`id_quest`, `name_quest`, `descriptin_quest`, `if_eq_progress_input`) 
+    VALUES (1, "Авторизоваться 10 раз.", "Для завершения квеста вы должны авторизоваться 10 раз.", 2)');
+    mysql_query('INSERT INTO `quest_const`(`id_quest`, `name_quest`, `descriptin_quest`, `if_eq_progress_input`) 
+    VALUES (2, "Золото... много золота.", "Построить 2 комнаты мастера над монетой.", 1)');
+    mysql_query('INSERT INTO `quest_const`(`id_quest`, `name_quest`, `descriptin_quest`, `if_b_golden_room_worked`) 
+    VALUES (3, "Дерево и камень.", "Построить по одной комнате деревопилки и каменотёски", 1)');
+    mysql_query('INSERT INTO `quest_const`(`id_quest`, `name_quest`, `descriptin_quest`, `if_eq_progress_input`) 
+    VALUES (4, "Перерыв?", "тестовый квест...", 8)');
     mysql_close($link);
     echo 'Step 1 is Finish.<br>';
     echo 'Wait 3 second for start step 2.<br>';

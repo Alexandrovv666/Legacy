@@ -12,9 +12,9 @@
     $Percent_kritical_men = 30;
     for ($i = 1; $i <= $Max_level_HAUS; $i++) {
         $V_new           = 'lavka' . $i;
-        $V_gold          = $i * 3;
-        $V_tree          = $i * $i * 20;
-        $V_stone         = $i * $i * 7;
+        $V_gold          = 0;
+        $V_tree          = $i * 20;
+        $V_stone         = $i * 10;
         $V_men           = $i * $i * 8;
         $V_max_men       = floor(incprz($V_men, $Percent_kritical_men));
         $V_max_sklad_men = 0;
@@ -28,9 +28,9 @@
     }
     for ($i = 1; $i <= $Max_level_HAUS; $i++) {
         $V_new           = 'lesop' . $i;
-        $V_gold          = $i * $i * 30;
-        $V_tree          = $i * 4;
-        $V_stone         = $i * $i * 10;
+        $V_gold          =  $i * 100;
+        $V_tree          = 0;
+        $V_stone         = $i * 9;
         $V_men           = $i * $i * 12;
         $V_max_men       = floor(incprz($V_men, $Percent_kritical_men));
         $V_max_sklad_men = 0;
@@ -39,15 +39,15 @@
         $V_astone        = 0;
         $V_asklad        = 0;
         $V_amen          = 0;
-        $V_default_time  = $i * $i * 26;
+        $V_default_time  = $i * $i * 60;
         mysql_query('INSERT INTO `haus`(`id` ,`new`, `gold`, `tree`, `stone`, `men`, `max_men`, `max_sklad_men`,`agold`, `atree`, `astone`, `asklad`, `amen`, `default_time`) VALUES ("' . $V_ID++ . '", "' . $V_new . '", "' . $V_gold . '", "' . $V_tree . '", "' . $V_stone . '", "' . $V_men . '", "' . $V_max_men . '", "' . $V_max_sklad_men . '", "' . $V_agold . '", "' . $V_atree . '", "' . $V_astone . '", "' . $V_asklad . '", "' . $V_amen . '", "' . $V_default_time . '")');
     }
     for ($i = 1; $i <= $Max_level_HAUS; $i++) {
         $V_new           = 'kamen' . $i;
-        $V_gold          = $i * $i * 44;
-        $V_tree          = $i * $i * 35;
-        $V_stone         = $i * 2;
-        $V_men           = $i * $i * 11;
+        $V_gold          = $i * 200;
+        $V_tree          = $i * 20;
+        $V_stone         = 0;
+        $V_men           = $i * $i * 13;
         $V_max_men       = floor(incprz($V_men, $Percent_kritical_men));
         $V_max_sklad_men = 0;
         $V_agold         = 0;
@@ -55,7 +55,7 @@
         $V_astone        = $i * 1;
         $V_asklad        = 0;
         $V_amen          = 0;
-        $V_default_time  = $i * $i * 34;
+        $V_default_time  = $i * $i * 80;
         mysql_query('INSERT INTO `haus`(`id` ,`new`, `gold`, `tree`, `stone`, `men`, `max_men`, `max_sklad_men`,`agold`, `atree`, `astone`, `asklad`, `amen`, `default_time`) VALUES ("' . $V_ID++ . '", "' . $V_new . '", "' . $V_gold . '", "' . $V_tree . '", "' . $V_stone . '", "' . $V_men . '", "' . $V_max_men . '", "' . $V_max_sklad_men . '", "' . $V_agold . '", "' . $V_atree . '", "' . $V_astone . '", "' . $V_asklad . '", "' . $V_amen . '", "' . $V_default_time . '")');
     }
     for ($i = 1; $i <= $Max_level_HAUS; $i++) {
@@ -71,7 +71,7 @@
         $V_astone        = 0;
         $V_asklad        = 0;
         $V_amen          = $i * 5;
-        $V_default_time  = $i * $i * 240;
+        $V_default_time  = $i * $i * 115;
         mysql_query('INSERT INTO `haus`(`id` ,`new`, `gold`, `tree`, `stone`, `men`, `max_men`, `max_sklad_men`,`agold`, `atree`, `astone`, `asklad`, `amen`, `default_time`) VALUES ("' . $V_ID++ . '", "' . $V_new . '", "' . $V_gold . '", "' . $V_tree . '", "' . $V_stone . '", "' . $V_men . '", "' . $V_max_men . '", "' . $V_max_sklad_men . '", "' . $V_agold . '", "' . $V_atree . '", "' . $V_astone . '", "' . $V_asklad . '", "' . $V_amen . '", "' . $V_default_time . '")');
     }
     for ($i = 1; $i <= $Max_level_HAUS; $i++) {
@@ -87,7 +87,23 @@
         $V_astone        = 0;
         $V_asklad        = $i * 5000;
         $V_amen          = 0;
-        $V_default_time  = $i * $i * 900;
+        $V_default_time  = $i * $i * 60 * 45;
+        mysql_query('INSERT INTO `haus`(`id` ,`new`, `gold`, `tree`, `stone`, `men`, `max_men`, `max_sklad_men`,`agold`, `atree`, `astone`, `asklad`, `amen`, `default_time`) VALUES ("' . $V_ID++ . '", "' . $V_new . '", "' . $V_gold . '", "' . $V_tree . '", "' . $V_stone . '", "' . $V_men . '", "' . $V_max_men . '", "' . $V_max_sklad_men . '", "' . $V_agold . '", "' . $V_atree . '", "' . $V_astone . '", "' . $V_asklad . '", "' . $V_amen . '", "' . $V_default_time . '")');
+    }
+    for ($i = 1; $i <= $Max_level_HAUS; $i++) {
+        $V_new           = 'market' . $i;
+        $V_gold          = $i * $i * $i * 1000;
+        $V_tree          = $i * $i * $i * 2100;
+        $V_stone         = $i * $i * $i * 800;
+        $V_men           = $i * $i * 1200;
+        $V_max_men       = floor(incprz($V_men, $Percent_kritical_men));
+        $V_max_sklad_men = 0;
+        $V_agold         = 0;
+        $V_atree         = 0;
+        $V_astone        = 0;
+        $V_asklad        = 0;
+        $V_amen          = 0;
+        $V_default_time  = $i * $i * 60 * 60 * 1;
         mysql_query('INSERT INTO `haus`(`id` ,`new`, `gold`, `tree`, `stone`, `men`, `max_men`, `max_sklad_men`,`agold`, `atree`, `astone`, `asklad`, `amen`, `default_time`) VALUES ("' . $V_ID++ . '", "' . $V_new . '", "' . $V_gold . '", "' . $V_tree . '", "' . $V_stone . '", "' . $V_men . '", "' . $V_max_men . '", "' . $V_max_sklad_men . '", "' . $V_agold . '", "' . $V_atree . '", "' . $V_astone . '", "' . $V_asklad . '", "' . $V_amen . '", "' . $V_default_time . '")');
     }
     for ($i = 1; $i <= $Max_level_HAUS; $i++) {
@@ -103,9 +119,10 @@
         $V_astone        = 0;
         $V_asklad        = 0;
         $V_amen          = 0;
-        $V_default_time  = $i * $i * 60 * 60 * 2;
+        $V_default_time  = $i * $i * 60 * 60 * 9;
         mysql_query('INSERT INTO `haus`(`id` ,`new`, `gold`, `tree`, `stone`, `men`, `max_men`, `max_sklad_men`,`agold`, `atree`, `astone`, `asklad`, `amen`, `default_time`) VALUES ("' . $V_ID++ . '", "' . $V_new . '", "' . $V_gold . '", "' . $V_tree . '", "' . $V_stone . '", "' . $V_men . '", "' . $V_max_men . '", "' . $V_max_sklad_men . '", "' . $V_agold . '", "' . $V_atree . '", "' . $V_astone . '", "' . $V_asklad . '", "' . $V_amen . '", "' . $V_default_time . '")');
     }
+
     mysql_query('INSERT INTO `haus_const`(`name`, `name_rus`, `descr_rus`) VALUES 
                 ("lavka","Комната торговца","Повышает приток золота в замке")');
     mysql_query('INSERT INTO `haus_const`(`name`, `name_rus`, `descr_rus`) VALUES 
@@ -116,6 +133,8 @@
                 ("haus","Жилая комната","Повышает приток населения и его максимальную численность в замке")');
     mysql_query('INSERT INTO `haus_const`(`name`, `name_rus`, `descr_rus`) VALUES 
                 ("sklad","Складская комната","Служит для хранения ресурсов")');
+    mysql_query('INSERT INTO `haus_const`(`name`, `name_rus`, `descr_rus`) VALUES 
+                ("market","Комната менялы","Тут можно заключать сделки с другими игроками посредством рынка и менять ресурсы.")');
     mysql_query('INSERT INTO `haus_const`(`name`, `name_rus`, `descr_rus`) VALUES 
                 ("treasury","Сокровещница","Хранит магические предметы")');
     echo 'Step 2 is finish.<br>';

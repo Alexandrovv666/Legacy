@@ -10,7 +10,7 @@ $.ajax({
    url: "/server/newroom.php?action=newroom&num_room="+n+"&namenewroomroom="+name+"&men="+men,
    type: 'get',
    success: function(getdata){
-       document.getElementById('room-'+n).innerHTML=getdata
+       document.getElementById('room-'+n).innerHTML=getdata;
        api_get_data();
    }
 });
@@ -54,7 +54,8 @@ $.ajax({
    url: "/server/change.php?action=change&men="+men+"&num_room="+num_room,
    type: 'get',
    success: function(getdata){
-      api_get_data();
+      if (getdata=='ok')
+          api_get_data();
    }
 });
 }
