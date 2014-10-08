@@ -48,6 +48,25 @@ function get_info_castle(){
     $("#get_data_window_modal_1").load("/server/get_info_castle.php?action=get_info_castle");
 }
 
+function get_quest(){
+$.ajax({
+   url: "/server/quest.php?action=list",
+   type: 'get',
+   success: function(getdata){
+      document.getElementById('get_data_window_modal_1').innerHTML=getdata;
+   }
+});
+}
+function get_quest_text(n){
+$.ajax({
+   url: "/server/quest.php?action=one&num="+n,
+   type: 'get',
+   success: function(getdata){
+      document.getElementById('quest_box'+n).innerHTML=getdata;
+   }
+});
+}
+
 function ChangeMen(num_room){
     var men = document.getElementById("add_to_works").innerHTML;
 $.ajax({

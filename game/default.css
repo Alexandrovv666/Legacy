@@ -109,13 +109,6 @@ a:active{
  position: absolute;
  top: 6px;
 }
-#name-castle{
- height: 30px;
- left: 830px;
- position: absolute;
- top: 5px;
- width: 400px;
-}
 .conteyner-site{
  height: calc(100% - 30px);
  position: absolute;

@@ -67,7 +67,6 @@
     $count_progress       = count($GA_progress) - 1;
     $count_quest_const    = count($GA_quest_const) - 1;
     $count_quest_status   = count($GA_quest_status) - 1;
-    echo '<br>';
     for ($num_quest = 0; $num_quest < ($count_quest_const); $num_quest++){
         for ($num_user = 0; $num_user < ($count_user); $num_user++){
             $QuestFind = false;
@@ -78,11 +77,7 @@
                         break;
                     }
             }
-            if ($QuestFind)
-                echo ' вест ['.$GA_quest_const[$num_quest]['id_quest'].'] выдан игроку ['.$GA_user[$num_user]['id'].'].<br>';
-            else{
-                echo ' вест ['.$GA_quest_const[$num_quest]['id_quest'].'] ещЄ не выдавалс€.<br>';
-
+            if (!$QuestFind){
                 for ($num_progress = 0; $num_progress < ($count_progress); $num_progress++){
                     if ($GA_progress[$num_progress]['id_login']==$GA_user[$num_user]['id']){
                         $EnableGiven = true;

@@ -1,9 +1,16 @@
-.conteyner-site-castle-name{
-  position: relative;
-  left: 20%;
-  top: -52px;
-  color: #444;
-  font-size: 25pt;
+#name-castle{
+ position: absolute;
+ height: 30px;
+ left: 830px;
+ top: 5px;
+ width: 200px;
+}
+#quest{
+ position: absolute;
+ height: 30px;
+ left: 920px;
+ top: 5px;
+ width: 100px;
 }
 .castle-engine{
   position: absolute;

@@ -2,8 +2,6 @@
     echo '<div class="panel-up">';
     echo '  <div class="panel-up-navigation">';
     echo '    <p onclick="go_to_exit();">Exit</p>';
-    if ($ort == 'castle')
-        echo '    <div class="conteyner-site-castle-name">load...</div>';
     echo '  </div>';
     if ($_COOKIE['ort'] == 'castle'){
         echo '  <div class="panel-up-resoorsed normal-text">';
@@ -13,6 +11,7 @@
         echo '    <p id="men" class="panel-up-resoorsed-element">load...</p>';
         echo '  </div>';
         echo '  <div id="name-castle"><a href="#window_modal_1" onclick="get_info_castle()">load...</a></div>';
+        echo '  <div id="quest"><a href="#window_modal_1" onclick="get_quest()"> весты</a></div>';
     }
     echo '</div>';
     echo '<div class="panel-left">';
