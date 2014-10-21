@@ -1,10 +1,10 @@
-<?//PEAR style
+<?php
     include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/network.php';
-    Only_Local_IP();
-    echo 'Step 1. Create MySQL Database and tables.<br>';
-    global $C_MySQL_Host, $C_MySQL_login;
-    $link = mysql_connect($C_MySQL_Host, $C_MySQL_login, "");
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/install.php';
+    echo 'Создание БД и таблиц.<br>';
+    global $C_MySQL_Host, $C_MySQL_login, $C_MySQL_Password;
+    $link = mysql_connect($C_MySQL_Host, $C_MySQL_login, $C_MySQL_Password);
     mysql_query('CREATE DATABASE IF NOT EXISTS `game` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;');
     mysql_select_db('game');
     mysql_set_charset("CP1251");
@@ -59,16 +59,8 @@
   `if_eq_progress_input` int(11) NOT NULL,
   `if_b_golden_room_worked` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;');
-    mysql_query('INSERT INTO `quest_const`(`id_quest`, `name_quest`, `descriptin_quest`, `if_eq_progress_input`) 
-    VALUES (1, "Авторизоваться 10 раз.", "Для завершения квеста вы должны авторизоваться 10 раз.", 2)');
-    mysql_query('INSERT INTO `quest_const`(`id_quest`, `name_quest`, `descriptin_quest`, `if_eq_progress_input`) 
-    VALUES (2, "Золото... много золота.", "Построить 2 комнаты мастера над монетой.", 1)');
-    mysql_query('INSERT INTO `quest_const`(`id_quest`, `name_quest`, `descriptin_quest`, `if_b_golden_room_worked`) 
-    VALUES (3, "Дерево и камень.", "Построить по одной комнате деревопилки и каменотёски", 1)');
-    mysql_query('INSERT INTO `quest_const`(`id_quest`, `name_quest`, `descriptin_quest`, `if_eq_progress_input`) 
-    VALUES (4, "Перерыв?", "тестовый квест...", 8)');
+    mysql_query("ALTER TABLE `quest_const` MODIFY COLUMN `id` INT AUTO_INCREMENT;");
     mysql_close($link);
-    echo 'Step 1 is Finish.<br>';
-    echo 'Wait 3 second for start step 2.<br>';
-    echo '<html><head><meta http-equiv=Refresh content="3; url=haus.php"></head></html>';
+    API_INSTALL_ECHO_END_STEP();
+    echo '<html><head><meta http-equiv=Refresh content="5; url=map.php?x=1"></head></html>';
 ?>

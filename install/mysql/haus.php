@@ -1,13 +1,31 @@
 <?php
+/*
+ * Скрипт заполнения таблицы комнат
+ * для добавления нового типа комнаты необходимо создать дополнительный блок согласно шаблону ниже
+ *   for ($i = 1; $i <= $Max_level_HAUS; $i++) {
+ *       $V_new           = 'lavka' . $i;                                 - служеюное название в апострофах
+ *       $V_gold          =                                               - требуемое количества золота для постройки
+ *       $V_tree          =                                               - требуемое количество древесины для постройки
+ *       $V_stone         =                                               - требуемое количество камня для постройки
+ *       $V_men           =                                               - требуемое количество людей для строительства
+ *       $V_max_men       = floor(incprz($V_men, $Percent_kritical_men)); - максимальное количество людей на стройке\улучшении
+ *       $V_max_sklad_men =                                               - на сколько увеличится показатель максимального количества населения
+ *       $V_agold         =                                               - на сколько увеличится приток золота
+ *       $V_atree         =                                               - на сколько увеличится приток древисины
+ *       $V_astone        =                                               - на сколько увеличится приток камня
+ *       $V_asklad        =                                               - на сколько увеличится вместимость ресурсов
+ *       $V_amen          =                                               - на сколько увеличится рождаемость
+ *       $V_default_time  =                                               - время строительства
+ *       mysql_query('INSERT INTO `haus`(`id` ,`new`, `gold`, `tree`, `stone`, `men`, `max_men`, `max_sklad_men`,`agold`, `atree`, `astone`, `asklad`, `amen`, `default_time`) VALUES ("' . $V_ID++ . '", "' . $V_new . '", "' . $V_gold . '", "' . $V_tree . '", "' . $V_stone . '", "' . $V_men . '", "' . $V_max_men . '", "' . $V_max_sklad_men . '", "' . $V_agold . '", "' . $V_atree . '", "' . $V_astone . '", "' . $V_asklad . '", "' . $V_amen . '", "' . $V_default_time . '")');
+ *   }
+*/
     include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_constant/gameserver.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/network.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/math.php';
-    Only_Local_IP();
     $mysql_connect = F_Connect_MySQL();
     echo 'Step 2. Create MySQL lines for haus in table.<br>';
     global $Max_level_HAUS;
-    //*************************
     $V_ID = 1;
     $Percent_kritical_men = 30;
     for ($i = 1; $i <= $Max_level_HAUS; $i++) {
@@ -122,7 +140,9 @@
         $V_default_time  = $i * $i * 60 * 60 * 9;
         mysql_query('INSERT INTO `haus`(`id` ,`new`, `gold`, `tree`, `stone`, `men`, `max_men`, `max_sklad_men`,`agold`, `atree`, `astone`, `asklad`, `amen`, `default_time`) VALUES ("' . $V_ID++ . '", "' . $V_new . '", "' . $V_gold . '", "' . $V_tree . '", "' . $V_stone . '", "' . $V_men . '", "' . $V_max_men . '", "' . $V_max_sklad_men . '", "' . $V_agold . '", "' . $V_atree . '", "' . $V_astone . '", "' . $V_asklad . '", "' . $V_amen . '", "' . $V_default_time . '")');
     }
-
+/*
+ * тексты для каждой комнаты.
+*/
     mysql_query('INSERT INTO `haus_const`(`name`, `name_rus`, `descr_rus`) VALUES 
                 ("lavka","Комната торговца","Повышает приток золота в замке")');
     mysql_query('INSERT INTO `haus_const`(`name`, `name_rus`, `descr_rus`) VALUES 

@@ -14,7 +14,7 @@ ErrorDocument 403 https://drive.google.com/folderview?id=0B-u3wP9uuJxtdFk0TTcwVE
 #Секция запрета только нижеперечисленным адресам
 Order Allow,Deny
 Allow from all
-Deny from 127.0.0.1
+Deny from 127.0.0.2
 <FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf)$">
 Header set Cache-Control "max-age=2592000"
 </FilesMatch>

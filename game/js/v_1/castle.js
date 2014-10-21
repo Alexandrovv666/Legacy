@@ -1,9 +1,3 @@
-function Clickroom(n){
-    $("#get_data_window_modal_1").load("/server/listwork.php?action=listwork&num_room="+n);
-}
-function StartWorkRoom(name, n){
-    $("#get_data_window_modal_1").load("/server/StartWorkRoom.php?action=StartWorkRoom&num_room="+n+"&name="+name);
-}
 function StartWorks(name, n){
     var men = document.getElementById("to_works").innerHTML;
 $.ajax({
@@ -14,7 +8,7 @@ $.ajax({
        api_get_data();
    }
 });
-    reset_window_modal_1();
+api_window_modal_message_close();
 }
 function CorrectMenForWork(max_men_of_room, max_men_in_castle){
     value = document.getElementById("men_for_work").value;
@@ -43,20 +37,6 @@ function CorrectMenForWorkCH(def_men, max_men_of_room, max_men_in_castle, worked
     }
     document.getElementById('time_of_work').innerHTML=secToTime(Math.floor((alt_men/range_people_at_work)*time_before));
 }
-
-function get_info_castle(){
-    $("#get_data_window_modal_1").load("/server/get_info_castle.php?action=get_info_castle");
-}
-
-function get_quest(){
-$.ajax({
-   url: "/server/quest.php?action=list",
-   type: 'get',
-   success: function(getdata){
-      document.getElementById('get_data_window_modal_1').innerHTML=getdata;
-   }
-});
-}
 function get_quest_text(n){
 $.ajax({
    url: "/server/quest.php?action=one&num="+n,
@@ -74,6 +54,7 @@ $.ajax({
    type: 'get',
    success: function(getdata){
       if (getdata=='ok')
+api_window_modal_message_close();
           api_get_data();
    }
 });

@@ -16,7 +16,7 @@ if ($_GET['action'] == 'list') {
     exit;
   }
   F_session_extension();
-  echo '<center>Список квестов</center><br>';
+  echo 'ok|<center>Список квестов</center>|';
   $GA_quest_status          = array();
   $res_alle_quest_status    = mysql_query('SELECT * FROM `quest_status` WHERE `id_user`="'.F_Get_ID($_COOKIE['login']).'"');
   while ($GA_quest_status[] = mysql_fetch_array($res_alle_quest_status)); {

@@ -1,8 +1,6 @@
 <?php
-    include '../FUNC.php';
-    FConnBase();
-    mysql_query( 'INSERT INTO `history`(`login`, `ip`, `uid`, `uuid`, `url`, `time`) VALUES ("' . addslashes( $_COOKIE[ 'Login' ] ) . '","' . $_SERVER[ 'REMOTE_ADDR' ] . '","' . addslashes( $_COOKIE[ 'UID' ] ) . '","' . addslashes( $_COOKIE[ 'UUID' ] ) . '","' . addslashes( $_SERVER[ 'REQUEST_URI' ] ) . '","' . time() . '")' );
-    echo '<div style="position: absolute; top: 0px; left: 60px"><img src="../img/interface/panel.png" width="450"></div>';
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
+    $linkss = F_Connect_MySQL();
     echo '<div style="position: absolute; top: 010px; left: 50px"><b>Оглавление</b></div>';
     echo '<div style="position: absolute; top: 030px; left: 10px"><a href="index.php">Главная</a></div>';
     echo '<div style="position: absolute; top: 050px; left: 10px"><a href="index.php?site=castle">Замок</a></div>';

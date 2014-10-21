@@ -4,6 +4,8 @@ function processed_general_parser_data(){
         processed_time_room_parser();
         processed_res_parser();
         processed_army_parser();
+    }else{
+        window.location='/Exit.php';
     }
 }
 function processed_time_room_parser(){

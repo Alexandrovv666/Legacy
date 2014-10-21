@@ -27,8 +27,7 @@
         for ($y = 1; $y <= 7; $y++){
             $name_room = $Global_array_castle['c_'.$num_room.'_n'];
             $time_room = $Global_array_castle['c_'.$num_room.'_1'];
-            echo '<a href="#window_modal_1" onclick="Clickroom('.$num_room.')">';
-            echo '<div class="castle-room castle-room-'.$y.'-x castle-room-x-'.$x.'" id="room-'.$num_room.'">';
+            echo '<div class="castle-room castle-room-'.$y.'-x castle-room-x-'.$x.'" id="room-'.$num_room.'" onclick=\'api_window_modal_message_open("click_room",'.$num_room.')\'>';
             echo '<div class="castle-room-'.onlyNoInt($name_room).'"></div>';
             $level_room = onlyInt($name_room);
             if ($level_room!=0)
@@ -38,7 +37,7 @@
             if ($time_room<0) echo int_to_time(abs($time_room));
             if ($time_room>0) echo '--:--:--:--';
             echo '</p>';
-            echo '</div></a>';
+            echo '</div>';
             $num_room=$num_room+1;
         }
     }

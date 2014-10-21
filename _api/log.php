@@ -24,5 +24,4 @@ function log_admin_access($text){
     fwrite($file, add_length_string(date("Y-m-d H:i:s"),19).' => '.add_length_string($_SERVER['REMOTE_ADDR'], 16).' '.$_SERVER['PHP_SELF'].': '.$text."\r\n");
     fclose($file);
 }
-
 ?>

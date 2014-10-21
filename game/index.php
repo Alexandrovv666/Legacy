@@ -55,15 +55,15 @@
     F_echo_html_head();
 ?>
 <link rel="stylesheet" href="default.css">
-<script src="js\api.js"></script>
-<script src="js\general.js"></script>
-<script src="js\castle.js"></script>
-<script src="js\debug.js"></script>
-<script src="js\jquery.min.js"></script>
-<script src="js\map.js"></script>
-<script src="js\navigation.js"></script>
-<script src="js\processed.js"></script>
-<script src="js\var.js"></script>
+<link rel="stylesheet" href="css\window.css">
+<link rel="stylesheet" href="css\default.css">
+<script src="js\v_1\jquery.min.js"></script>
+<script src="js\v_1\processed.js"></script>
+<script src="js\v_1\var.js"></script>
+<script src="js\v_1\api.js"></script>
+<script src="js\v_1\castle.js"></script>
+<script src="js\v_1\general.js"></script>
+
 <div id="fon"></div>
 <?php
     include 'inc/invisible.php';

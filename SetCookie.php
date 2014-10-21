@@ -1,4 +1,8 @@
 <?php
+    if ($_COOKIE['test']!='yes'){
+        echo 'У вас обнаружена проблема с куками.<br>Для решения проблем зайдите <a href="help/index.php?site=cookie">сюда</a>.';
+        exit;
+    }
     include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
     $linkss = F_Connect_MySQL();
     $arr_res_castle = mysql_fetch_array(mysql_query('SELECT * FROM `castle` WHERE `id` = "' . F_Get_ID($_GET['login']) . '"'));
@@ -12,8 +16,7 @@
     SetCookie("mapY",    $arr_res_castle['y']);
     SetCookie("mapZ",    $arr_res_castle['z']);
     SetCookie("ort",     'castle');
-
     SetCookie("lang",    $_GET['lang']);
     mysql_Close($linkss);
-    echo '<script language = \'javascript\'> var delay = 100; setTimeout("document.location.href=\'game/\'", delay); </script>';
+    header("Location: game");
 ?>  
