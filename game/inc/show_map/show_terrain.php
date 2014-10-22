@@ -1,9 +1,9 @@
 <?
 function function_show_terrain($x_terrain){
             if ($x_terrain == 0)
-                return 'terrain-ozero';
-            if ($x_terrain == 1)
                 return 'terrain-trawa';
+            if ($x_terrain == 1)
+                return 'terrain-ozero';
             if ($x_terrain == 2)
                 return 'terrain-t_zemla';
             if ($x_terrain == 3)

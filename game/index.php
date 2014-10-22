@@ -54,16 +54,19 @@
     F_session_extension();
     F_echo_html_head();
 ?>
-<link rel="stylesheet" href="default.css">
-<link rel="stylesheet" href="css\window.css">
-<link rel="stylesheet" href="css\default.css">
+<link rel="stylesheet" href="css\v1\castle.css">
+<link rel="stylesheet" href="css\v1\general.css">
+<link rel="stylesheet" href="css\v1\mail.css">
+<link rel="stylesheet" href="css\v1\map.css">
+<link rel="stylesheet" href="css\v1\panel.css">
+<link rel="stylesheet" href="css\v1\window.css">
 <script src="js\v_1\jquery.min.js"></script>
 <script src="js\v_1\processed.js"></script>
 <script src="js\v_1\var.js"></script>
 <script src="js\v_1\api.js"></script>
 <script src="js\v_1\castle.js"></script>
 <script src="js\v_1\general.js"></script>
-
+<script src="js\v_1\navigation.js"></script>
 <div id="fon"></div>
 <?php
     include 'inc/invisible.php';
@@ -73,7 +76,7 @@
             include 'inc/Show_Castle.php';
             break;
         case 'map':
-//            function_show_map();
+            include 'inc/show_map.php';
             break;
         default:
             echo 'Что-то пошло не так...';

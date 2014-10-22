@@ -1,0 +1,81 @@
+.panel-left{
+ background: #77D;
+ color: #666;
+ font-size: 16pt;
+ height: 100%;
+ left: -130px;
+ position: fixed;
+ top: 0;
+ width: 140px;
+ z-index: 2;
+}
+.panel-left:hover{
+ background: #228;
+ color: #888;
+ left: 0px;
+}
+.panel-left-navigation{
+ left: 5px;
+ position: absolute;
+ top: calc(100% - 400px);
+}
+.panel-left-navigation-element{
+ padding: 10px;
+}
+.panel-left-navigation-element:hover{
+ color: #FFF;
+}
+.panel-up{
+ background: #22F;
+ color: #AAA;
+ font-size: 13pt;
+ height: 30px;
+ left: 0;
+ position: absolute;
+ top: 0;
+ width: 100%;
+ z-index: 1;
+}
+.panel-up-resoorsed{
+ height: 30px;
+ left: 100px;
+ position: absolute;
+ top: 20px;
+ width: 700px;
+}
+.panel-up-resoorsed-element{
+ color: #FFF;
+}
+.panel-up-navigation{
+ left: 30px;
+ position: absolute;
+ top: 6px;
+}
+#gold{
+ left: 0;
+ position: absolute;
+ top: -13px;
+}
+#tree{
+ left: 200px;
+ position: absolute;
+ top: -13px;
+}
+#stone{
+ left: 400px;
+ position: absolute;
+ top: -13px;
+}
+#men{
+ left: 600px;
+ position: absolute;
+ top: -13px;
+}
+#almaz{
+ left: 10px;
+ position: absolute;
+ top: 10px;
+}
+#almaz:hover{
+ color: #000;
+}

@@ -1,6 +1,5 @@
 <?
     include $_SERVER['DOCUMENT_ROOT'].'/_api/math.php';
-    echo '<link rel="stylesheet" href="castle.css">';
     echo '<div class="conteyner-site">';
     echo '  <div class="castle-engine">';
     echo '    <div id="castle-basic-wood-0" class="castle-basic-wood"></div>';

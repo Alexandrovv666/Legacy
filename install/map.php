@@ -25,6 +25,5 @@
         echo '<html><head><meta http-equiv=Refresh content="1; url=map.php?x='.($x+1).'"></head></html>';
     }else{
         API_INSTALL_ECHO_END_STEP();
-        echo '<html><head><meta http-equiv=Refresh content="5; url=haus.php"></head></html>';
     }
 ?>
