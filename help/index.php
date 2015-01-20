@@ -1,6 +1,4 @@
 <?php
-    include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
-    $linkss = F_Connect_MySQL();
     echo '<div style="position: absolute; top: 010px; left: 50px"><b>Оглавление</b></div>';
     echo '<div style="position: absolute; top: 030px; left: 10px"><a href="index.php">Главная</a></div>';
     echo '<div style="position: absolute; top: 050px; left: 10px"><a href="index.php?site=castle">Замок</a></div>';
@@ -33,6 +31,5 @@
         if ( stristr($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0') ) $out .= '';
         if ( stristr($_SERVER['HTTP_USER_AGENT'], 'MSIE 8.0') ) $out .= '';
     }
-
     echo '<div style="position: absolute; top: 10px; left: 350px">'.$out.'</div>';
 ?>

@@ -5,7 +5,6 @@
         header("404 Not Found");
         exit;
     }
-
     if ($_COOKIE['test']!='yes'){
         echo 'У вас обнаружена проблема с куками.<br>Для решения проблем зайдите <a href="help/index.php?site=cookie">сюда</a>.';
         exit;
