@@ -26,7 +26,7 @@
   left: 0;
   height: 20px;
   width: 1070px;
-  background: url(/game/img/castle/textures/stone.jpg) repeat;
+  background: url(/img/castle/textures/stone.jpg) repeat;
   background-size: 60px;
 }
 #castle-basic-stone-0{
@@ -58,7 +58,7 @@
   top: 0;
   height: 450px;
   width: 20px;
-  background: url(/game/img/castle/textures/wood.jpg) repeat;
+  background: url(/img/castle/textures/wood.jpg) repeat;
 }
 #castle-basic-wood-0{
   position: absolute;
@@ -97,7 +97,7 @@
   width: 130px;
   height: 70px;
   background: #758;
-  background: url(/game/img/castle/room/null.jpg) repeat;
+  background: url(/img/castle/room/null.jpg) repeat;
 }
 .castle-room-1-x{
   position: absolute;
@@ -173,42 +173,42 @@
 #castle-army-img-1{
   position: absolute;
   left: 0;
-  background: url(/game/img/Units/army/1.png);
+  background: url(/img/Units/army/1.png);
 }
 #castle-army-img-2{
   position: absolute;
   left: 110px;
-  background: url(/game/img/Units/army/2.png);
+  background: url(/img/Units/army/2.png);
 }
 #castle-army-img-3{
   position: absolute;
   left: 220px;
-  background: url(/game/img/Units/army/3.png);
+  background: url(/img/Units/army/3.png);
 }
 #castle-army-img-4{
   position: absolute;
   left: 330px;
-  background: url(/game/img/Units/army/4.png);
+  background: url(/img/Units/army/4.png);
 }
 #castle-army-img-5{
   position: absolute;
   left: 440px;
-  background: url(/game/img/Units/army/5.png);
+  background: url(/img/Units/army/5.png);
 }
 #castle-army-img-6{
   position: absolute;
   left: 550px;
-  background: url(/game/img/Units/army/6.png);
+  background: url(/img/Units/army/6.png);
 }
 #castle-army-img-7{
   position: absolute;
   left: 660px;
-  background: url(/game/img/Units/army/7.png);
+  background: url(/img/Units/army/7.png);
 }
 #castle-army-img-8{
   position: absolute;
   left: 770px;
-  background: url(/game/img/Units/army/8.png);
+  background: url(/img/Units/army/8.png);
 }
 .castle-army-count{
   position: absolute;
@@ -254,7 +254,7 @@
   left: 15px;
   width: 130px;
   height: 70px;
-  background: url(/game/img/castle/room/lavka/1.png);
+  background: url(/img/castle/room/lavka/1.png);
   background-repeat: no-repeat;
 }
 .castle-room-lesop{
@@ -263,7 +263,7 @@
   left: 15px;
   width: 100px;
   height: 70px;
-  background: url(/game/img/castle/room/lesop/1.png);
+  background: url(/img/castle/room/lesop/1.png);
   background-repeat: no-repeat;
 }
 .castle-room-kamen{
@@ -272,7 +272,7 @@
   left: 15px;
   width: 100px;
   height: 70px;
-  background: url(/game/img/castle/room/kamen/1.png);
+  background: url(/img/castle/room/kamen/1.png);
   background-repeat: no-repeat;
 }
 .castle-room-issled{
@@ -281,7 +281,7 @@
   left: 15px;
   width: 100px;
   height: 70px;
-  background: url(/game/img/castle/room/issled/0.png);
+  background: url(/img/castle/room/issled/0.png);
   background-repeat: no-repeat;
 }
 .castle-room-nos{
@@ -290,7 +290,7 @@
   left: 35px;
   width: 100px;
   height: 70px;
-  background: url(/game/img/castle/room/nos/1.png);
+  background: url(/img/castle/room/nos/1.png);
   background-repeat: no-repeat;
 }
 .castle-room-voin{
@@ -299,7 +299,7 @@
   left: 35px;
   width: 100px;
   height: 70px;
-  background: url(/game/img/castle/room/voin/1.png);
+  background: url(/img/castle/room/voin/1.png);
   background-repeat: no-repeat;
 }
 .castle-room-kon{
@@ -308,7 +308,7 @@
   left: 35px;
   width: 100px;
   height: 70px;
-  background: url(/game/img/castle/room/kon/0.png);
+  background: url(/img/castle/room/kon/0.png);
   background-repeat: no-repeat;
 }
 .castle-room-tank{
@@ -317,7 +317,7 @@
   left: 35px;
   width: 100px;
   height: 70px;
-  background: url(/game/img/castle/room/tank/0.png);
+  background: url(/img/castle/room/tank/0.png);
   background-repeat: no-repeat;
 }
 .castle-room-bival{
@@ -326,7 +326,7 @@
   left: 35px;
   width: 100px;
   height: 70px;
-  background: url(/game/img/castle/room/bival/0.png);
+  background: url(/img/castle/room/bival/0.png);
   background-repeat: no-repeat;
 }
 .castle-room-luk{
@@ -335,7 +335,7 @@
   left: 35px;
   width: 100px;
   height: 70px;
-  background: url(/game/img/castle/room/luk/0.png);
+  background: url(/img/castle/room/luk/0.png);
   background-repeat: no-repeat;
 }
 .castle-room-lekar{
@@ -344,7 +344,7 @@
   left: 35px;
   width: 100px;
   height: 70px;
-  background: url(/game/img/castle/room/lekar/0.png);
+  background: url(/img/castle/room/lekar/0.png);
   background-repeat: no-repeat;
 }
 .castle-room-naim{
@@ -353,6 +353,6 @@
   left: 35px;
   width: 100px;
   height: 70px;
-  background: url(/game/img/castle/room/naim/0.png);
+  background: url(/img/castle/room/naim/0.png);
   background-repeat: no-repeat;
 }

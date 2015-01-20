@@ -1,39 +1,19 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/_api/mysql.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/_constant/char.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/_api/processe_data.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/_api/log.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/_api/math.php';
-if ($_GET['act'] == 'null') {
-  $mysql_connect = F_Connect_MySQL();
-  global $C_Numberic, $C_Text_noSpace;
-  $access = true;
-  if (!Chek_string_of_mask($_COOKIE['login'], $C_Text_noSpace . $C_Numberic)) {
-    loging('Кука login не прошла валидацию.');
-    $access = false;
-  }
-  if (!Chek_string_of_mask($_COOKIE['casX'], $C_Numberic)) {
-    loging('Кука casX не прошла валидацию.');
-    $access = false;
-  }
-  if (!Chek_string_of_mask($_COOKIE['casY'], $C_Numberic)) {
-    loging('Кука casY не прошла валидацию');
-    $access = false;
-  }
-  if (!Chek_string_of_mask($_COOKIE['casZ'], $C_Numberic)) {
-    loging('Кука casZ не прошла валидацию');
-    $access = false;
-  }
-  if (!F_IF_session()) {
-    loging('Сессия игрока неактивна. Переадресован на гл страницу.');
-    $access = false;
-  }
-  if ($access){
-    F_session_extension();
-    include $_SERVER['DOCUMENT_ROOT'] . '/server/_get_time_and_res.php';
-  }else{
-    echo 'no;0';
-  }
-  mysql_close($mysql_connect);
-}
+    include $_SERVER['DOCUMENT_ROOT'] . '/_api/mysql.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/_constant/char.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/_api/processe_data.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/_api/log.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/_api/math.php';
+    if ($_GET['act'] == 'null') {
+        $mysql_connect = F_Connect_MySQL();
+        global $C_Numberic, $C_Text_noSpace;
+        include $_SERVER['DOCUMENT_ROOT'] . '/_api/security.php';
+        if ($enable_access) {
+            F_session_extension();
+            include $_SERVER['DOCUMENT_ROOT'] . '/server/_get_time_and_res.php';
+        } //$enable_access
+        else
+            echo 'no;0';
+        mysql_close($mysql_connect);
+    } //$_GET['act'] == 'null'
 ?>

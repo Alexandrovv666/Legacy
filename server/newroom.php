@@ -6,43 +6,22 @@ include $_SERVER['DOCUMENT_ROOT'] . '/_api/log.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/_api/math.php';
 if ($_GET['action'] == 'newroom') {
   $mysql_connect = F_Connect_MySQL();
-  global $C_Numberic, $C_Text_noSpace;
-  if (!Chek_string_of_mask($_COOKIE['login'], $C_Text_noSpace . $C_Numberic)) {
-    loging('Кука login не прошла валидацию.');
-    exit;
-  }
-  if (!Chek_string_of_mask($_GET['namenewroomroom'], $C_Text_noSpace . $C_Numberic)) {
-    loging('get параметр name не прошёл валидацию: "' . $_GET['namenewroomroom'] . '"');
-    exit;
-  }
-  if (!Chek_string_of_mask($_GET['num_room'], $C_Numberic)) {
-    loging('get параметр namenewroomroom не прошёл валидацию.');
-    exit;
-  }
-  if (!Chek_string_of_mask($_GET['men'], $C_Numberic)) {
-    loging('get параметр namenewroomroom не прошёл валидацию.');
-    exit;
-  }
-  if (!Chek_string_of_mask($_COOKIE['casX'], $C_Numberic)) {
-    loging('Кука casX не прошла валидацию.');
-    exit;
-  }
-  if (!Chek_string_of_mask($_COOKIE['casY'], $C_Numberic)) {
-    loging('Кука casY не прошла валидацию');
-    exit;
-  }
-  if (!Chek_string_of_mask($_COOKIE['casZ'], $C_Numberic)) {
-    loging('Кука casZ не прошла валидацию');
-    exit;
-  }
-  if (!F_IF_session()) {
-    loging('Сессия игрока неактивна.');
-    exit;
-  }
-  if (!Chek_string_of_mask($_GET['num_room'], $C_Numberic)) {
-    loging('get параметр num_room не прошёл валидацию.');
-    exit;
-  }
+    include $_SERVER['DOCUMENT_ROOT'].'/_api/security.php';
+    if (!Chek_string_of_mask($_GET['num_room'], $C_Numberic)) {
+        $log_access .='get параметр "num_room" не прошёл валидацию.'.PHP_EOL;
+        loging($log_access);
+        exit;
+    }
+    if (!Chek_string_of_mask($_GET['namenewroomroom'], ($C_Text_noSpace . $C_Numberic))) {
+        $log_access .='get параметр "namenewroomroom" не прошёл валидацию.'.PHP_EOL;
+        loging($log_access);
+        exit;
+    }
+    if (!Chek_string_of_mask($_GET['men'], ($C_Numberic))) {
+        $log_access .='get параметр "men" не прошёл валидацию.'.PHP_EOL;
+        loging($log_access);
+        exit;
+    }
   F_session_extension();
   //WORK!
   $res_castle     = mysql_query('SELECT * FROM `castle` WHERE `x`="' . $_COOKIE['casX'] . '" AND `y`="' . $_COOKIE['casY'] . '" AND `z`="' . $_COOKIE['casZ'] . '" and `id`="' . F_Get_ID($_COOKIE['login']) . '"');

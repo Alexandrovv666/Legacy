@@ -4,7 +4,7 @@
   position: absolute;
   left: calc( 50% - 300px );
   top: calc( 50% - 175px );
-  background: url(/game/img/interface/window/background.jpg) no-repeat;
+  background: url(/img/interface/window/background.jpg) no-repeat;
   z-index: 2;
 }
 #window-modal-message-buttom-close{

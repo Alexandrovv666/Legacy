@@ -1,4 +1,0 @@
-#Секция запрета только нижеперечисленным адресам
-Order Allow,Deny
-Allow from all
-Deny from 127.0.0.2

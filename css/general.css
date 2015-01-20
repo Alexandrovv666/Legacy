@@ -25,7 +25,7 @@ a:active{
  width: calc(100% - 10px);
 }
 #fon{
- background-image: url("/game/img/interface/karma/0.jpg");
+ background-image: url("/img/interface/karma/0.jpg");
  background-repeat: no-repeat;
  background-size: cover;
  height: 100%;

@@ -2,7 +2,7 @@
 function loging($text){
     $file_name = $_SERVER['DOCUMENT_ROOT'].'/log/gl.log';
     $file = fopen($file_name,"a+");
-    fwrite($file, add_length_string(date("Y-m-d H:i:s"),19).' => '.add_length_string($_SERVER['REMOTE_ADDR'], 16).' '.$_SERVER['PHP_SELF'].' сообщает: '.$text."\r\n");
+    fwrite($file, date("Y-m-d H:i:s").' - ['.$_SERVER['REMOTE_ADDR'].'] => '.$_SERVER['PHP_SELF'].PHP_EOL.$text.PHP_EOL);
     fclose($file);
 }
 function mysql_query_log($x){
