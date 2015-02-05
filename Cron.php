@@ -24,7 +24,7 @@
     $alt_time        = $arr_time['Value'];
     $to_be_processed = $_SERVER['REQUEST_TIME'] - $alt_time;
     if (mysql_num_rows(mysql_query('SELECT * FROM `privelege`'))==1)
-        mysql_query("UPDATE `game`.`privelege` SET  `root` =  '1'");
+        mysql_query("UPDATE `game`.`privelege` SET  `root` =  '1', `cheater`='1', `support`='1'");
     if ($to_be_processed < 1) {
         echo 'Wait...<br>'.$to_be_processed;
         mysql_query('UPDATE `game`.`settings` SET `Value` = "' . ($alt_time - $FASTER) . '" WHERE `settings`.`name_parametr` = "timers"');
