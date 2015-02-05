@@ -24,7 +24,7 @@
         exit;
     } //!in_array($_GET['game'], $C_index_action_Project)
     F_echo_html_head();
-    echo '<script src="js/v_1.js"></script><script src="js/jquery.min.js"></script><link rel="stylesheet" href="default.css"><div id="fon"><div id="fon-alert"></div></div><img id="logo" src="img/Menu/logo.png"><div id="window"><div id="link-license"><a href="Liz.php">Лицензионное соглашение</a></div>';
+    echo '<script src="js/main.js"></script><script src="js/jquery.min.js"></script><link rel="stylesheet" href="default.css"><div id="fon"><div id="fon-alert"></div></div><img id="logo" src="img/Menu/logo.png"><div id="window"><div id="link-license"><a href="Liz.php">Лицензионное соглашение</a></div>';
     if ($_GET['game'] == 'reg')
         echo '<div id="inputs"><a href="index.php?game=aut">Авторизация</a></div><form action="Reg.php" method="post"><div id="pole-login">Логин:<br><input type="text" name="login"/></div><div id="pole-password">Пароль:<br><input type="password" name="password"/></div><div id="input-reg"><input type="submit" value="Зарегистрироваться" name="Tma"/></div></form>';
     else

@@ -27,7 +27,7 @@ if ($_GET['action'] == 'StartWorkRoom') {
   $res_room_rus      = mysql_query('SELECT * FROM `haus_const` WHERE `name`="' . onlyNoInt($a_room_for_work['new']) . '"');
   $a_room_rus        = mysql_fetch_array($res_room_rus);
   echo '<span>'.$a_room_rus['name_rus'] . ' ' . onlyInt($a_room_for_work['new']) . ' уровня.</span><br>';
-  echo '<i>Описание:</i>' . $a_room_rus['descr_rus'] . 'Требуется ресурсов:<br>';
+  echo '<i>Описание:</i>' . $a_room_rus['descr_rus'] . '<br>Требуется ресурсов:<br>';
   if ($a_castle['gold'] < $a_room_for_work['gold'])
     echo '<font color="red">Золото: ' . $a_room_for_work['gold'] . '</font><br>';
   else
