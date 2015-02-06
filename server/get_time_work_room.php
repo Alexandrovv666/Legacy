@@ -1,38 +1,33 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/_api/mysql.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/_constant/char.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/_api/processe_data.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/_api/log.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/_api/math.php';
-if ($_GET['action'] == 'get_time_work_room') {
-  $mysql_connect = F_Connect_MySQL();
-  global $C_Numberic, $C_Text_noSpace;
-  if (!Chek_string_of_mask($_COOKIE['login'], $C_Text_noSpace . $C_Numberic)) {
-    loging('Кука login не прошла валидацию.');
-    exit;
-  }
-  if (!Chek_string_of_mask($_COOKIE['casX'], $C_Numberic)) {
-    loging('Кука casX не прошла валидацию.');
-    exit;
-  }
-  if (!Chek_string_of_mask($_COOKIE['casY'], $C_Numberic)) {
-    loging('Кука casY не прошла валидацию');
-    exit;
-  }
-  if (!Chek_string_of_mask($_COOKIE['casZ'], $C_Numberic)) {
-    loging('Кука casZ не прошла валидацию');
-    exit;
-  }
-  if (!F_IF_session()) {
-    loging('Сессия игрока неактивна.');
-    exit;
-  }
-  if (!Chek_string_of_mask($_GET['num_room'], $C_Numberic)) {
-    loging('get параметр num_room не прошёл валидацию.');
-    exit;
-  }
-  F_session_extension();
-  include $_SERVER['DOCUMENT_ROOT'] . '/server/_get_time_and_res.php';
-  mysql_close($mysql_connect);
-}
+    include $_SERVER['DOCUMENT_ROOT'] . '/_api/mysql.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/_constant/char.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/_api/processe_data.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/_api/log.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/_api/math.php';
+    if (basename($_SERVER['PHP_SELF']) != 'get_time_work_room.php') {
+        $log_access .= '------------------------------------------------------------' . PHP_EOL;
+        $log_access .= '                                             W A R N I N G !' . PHP_EOL;
+        $log_access .= '------------------------------------------------------------' . PHP_EOL;
+        $log_access .= '[!] -> Файл "get_time_work_room.php" включили в файл "' . basename($_SERVER['PHP_SELF']) . '"' . PHP_EOL;
+        $log_access .= '     > Выполнение скрипта остановленно ошибкой "404 Not Found".' . PHP_EOL;
+        loging($log_access);
+        http_response_code(404);
+        header("404 Not Found");
+        exit;
+    }
+    if ($_GET['action'] == 'get_time_work_room') {
+        $mysql_connect = F_Connect_MySQL();
+        global $C_Numberic, $C_Text_noSpace;
+        include $_SERVER['DOCUMENT_ROOT'].'/_api/security.php';
+        if (!Chek_string_of_mask($_GET['num_room'], $C_Numberic)) {
+            $log_access .= '[!] -> Get-num_room is invalid.' . PHP_EOL;
+            $enable_access = false;
+        }
+        $log_access .= '[.] -> Get-num_room=' . $_GET['num_room'] . PHP_EOL;
+        include $_SERVER['DOCUMENT_ROOT'] . '/_api/security_loop.php';
+        F_session_extension();
+        include $_SERVER['DOCUMENT_ROOT'] . '/server/_get_time_and_res.php';
+        mysql_close($mysql_connect);
+    }
+    loging($log_access);
 ?>

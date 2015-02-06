@@ -16,36 +16,38 @@
         }
     }
     if (!Chek_string_of_mask($_COOKIE['casX'], $C_Numberic)) {
-        $log_access .='[!] -> Кука casX не прошла валидацию'.PHP_EOL;
+        $log_access .='[!] -> Cookie-casX is invalid.'.PHP_EOL;
         $enable_access = false;
     }
+    $log_access .='[.] -> Cookie-casX='.$_COOKIE['casX'].PHP_EOL;
     if (!Chek_string_of_mask($_COOKIE['casY'], $C_Numberic)) {
-        $log_access .='[!] -> Кука casY не прошла валидацию'.PHP_EOL;
+        $log_access .='[!] -> Cookie-casY is invalid.'.PHP_EOL;
         $enable_access = false;
     }
+    $log_access .='[.] -> Cookie-casY='.$_COOKIE['casY'].PHP_EOL;
     if (!Chek_string_of_mask($_COOKIE['casZ'], $C_Numberic)) {
-        $log_access .='[!] -> Кука casZ не прошла валидацию'.PHP_EOL;
+        $log_access .='[!] -> Cookie-casZ is invalid.'.PHP_EOL;
         $enable_access = false;
     }
+    $log_access .='[.] -> Cookie-casZ='.$_COOKIE['casZ'].PHP_EOL;
     if (!Chek_string_of_mask($_COOKIE['mapX'], $C_Numberic)) {
-        $log_access .='[!] -> Кука mapX не прошла валидацию'.PHP_EOL;
+        $log_access .='[!] -> Cookie-mapX is invalid.'.PHP_EOL;
         $enable_access = false;
     }
+    $log_access .='[.] -> Cookie-mapX='.$_COOKIE['mapX'].PHP_EOL;
     if (!Chek_string_of_mask($_COOKIE['mapY'], $C_Numberic)) {
-        $log_access .='[!] -> Кука mapY не прошла валидацию'.PHP_EOL;
+        $log_access .='[!] -> Cookie-mapY is invalid.'.PHP_EOL;
         $enable_access = false;
     }
+    $log_access .='[.] -> Cookie-mapY='.$_COOKIE['mapY'].PHP_EOL;
     if (!Chek_string_of_mask($_COOKIE['mapZ'], $C_Numberic)) {
-        $log_access .='[!] -> Кука mapZ не прошла валидацию'.PHP_EOL;
+        $log_access .='[!] -> Cookie-mapZ is invalid.'.PHP_EOL;
         $enable_access = false;
     }
-    if (!$enable_access){
-    include $_SERVER['DOCUMENT_ROOT'].'/_api/log.php';
-        header("404 Not Found");
-        http_response_code(404);
-        echo "404 Not Found";
-        $log_access .='Message "404 Not Found".'.PHP_EOL;
-        loging($log_access);
-        exit;
+    $log_access .='[.] -> Cookie-mapZ='.$_COOKIE['mapZ'].PHP_EOL;
+    if (!F_IF_session()) {
+        $log_access .='[!] -> Session is inactive.'.PHP_EOL;
+        $enable_access = false;
     }
+    $log_access .='[.] -> Session is active.'.PHP_EOL;
 ?>
