@@ -18,6 +18,26 @@ function get_cookie(name){
     }
     return null;
 }
+function api_window_modal_message_send_data(URL, PARAM1){
+   if (PARAM1=="mail"){
+      cap = document.getElementById('cap').value;
+      txt = document.getElementById("txt").value;
+      z = document.getElementById("z").value;
+      $.ajax({
+         url: URL+"&cap="+cap+"&txt="+txt+"&z="+z,
+         type: 'get',
+         success: function(getdata){
+            var perem = getdata.split('|');
+                if  (perem[0]=='ok'){
+                    document.getElementById("window-modal-message-caption").innerHTML=perem[1];
+                    document.getElementById("window-modal-message-text").innerHTML=perem[2];
+                }else{
+                    window.location='/Exit.php';
+                }
+         }
+      });
+   }
+}
 function api_get_data(){
    $.ajax({
       url: "/server/givedata.php?act=null",
@@ -55,6 +75,21 @@ function api_window_modal_message_open(action, param1){
     if (action=="click_room"){
        $.ajax({
             url: "/server/listwork.php?action=listwork&num_room="+param1,
+            type: 'get',
+             success: function(getdata){
+                 var perem = getdata.split('|');
+                 if  (perem[0]=='ok'){
+                     document.getElementById("window-modal-message-caption").innerHTML=perem[1];
+                     document.getElementById("window-modal-message-text").innerHTML=perem[2];
+                 }else{
+                     window.location='/Exit.php';
+                 }
+            }
+        });
+    }
+    if (action=="mail"){
+       $.ajax({
+            url: "/server/mail.php?action=list",
             type: 'get',
              success: function(getdata){
                  var perem = getdata.split('|');
