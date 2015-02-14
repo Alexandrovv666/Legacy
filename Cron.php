@@ -92,6 +92,18 @@
             }
         }
     }
+    $GAM       = array( );
+    $res_all_mail = mysql_query( 'SELECT * FROM `mail`' );
+    while ( $GAM[ ] = mysql_fetch_array( $res_all_mail ) ); {
+    }
+    $count_mail        = count( $GAM ) - 1;
+/*
+    for ( $num_mail = 0; $num_mail <= ( $count_mail ); $num_mail++ ) {
+        for ( $num_mail2 = 0; $num_mail2 <= ( $count_mail ); $num_mail2++ ) {
+            if ($GAM[$num_mail]=)
+        }
+    }
+*/
     echo 'Step 2. Processed game data begined.<br>';
     echo 'To be processed ' . $to_be_processed . ' second.<br>';
     $V_i = 1;
