@@ -166,18 +166,18 @@
   background-image: url(/img/lager/lager.png);
   background-repeat: no-repeat
 }
-.lager-name{
+.Obj_name{
   position: absolute;
   top: 36%;
   left: 5px;
   text-align: center;
-  z-index: 2;
+  z-index: 1;
   font-size: 12pt;
   font-family: Garamond;
   text-transform: uppercase;
+  color: #000;
+}
+.Obj_name:hover{
   color: #FFF;
   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228, 0 0 70px #228, 0 0 80px #228, 0 0 100px #228, 0 0 150px #228;
-}
-.lager-name:hover{
-  color: #000;
 }
