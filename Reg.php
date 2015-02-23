@@ -10,12 +10,15 @@
         echo 'Логин некорректен';
         exit;
     }
-    if (!Chek_string_of_mask($password,($C_Numberic.$C_Text_noSpace))){
-        echo 'Логин некорректен';
+    if (strlen($login)>15){
+        echo 'Логин должен быть короче 15 символов';
         exit;
     }
     $mysql_connect = F_Connect_MySQL();
-    if (F_login_is_now($login)) echo 'Логин занят';
+    if (F_login_is_now($login)){
+        echo 'Логин занят';
+        exit;
+    }
     $wariants = 0;
     // Ищем свободное место для игрока
     do {
@@ -42,7 +45,6 @@ metka1:
     mysql_query('INSERT INTO `users`(`login`, `password`, `almaz`, `reg_time`) VALUES ("' . $login . '","' . $hach_of_password . '", "777", "' . time() . '")');
     mysql_query('INSERT INTO `castle` (`id`, `x`, `y`, `z`, `name`, `gold`, `tree`, `stone`, `men`, `max_men`, `maxres`) VALUES ("'.F_Get_ID($login).'" , ' . $x . ',' . $y . ',' . $z . ',"Безымянный замок",2000,1000,600,50,400,5000)');
     mysql_query('INSERT INTO `privelege`(`id_user`) VALUES ("'.F_Get_ID($login).'")');
-    mysql_query('INSERT INTO `progress`(`id_login`) VALUES ("'.F_Get_ID($login).'")');
-    echo 'Персонаж зарегистрирован<html><head><meta http-equiv=Refresh content="4; url=index.php"></head></html>';
+    echo 'Персонаж зарегистрирован<html><head><meta http-equiv=Refresh content="10; url=index.php"></head></html>';
 ?>
 

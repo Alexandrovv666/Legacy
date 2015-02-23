@@ -1,7 +1,5 @@
 <?php
     include $_SERVER['DOCUMENT_ROOT'].'/_api/mysql.php';
-    include $_SERVER['DOCUMENT_ROOT'].'/_api/network.php';
-    include $_SERVER['DOCUMENT_ROOT'].'/_api/install.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_api/math.php';
     include $_SERVER['DOCUMENT_ROOT'].'/_constant/gameserver.php';
     $mysql_connect = F_Connect_MySQL();
@@ -15,16 +13,15 @@
     for ($y = 1; $y <= $Max_Y_map; $y++) 
         for ($z = 1; $z <= 115; $z++){
            $terr = 0;
-           if (Shans(30))
+           if (Shans(10))
                $terr=rand(1,7);
            mysql_query('INSERT INTO `map`(`x`, `y`, `z`, `terrain`) VALUES ("'.$x.'", "'.$y.'", "'.$z.'", "'.$terr.'")')or die(mysql_error());
         }
     mysql_close($mysql_connect);
     if ($x!=$Max_X_map){
-        echo 'Следующий этап через 1 сек.';
-        echo '<html><head><meta http-equiv=Refresh content="1; url=map.php?x='.($x+1).'"></head></html>';
+        echo 'Следующий этап через 2 сек.';
+        echo '<html><head><meta http-equiv=Refresh content="2; url=map.php?x='.($x+1).'"></head></html>';
     }else{
-        API_INSTALL_ECHO_END_STEP();
-        echo '<html><head><meta http-equiv=Refresh content="5; url=haus.php"></head></html>';
+        echo '<html><head><meta http-equiv=Refresh content="7; url=haus.php"></head></html>';
     }
 ?>

@@ -11,13 +11,13 @@
     $linkss   = F_Connect_MySQL();
     $login    = $_GET[ 'login' ];
     $password = $_GET[ 'password' ];
+    if (strlen($login)>15){
+        echo 'Логин должен быть короче 15 символов';
+        exit;
+    }
     global $C_Text_noSpace, $C_Numberic;
     if ( !Chek_string_of_mask( $login, ( $C_Numberic . $C_Text_noSpace ) ) ) {
         echo 'warining|Логин некорректен';
-        exit;
-    }
-    if ( !Chek_string_of_mask( $password, ( $C_Numberic . $C_Text_noSpace ) ) ) {
-        echo 'warining|Пароль некорректен';
         exit;
     }
     $sol_of_login      = 'teamlead';
@@ -31,7 +31,7 @@
             $chars    = $C_Numberic . $C_Text_noSpace;
             $numChars = strlen( $chars );
             $session  = '';
-            for ( $i = 0; $i < 25; $i++ )
+            for ( $i = 0; $i < 5; $i++ )
                 $session .= substr( $chars, rand( 1, $numChars ) - 1, 1 );
             mysql_query( 'INSERT INTO `session` (`time`, `login`, `status`, `ip`, `session`) VALUES ("' . time() . '","' . $_GET[ 'login' ] . '","opening","' . $_SERVER[ 'REMOTE_ADDR' ] . '","' . $session . '")' );
             mysql_query( 'INSERT INTO `aut_history`(`time`, `login`, `ip`, `session`, `user_agent`) VALUES ("' . time() . '","' . $_GET[ 'login' ] . '","' . $_SERVER[ 'REMOTE_ADDR' ] . '","' . $session . '","0_0")' );

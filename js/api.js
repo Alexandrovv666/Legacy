@@ -102,36 +102,6 @@ function api_window_modal_message_open(action, param1){
             }
         });
     }
-    if (action=="quest"){
-       $.ajax({
-            url: "/server/quest.php?action=list",
-            type: 'get',
-             success: function(getdata){
-                 var perem = getdata.split('|');
-                 if  (perem[0]=='ok'){
-                     document.getElementById("window-modal-message-caption").innerHTML=perem[1];
-                     document.getElementById("window-modal-message-text").innerHTML=perem[2];
-                 }else{
-                     window.location='/Exit.php';
-                 }
-            }
-        });
-    }
-    if (action=="get_info_castle"){
-       $.ajax({
-            url: "/server/get_info_castle.php?action=get_info_castle",
-            type: 'get',
-             success: function(getdata){
-                 var perem = getdata.split('|');
-                 if  (perem[0]=='ok'){
-                     document.getElementById("window-modal-message-caption").innerHTML=perem[1];
-                     document.getElementById("window-modal-message-text").innerHTML=perem[2];
-                 }else{
-                     window.location='/Exit.php';
-                 }
-            }
-        });
-    }
     if (action=="map_cell_click"){
        $.ajax({
             url: "/server/map.php?action=get_info_cell&z="+param1,

@@ -22,25 +22,6 @@ $Global_array_res_Junits_param = array();
 $res_Junits_param              = mysql_query('SELECT * FROM `army_baze`');
 while ($Global_array_res_Junits_param[] = mysql_fetch_array($res_Junits_param)); {
 }
-$Global_array_kast[] = array();
-$res_all_kast        = mysql_query('SELECT * FROM `kast` where `id_ziel`="' . F_Get_ID($_COOKIE['login']) . '"');
-while ($Global_array_kast[] = mysql_fetch_array($res_all_kast)); {
-}
-$count_kast      = count($Global_array_kast) - 1;
-$magic_add_gold  = 0;
-$magic_add_tree  = 0;
-$magic_add_stone = 0;
-if ($count_kast > 0) {
-  for ($num_kast = 0; $num_kast < $count_kast; $num_kast++)
-    switch ($Global_array_kast[$num_kast]['id_kast']) {
-      case 1:
-        $magic_add_gold = $magic_add_gold + 200;
-        break;
-      case 2:
-        $magic_add_gold = $magic_add_gold + 3000;
-        break;
-    }
-}
 //GOLD
 $summ_jalovan = 0;
 for ($i = 1; $i <= 8; $i++)
