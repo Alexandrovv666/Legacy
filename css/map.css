@@ -181,3 +181,13 @@
   color: #FFF;
   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228, 0 0 70px #228, 0 0 80px #228, 0 0 100px #228, 0 0 150px #228;
 }
+#Block_coord{
+  position: absolute;
+  top: 45px;
+  left: 1100px;
+  color: #000;
+}
+#Block_coord:hover{
+  color: #FFF;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228, 0 0 70px #228, 0 0 80px #228, 0 0 100px #228, 0 0 150px #228;
+}

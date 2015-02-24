@@ -265,14 +265,15 @@
                     $Global_MAP[ $_COOKIE[ 'mapX' ] ][ $_COOKIE[ 'mapY' ] ][ $z ]->cell_HTML_Print( $Sub_Map_x, $Sub_Map_y, $z );
                 }
             global $Max_X_map, $Max_Y_map;
+            echo '<block id="Block_coord">'.$_COOKIE[ 'mapX' ].'/'.$_COOKIE[ 'mapY' ].'</block>';
             if ( $_COOKIE[ 'mapY' ] != 1 )
-                echo '<div class="map-navigation-elements" id="map-navigation-element-8" onclick="go_to_cell(8, ' . ( $_COOKIE[ 'mapY' ] - 1 ) . ')"></div>';
+                echo '<div class="map-navigation-elements" id="map-navigation-element-8" onclick="go_to_cell(' . ( $_COOKIE[ 'mapX' ] * 1 ) . ', ' . ( $_COOKIE[ 'mapY' ] - 1 ) . ')"></div>';
             if ( $_COOKIE[ 'mapX' ] != 1 )
-                echo '<div class="map-navigation-elements" id="map-navigation-element-4" onclick="go_to_cell(4, ' . ( $_COOKIE[ 'mapX' ] - 1 ) . ')"></div>';
+                echo '<div class="map-navigation-elements" id="map-navigation-element-4" onclick="go_to_cell(' . ( $_COOKIE[ 'mapX' ] - 1 ) . ', ' . ( $_COOKIE[ 'mapY' ] * 1 ) . ')"></div>';
             if ( $Max_X_map != $_COOKIE[ 'mapX' ] )
-                echo '<div class="map-navigation-elements" id="map-navigation-element-6" onclick="go_to_cell(6, ' . ( $_COOKIE[ 'mapX' ] + 1 ) . ')"></div>';
+                echo '<div class="map-navigation-elements" id="map-navigation-element-6" onclick="go_to_cell(' . ( $_COOKIE[ 'mapX' ] + 1 ) . ', ' . ( $_COOKIE[ 'mapY' ] * 1 ) . ')"></div>';
             if ( $_COOKIE[ 'mapY' ] != $Max_Y_map )
-                echo '<div class="map-navigation-elements" id="map-navigation-element-2" onclick="go_to_cell(' . $_COOKIE[ 'mapX' ] . ', ' . ( $_COOKIE[ 'mapY' ] + 1 ) . ')"></div>';
+                echo '<div class="map-navigation-elements" id="map-navigation-element-2" onclick="go_to_cell(' . ( $_COOKIE[ 'mapX' ] * 1 ) . ', ' . ( $_COOKIE[ 'mapY' ] + 1 ) . ')"></div>';
             break;
         default:
             echo 'Что-то пошло не так...';

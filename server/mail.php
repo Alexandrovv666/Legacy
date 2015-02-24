@@ -37,7 +37,7 @@
                 echo $tag_tr.'<td '.$JavaScryptCode.'>'.($this->Theme).'</td><td>'.date("d F   H:i:s",($this->Time_In)).'</td><td>'.F_Get_Login(($this->Autor)).'</td></tr>';
             }
         }
-        $Res_mail            = mysql_query('SELECT * FROM `mail` WHERE `id_ziel`="' . (F_Get_ID($_COOKIE['login'])) . '" AND (`time_end`<"' . time() . '") AND (`delete`="0") ORDER BY `time_end` DESC');
+        $Res_mail            = mysql_query('SELECT * FROM `mail` WHERE `id_ziel`="' . (F_Get_ID($_COOKIE['login'])) . '" AND (`time_end`<"' . time() . '") AND (`delete_flag`="0") ORDER BY `time_end` DESC');
         $Array_mail          = array();
         while ($Array_mail[] = mysql_fetch_array($Res_mail)); { }
         $count_mail          = count($Array_mail) - 1;
@@ -47,7 +47,7 @@
             $mail_Theme = $Array_mail[$i]['caption'];
             $mail_Autor = $Array_mail[$i]['id_autor'];
             $mail_Adresat = $Array_mail[$i]['id_ziel'];
-            $mail_Byte_Write = $Array_mail[$i]['write'];
+            $mail_Byte_Write = $Array_mail[$i]['write_flag'];
             $mail_Time_In = $Array_mail[$i]['time_end'];
             $mail_hash = $Array_mail[$i]['hash'];
             $Global_Mail[ $i ] = new class_mail( $mail_Theme, $mail_Autor, $mail_Adresat, $mail_Byte_Write, $mail_Time_In, $mail_hash );
@@ -94,8 +94,8 @@
                 echo '<hr>'.$this->Theme.'<hr>'.$this->Text.'<hr><br><br><br>';
             }
         }
-        $Res_mail            = mysql_query('SELECT * FROM `mail` WHERE `id_ziel`="' . (F_Get_ID($_COOKIE['login'])) . '" AND (`time_end`="' . $num . '") AND (`hash`="' . $hash . '") AND (`delete`="0") ORDER BY `time_end` DESC');
-                               mysql_query('UPDATE `mail` SET `write`="1" WHERE `id_ziel`="' . (F_Get_ID($_COOKIE['login'])) . '" AND (`time_end`="' . $num . '") AND (`hash`="' . $hash . '")');
+        $Res_mail            = mysql_query('SELECT * FROM `mail` WHERE `id_ziel`="' . (F_Get_ID($_COOKIE['login'])) . '" AND (`time_end`="' . $num . '") AND (`hash`="' . $hash . '") AND (`delete_flag`="0") ORDER BY `time_end` DESC');
+                               mysql_query('UPDATE `mail` SET `write_flag`="1" WHERE `id_ziel`="' . (F_Get_ID($_COOKIE['login'])) . '" AND (`time_end`="' . $num . '") AND (`hash`="' . $hash . '")');
         $Array_mail          = array();
         while ($Array_mail[] = mysql_fetch_array($Res_mail)); { }
         $count_mail          = count($Array_mail) - 1;

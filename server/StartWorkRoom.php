@@ -31,11 +31,11 @@
             echo '<font color="red">Золото: ' . $a_room_for_work['gold'] . '</font><br>';
         else
             echo 'Золото: ' . $a_room_for_work['gold'] . '<br>';
-        if ($a_castle['tree'] < $a_room_for_work[$i]['tree'])
+        if ($a_castle['tree'] < $a_room_for_work['tree'])
             echo '<font color="red">Дерево: ' . $a_room_for_work['tree'] . '</font><br>';
         else
             echo 'Дерево: ' . $a_room_for_work['tree'] . '<br>';
-        if ($a_castle['gold'] < $a_room_for_work[$i]['gold'])
+        if ($a_castle['stone'] < $a_room_for_work['stone'])
             echo '<font color="red">Камень: ' . $a_room_for_work['stone'] . '</font><br>';
         else
             echo 'Камень: ' . $a_room_for_work['stone'] . '<br>';

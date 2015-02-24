@@ -67,6 +67,15 @@
                         echo $arr_name_room_rus['name_rus'] . ' ' . onlyInt($arr_res_room_for_work[$i]['new']) . ' уровня.';
                     else
                         echo '<strike>' . $arr_name_room_rus['name_rus'] . ' ' . onlyInt($arr_res_room_for_work[$i]['new']) . ' уровня.</strike>';
+                    echo '</p><hr>';
+                }
+                if (in_array((onlyNoInt($name_alt_room)),array("nos","voin","kon","tank","bival","luk","lekar","naim"))){
+                    $log_access .= '[.] -> + Это боевая комната' . PHP_EOL;
+                    if ($arr_res_castle['gold'] >= 5)
+                        echo 'Заказать юнита<br>';
+                    else
+                        echo '<strike>Заказать юнита</strike><br>';
+
                 }
                 break;
         }
