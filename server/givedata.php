@@ -5,7 +5,6 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/_api/log.php';
     include $_SERVER['DOCUMENT_ROOT'] . '/_api/math.php';
     $mysql_connect = F_Connect_MySQL();
-    global $C_Numberic, $C_Text_noSpace;
     if (basename($_SERVER['PHP_SELF']) != 'givedata.php') {
         $log_access .= '------------------------------------------------------------' . PHP_EOL;
         $log_access .= '                                             W A R N I N G !' . PHP_EOL;

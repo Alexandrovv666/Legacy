@@ -6,7 +6,7 @@
     $login    = $_POST['login'];
     $password = $_POST['password'];
     global $Max_X_map, $Max_Y_map, $C_Text_noSpace, $C_Numberic;
-    if (!Chek_string_of_mask($login,($C_Numberic.$C_Text_noSpace))){
+    if (!Chek_string_of_mask($login,($C_Text_eng.$C_Numberic))){
         echo 'Логин некорректен';
         exit;
     }

@@ -17,7 +17,6 @@
     }
     if ($_GET['action'] == 'get_time_work_room') {
         $mysql_connect = F_Connect_MySQL();
-        global $C_Numberic, $C_Text_noSpace;
         include $_SERVER['DOCUMENT_ROOT'].'/_api/security.php';
         if (!Chek_string_of_mask($_GET['num_room'], $C_Numberic)) {
             $log_access .= '[!] -> Get-num_room is invalid.' . PHP_EOL;

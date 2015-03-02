@@ -4,7 +4,6 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/_api/processe_data.php';
     include $_SERVER['DOCUMENT_ROOT'] . '/_api/log.php';
     $linkss = F_Connect_MySQL();
-    global $C_Numberic, $C_Text_noSpace;
     include $_SERVER['DOCUMENT_ROOT'] . '/_api/security.php';
     include $_SERVER['DOCUMENT_ROOT'] . '/_api/security_loop.php';
     F_session_extension();
@@ -127,12 +126,12 @@
             exit;
         }
         $text = $_GET['txt'];
-        if (!Chek_string_of_mask($_GET['cap'], $C_Text_noSpace . $C_Numberic. ' ')){
+        if (!Chek_string_of_mask($_GET['cap'], $C_Text . ' ')){
             echo 'ok|Почта - Письмо <b>НЕ</b> отправлено|';
             mysql_Close($linkss);
             exit;
         }
-        if (!Chek_string_of_mask($text, $C_Text_noSpace . $C_Numberic. ' ')){
+        if (!Chek_string_of_mask($text, $C_Text . ' ')){
             echo 'ok|Почта - Письмо <b>НЕ</b> отправлено|';
             mysql_Close($linkss);
             exit;

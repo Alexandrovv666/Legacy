@@ -12,7 +12,7 @@
             $enable_access = false;
         }
         $log_access .= '[.] -> Get-num_room=' . $_GET['num_room'] . PHP_EOL;
-        if (!Chek_string_of_mask($_GET['namenewroomroom'], ($C_Text_noSpace . $C_Numberic))) {
+        if (!Chek_string_of_mask($_GET['namenewroomroom'], ($C_Text . $C_Numberic))) {
             $log_access .= '[!] -> Get-namenewroomroom is invalid.' . PHP_EOL;
             $enable_access = false;
         }

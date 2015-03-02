@@ -89,6 +89,27 @@
                     if ( $GA_castle[ $num_castle ][ 'c_' . $i . '_1' ] == 0 ) {
                     }
                     if ( $GA_castle[ $num_castle ][ 'c_' . $i . '_1' ] > 0 ) {
+                        if (in_array((onlyNoInt($GA_castle[ $num_castle ][ 'c_' . $i . '_n' ])), array("nos", "voin", "kon", "tank", "bival", "luk", "lekar", "naim"))){
+                            if ( $GA_castle[ $num_castle ][ 'c_' . $i . '_1' ] == 1 ){
+                                if (onlyNoInt($GA_castle[ $num_castle ][ 'c_' . $i . '_n' ]) == 'nos' )
+                                    $GA_castle[ $num_castle ][ 'army_1' ] = $GA_castle[ $num_castle ][ 'army_1' ] + 1;
+                                if (onlyNoInt($GA_castle[ $num_castle ][ 'c_' . $i . '_n' ]) == 'voin' )
+                                    $GA_castle[ $num_castle ][ 'army_1' ] = $GA_castle[ $num_castle ][ 'army_2' ] + 1;
+                                if (onlyNoInt($GA_castle[ $num_castle ][ 'c_' . $i . '_n' ]) == 'kon' )
+                                    $GA_castle[ $num_castle ][ 'army_1' ] = $GA_castle[ $num_castle ][ 'army_3' ] + 1;
+                                if (onlyNoInt($GA_castle[ $num_castle ][ 'c_' . $i . '_n' ]) == 'tank' )
+                                    $GA_castle[ $num_castle ][ 'army_1' ] = $GA_castle[ $num_castle ][ 'army_4' ] + 1;
+                                if (onlyNoInt($GA_castle[ $num_castle ][ 'c_' . $i . '_n' ]) == 'bival' )
+                                    $GA_castle[ $num_castle ][ 'army_1' ] = $GA_castle[ $num_castle ][ 'army_5' ] + 1;
+                                if (onlyNoInt($GA_castle[ $num_castle ][ 'c_' . $i . '_n' ]) == 'luk' )
+                                    $GA_castle[ $num_castle ][ 'army_1' ] = $GA_castle[ $num_castle ][ 'army_6' ] + 1;
+                                if (onlyNoInt($GA_castle[ $num_castle ][ 'c_' . $i . '_n' ]) == 'lekar' )
+                                    $GA_castle[ $num_castle ][ 'army_1' ] = $GA_castle[ $num_castle ][ 'army_7' ] + 1;
+                                if (onlyNoInt($GA_castle[ $num_castle ][ 'c_' . $i . '_n' ]) == 'naim' )
+                                    $GA_castle[ $num_castle ][ 'army_1' ] = $GA_castle[ $num_castle ][ 'army_8' ] + 1;
+                            }
+                        }
+                        $GA_castle[ $num_castle ][ 'c_' . $i . '_1' ] = $GA_castle[ $num_castle ][ 'c_' . $i . '_1' ] - 1;
                     }
                 }
                 $summ_jalovan_army = 0;
@@ -142,6 +163,7 @@ end_real_time:
         mysql_query( $qwery );
     }
     mysql_query( 'UPDATE `game`.`settings` SET `Value` = "' . ( $alt_time - $FASTER ) . '" WHERE `settings`.`name_parametr` = "timers"' );
+    mysql_query( 'DELETE FROM `session` WHERE (`time`<"'.( time() + $Time_For_Open_Session).'") AND ( `status` = "0pen" )' );
     F_TranzationDown();
     mysql_close( $links );
     echo 'Transaction is down.<br>GameServer worked is ' . ( microtime( true ) - $micro_time ) . '<br>';

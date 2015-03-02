@@ -5,13 +5,12 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/_api/log.php';
     if ($_GET['action'] == 'StartWorkRoom') {
         $linkss = F_Connect_MySQL();
-        global $C_Numberic, $C_Text_noSpace;
         include $_SERVER['DOCUMENT_ROOT'] . '/_api/security.php';
         if (!Chek_string_of_mask($_GET['num_room'], $C_Numberic)) {
             $log_access .= 'get параметр "num_room" не прошёл валидацию.' . PHP_EOL;
             $enable_access = false;
         }
-        if (!Chek_string_of_mask($_GET['name'], ($C_Text_noSpace . $C_Numberic))) {
+        if (!Chek_string_of_mask($_GET['name'], ($C_Text . $C_Numberic))) {
             $log_access .= 'get параметр "name" не прошёл валидацию.' . PHP_EOL;
             $enable_access = false;
         }

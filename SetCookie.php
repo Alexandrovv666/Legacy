@@ -17,7 +17,7 @@
         exit;
     }
     $linkss = F_Connect_MySQL();
-    if (!Chek_string_of_mask($_GET['login'], $C_Text_noSpace . $C_Numberic))
+    if (!Chek_string_of_mask($_GET['login'], $C_Text_eng . $C_Numberic))
         $log_access .='[!] -> Кука login не прошла валидацию.'.PHP_EOL;
     else{
         $log_access .= '[.] -> Login = '.$_GET['login'].PHP_EOL;
@@ -26,11 +26,10 @@
         }else
             $enable_access = true;
     }
-    $res_opening_Session = mysql_query('SELECT * FROM `session` WHERE (`login`="'.($_GET['login']).'") AND (`time`>"'.(time()-$Time_For_Open_Session).'") and (`ip`="'.$_SERVER['REMOTE_ADDR'].'") and (`status`="opening") LIMIT 1');
+    $res_opening_Session = mysql_query('SELECT * FROM `session` WHERE (`login`="'.($_GET['login']).'") AND (`time`>"'.(time()-$Time_For_Open_Session).'") and (`ip`="'.$_SERVER['REMOTE_ADDR'].'") and (`status`="0pen") LIMIT 1');
     if (mysql_num_rows($res_opening_Session)!=1){
-        $log_access .='[!] -> Найдено более одной открываемой сессии на текущего игрока.'.PHP_EOL;
-        Create_DUMP(print_r($res_opening_Session));
-        $log_access .='     > Дамп сохранён.'.PHP_EOL;
+        echo 'Странно, для вас нет игры((';
+        $log_access .='[!] -> Нет открывающихся сессий...'.PHP_EOL;
         loging($log_access);
         exit;
     }
@@ -50,6 +49,7 @@
     if (!$enable_access){
         http_response_code(404);
         header("404 Not Found");
+        loging($log_access);
         exit;
     }
     header("Location: game.php");

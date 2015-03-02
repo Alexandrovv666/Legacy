@@ -17,7 +17,6 @@
     }
     if ($_GET['action'] == 'listwork') {
         $mysql_connect = F_Connect_MySQL();
-        global $C_Numberic, $C_Text_noSpace;
         include $_SERVER['DOCUMENT_ROOT'].'/_api/security.php';
         if (!Chek_string_of_mask($_GET['num_room'], $C_Numberic)) {
             $log_access .='[!] -> Get-num_room is invalid.'.PHP_EOL;
@@ -72,7 +71,7 @@
                 if (in_array((onlyNoInt($name_alt_room)),array("nos","voin","kon","tank","bival","luk","lekar","naim"))){
                     $log_access .= '[.] -> + Это боевая комната' . PHP_EOL;
                     if ($arr_res_castle['gold'] >= 5)
-                        echo 'Заказать юнита<br>';
+                        echo '<p onclick="api_window_modal_message_get_data(\'/server/addUnit.php?noom_room='.($_GET['num_room']).'\')">Заказать юнита (5 золота)</p><br>';
                     else
                         echo '<strike>Заказать юнита</strike><br>';
 

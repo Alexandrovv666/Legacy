@@ -1,11 +1,11 @@
 <?
     $enable_access = false;
     $log_access = '';
-    if (!Chek_string_of_mask($_COOKIE['login'], $C_Text_noSpace . $C_Numberic))
+    if (!Chek_string_of_mask($_COOKIE['login'], $C_Text_eng . $C_Numberic))
         $log_access .='[!] -> Кука login не прошла валидацию.'.PHP_EOL;
     else{
         $log_access .= '[.] -> Login = '.$_COOKIE['login'].PHP_EOL;
-        if (!Chek_string_of_mask($_COOKIE['session'], $C_Text_noSpace . $C_Numberic))
+        if (!Chek_string_of_mask($_COOKIE['session'], $C_Text_eng . $C_Numberic))
             $log_access .='[!] -> Кука session не прошла валидацию.'.PHP_EOL;
         else{
             $log_access .= '[.] -> Session = '.$_COOKIE['session'].PHP_EOL;

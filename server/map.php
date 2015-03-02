@@ -5,7 +5,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/_api/processe_data.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/_api/log.php';
 if ($_GET['action'] == 'get_info_cell') {
   $linkss = F_Connect_MySQL();
-  global $C_Numberic, $C_Text_noSpace;
         include $_SERVER['DOCUMENT_ROOT'] . '/_api/security.php';
         if (!Chek_string_of_mask($_GET['z'], $C_Numberic)) {
             $log_access .= 'get параметр z не прошёл валидацию.' . PHP_EOL;

@@ -41,7 +41,7 @@
 //privelege
     mysql_query("CREATE TABLE IF NOT EXISTS `privelege` (`id_user` int(11) NOT NULL, `root` tinyint(1) NOT NULL, `cheater` tinyint(1) NOT NULL, `support` tinyint(1) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 //session
-    mysql_query("CREATE TABLE IF NOT EXISTS `session` (`time` int(11) NOT NULL, `login` varchar(15) NOT NULL, `status` int(11) NOT NULL, `ip` varchar(15) NOT NULL, `session` varchar(5) NOT NULL, `user_agent` varchar(200) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+    mysql_query("CREATE TABLE IF NOT EXISTS `session` (`time` int(11) NOT NULL, `login` varchar(15) NOT NULL, `status` varchar(7) NOT NULL, `ip` varchar(15) NOT NULL, `session` varchar(5) NOT NULL, `user_agent` varchar(200) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 //settings
     mysql_query("CREATE TABLE IF NOT EXISTS `settings` (`id` int(11) NOT NULL AUTO_INCREMENT, `name_parametr` varchar(15) NOT NULL, `Value` int(11) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;");
     mysql_query("INSERT INTO `settings` (`name_parametr`, `Value`) VALUES ('timers', '".time()."'),('work', '0'),('TRANSACTION', 0);");

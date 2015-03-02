@@ -5,11 +5,11 @@ $SpeedMission       = 2;
 $Addtime            = 3;
 //Размеры карты
 //Максимальные размеры 65535 на 65535
-$Max_X_map          = 3;
-$Max_Y_map          = 3;
+$Max_X_map          = 31;
+$Max_Y_map          = 31;
 //Среднее количество лагерей на 1 королевство
 $AverageCountLager  = 5;
-$Max_level_HAUS = 10;
+$Max_level_HAUS = 201;
 //Общие настройки
 $C_index_action_Project = array('reg', 'aut', 'oops');
 ?>
