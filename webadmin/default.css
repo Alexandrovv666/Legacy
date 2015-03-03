@@ -1,0 +1,13 @@
+a:visited{
+  text-decoration: none;
+}
+#menu{
+  position: fixed;
+  top: 20px;
+  left: 10px;
+}
+#text{
+  position: absolute;
+  top: 30px;
+  left: 222px;
+}

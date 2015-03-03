@@ -58,9 +58,6 @@ function F_session_extension(){
     global $Lang_session;
     if (mysql_num_rows(mysql_query('SELECT * FROM  `session` WHERE (`login`="'.($_COOKIE['login']).'") AND (`time`>"'.(time()-$Lang_session).'") and (`session`="'.$_COOKIE['session'].'") and (`ip`="'.$_SERVER['REMOTE_ADDR'].'")'))==1){
         mysql_query('UPDATE `session` SET `time`="'.time().'" WHERE `login`="'.($_COOKIE['login']).'" AND (`session`="'.$_COOKIE['session'].'") and (`ip`="'.$_SERVER['REMOTE_ADDR'].'")');
-    }else{
-        echo '<html><head><meta http-equiv=Refresh content="0; url=/Exit.php"></head></html>';
-        exit;
     }
 }
 function F_IF_session(){
